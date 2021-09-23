@@ -7,13 +7,15 @@ Scope: Refers to the range of a variable
 		can only be accessed withing thoses gates.
 
 
-Hoisting: Can I call a function before it exist on the document?
+Hoisting: 
+Can I call a function before it exist on the document?
 
-Answer: JS automatically hoists function access to the top of the doc
+Answer:
+ JS automatically hoists function access to the top of the doc
 	so you can access the function anywhere on the page but it is 
 	best practice to arrange functions towards the top.
 
-	Can I call a variable, yes but the value will not be included 
+Can I call a variable, yes but the value will not be included 
 	the variable name will be able to be accessed but will update 
 	the value late down the stylesheet.
 
@@ -33,8 +35,6 @@ Closure:
  	Closure are the ability for a child function can call variables
 	of a higher level scope even after the function has be ran/closed
 
-
-------------------------------------------------------------------------------------
 
 Reference vs Value:
 
@@ -86,11 +86,10 @@ Reference vs Value:
 
     There are ways to create a 'deep clone'. (LoDash Libary)
 
-    ---------------------------------------------------------------------------------------
     
     How do I combine two objects together?
 
-    Spread Operators (...objectName)
+    Spread Operators : ...objectName
         ```js 
                         const meatInventory = {
                             bacon: 2,
@@ -128,6 +127,5 @@ Reference vs Value:
                     update.
 
 **ALERT:** If you update the values of an object within a function, you are also changing the value of the object if it is reference anywhere outside the function as well. 
-------------------------------------------------------------------------
+
 ##Maps
-------------------------------------------------------------------------

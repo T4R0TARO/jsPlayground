@@ -5,19 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<style>
-    body {
-        background-color: #3e424f;
-        color: whitesmoke;
-    }
-</style>
-<body>
-    
-  <script>
+    <style>
+        body {
+            background-color: #3e424f;
+            color: whitesmoke;
+        }
 
-      
-      console.log('wah');
-  </script>  
+    </style>
+</head>
+<body>
+
+    <script>
+         const names = ['ina', 'amelia', 'gura'];
+
+        console.log(names[0]); 
+        console.log(names.length); 
+        console.log(names[2]); 
+        // undefined
+        console.log(names[names.length]); 
+        // gets last item in array 
+        console.log(names[names.length - 1]); 
+
+        names.push('lux');
+        console.log(names);
+
+        const name2 = [...names, 'lux']; 
+        names.unshift('poppy');
+        
+        const names3 = ['poppy', ...names];
+        console.log(names3);
+
+
+
+
+        // Mutation Method
+        // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        // anytime you want to use a mutation method and NOT mutate the original arrya
+        // we need to take a copy of the array
+
+    //    const numbersReversed = [...numbers]; 
+    //     numbersReversed.reverse();  
+
+        // This works too ⬇
+        // const numbersReversed = [...numbers].reverse();
+
+        // console.log(numbersReversed);
+        // // numbers.reverse();
+        // console.log(numbers);
+        // Immutable 
+        // const pizzaSlice = numbers.slice(2,4); 
+        // console.log(pizzaSlice);
+        
+        </script>
 </body>
 </html>
