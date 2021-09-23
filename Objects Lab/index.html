@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: #3e424f;
+        color: whitesmoke;
+    }
+</style>
+<body>
+    <input type="text" name="first" value="taro">
+    <script>
+        const age = 100;
+
+        const person = {
+            age,
+            name: 'taro',
+            'cool-dude': true,
+            'really cool': false,
+            '777': true,
+            dog: 'snicker',
+            clothing: {
+                shirts: 10,
+                pants: 2,
+            },
+            sayHello: function (greeting = 'Hey') {
+                return `${greeting} ${this.name}`
+            },
+            sayBye: function(farewell = 'Bye'){
+                return `${farewell} ${this.name} ${this.dog}`
+            },
+        };
+
+        person.job = 'Web Developer';
+        person.age = 50;
+
+        console.log(person.age);
+        console.log(person);
+
+
+        //target the input element's attribute called 'name' and it's value 
+        const nameInput = document.querySelector('[name="first"]');
+
+        // console.log(nameInput);
+        // const name = nameInput.value;  
+
+        const name = nameInput ? nameInput.value : '';
+        console.log(name);
+
+        // console.log(delete person.job);
+        // person.age = undefined;
+        // person.age = null;
+
+        // References and Values
+
+        let name1 = 'taro';
+        let name2 = 'taro';
+
+
+        console.log( name1 === name2 );
+        name1 = 'scott';
+        console.log( name1 === name2 );
+        // update name1 to be what is name2
+        name1 = name2;
+        console.log(name1 === name2);
+        name2 = name1;
+        name2 = 'wes';
+        console.log(name1 === name2);
+
+        const person1 = {
+            first: 'ina nis',
+            last: 'nino mae',
+        }
+        const person2 = {
+            first: 'ina nis',
+            last: 'nino mae',
+        }
+
+        // const person3 = person1;
+        // person3.first = 'larry';
+        // console.log(person3.first);
+        // console.log(person1.first);
+
+        const person3 = { ...person1 };
+        person3.first = 'Larry';
+
+        const meatInventory = {
+            bacon: 2,
+            sausage: 3,
+            oyster: 10,
+        };
+
+        const veggieInventory = {
+            lettuce: 5,
+            tomatoes: 3,
+            oyster: 20,
+        };
+
+        const duengonChest = {
+            potion: 5,
+            hipotion: 3,
+            ether: 5,
+            hiether: 3,
+            phoenixdown: 3,
+        }
+
+        const Inventory = {
+            ...meatInventory, 
+            ...veggieInventory,
+            ...duengonChest,
+            teleportscrolls: 100,
+        };
+
+
+    
+
+    </script>
+</body>
+</html>
