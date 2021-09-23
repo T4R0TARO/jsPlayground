@@ -34,97 +34,100 @@ Closure:
 	of a higher level scope even after the function has be ran/closed
 
 
-------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 Reference vs Value:
-                    When a string element references another elements value 
-                    it will take on that value. If the other element that was 
-                    referenced value changes only that variable will change. 
 
-                    When an object is copied and shares the same properties it 
-                    is still considered its own object and not a copy of the other. 
-                    for example  
-                      ```JavaScript{
-                                  const person1 = {
-                                    first: 'ina nis',
-                                    last: 'nino mae',
-                                    }
-                                  const person2 = {
-                                    first: 'ina nis',
-                                    last: 'nino mae',
-                                    }
-                      }
-                      ```
-                      The two object share similar properties but this is just a coincidence
-                      if we were to check with the values are equall the output would be `false`
+    When a string element references another elements value 
+    it will take on that value. If the other element that was 
+    referenced value changes only that variable will change. 
 
-                      If I were to `reference` and object to another object it will take on the other 
-                      object property values but itself if not a copy of the reference. If the referenced
-                      objects values were to change then the other object's value will change as well.
+    When an object is copied and shares the same properties it 
+    is still considered its own object and not a copy of the other. 
+    for example  
+        ```js
+                    const person1 = {
+                    first: 'ina nis',
+                    last: 'nino mae',
+                    }
+                    const person2 = {
+                    first: 'ina nis',
+                    last: 'nino mae',
+                    }
+        ```
+        The two object share similar properties but this is just a coincidence
+        if we were to check with the values are equall the output would be `false`
 
-                      ```JavaScript{
-                                  const person3 = person1;
-                                  person3.first = 'larry';
-                      }
-                      ```
+        If I were to `reference` and object to another object it will take on the other 
+        object property values but itself if not a copy of the reference. If the referenced
+        objects values were to change then the other object's value will change as well.
 
-                      1. I reference person3 to person1 so now person3 shares the same values
-                      2. Change person3 property 'first' value to string 'larry'
-                      3. BOTH person3 and person1 property 'first' value is now 'larry'
+        ```js
+                    const person3 = person1;
+                    person3.first = 'larry';
+        
+        ```
+
+        1. I reference person3 to person1 so now person3 shares the same values
+        2. Change person3 property 'first' value to string 'larry'
+        3. BOTH person3 and person1 property 'first' value is now 'larry'
 
 
-                      How do you copy and Object?
+        How do you copy and Object?
 
-                      ```JavaScript{
-                            const person3 = { ...person1 };
-                      }
-                      ```
-                    This will create a 'shallow' copy of the selected object meaning that if the    
-                    property values of the object changes only the base properties will be copied.
-                    If I were to change the function properties within the object BOTH objects will 
-                    see the change.
+        ```js
+            const person3 = { ...person1 };
+        
+        ```
+    This will create a 'shallow' copy of the selected object meaning that if the    
+    property values of the object changes only the base properties will be copied.
+    If I were to change the function properties within the object BOTH objects will 
+    see the change.
 
-                    There are ways to create a 'deep clone'. (LoDash Libary)
+    There are ways to create a 'deep clone'. (LoDash Libary)
 
-                    ---------------------------------------------------------------------------------------
-                    
-                    How do I combine two objects together?
-                    Spread Operators (...objectName)
-                        ```JavaScript{
-                                        const meatInventory = {
-                                            bacon: 2,
-                                            sausage: 3,
-                                            oyster: 10,
-                                        };
+    ---------------------------------------------------------------------------------------
+    
+    How do I combine two objects together?
 
-                                        const veggieInventory = {
-                                            lettuce: 5,
-                                            tomatoes: 3,
-                                            oyster: 20,
-                                        };
+    Spread Operators (...objectName)
+        ```js 
+                        const meatInventory = {
+                            bacon: 2,
+                            sausage: 3,
+                            oyster: 10,
+                        };
 
-                                        const duengonChest = {
-                                            potion: 5,
-                                            hipotion: 3,
-                                            ether: 5,
-                                            hiether: 3,
-                                            phoenixdown: 3,
-                                        }
+                        const veggieInventory = {
+                            lettuce: 5,
+                            tomatoes: 3,
+                            oyster: 20,
+                        };
 
-                                        const Inventory = {
-                                            ...meatInventory, 
-                                            ...veggieInventory,
-                                            ...duengonChest,
-                                            teleportscrolls: 100,
-                                        };
-                            }
-                        ```
-                        Output: 'Inventory' object will combine other object that include the spread Operators
-                                (...), as well as update its own properties.
-                                
-                                *Noitce that some properties have the same name but different values. They will
-                                    NOT combine together rathher the value further down the document will be the 
-                                    update.
+                        const duengonChest = {
+                            potion: 5,
+                            hipotion: 3,
+                            ether: 5,
+                            hiether: 3,
+                            phoenixdown: 3,
+                        }
 
-*ALERT: If you update the values of an object within a function, you are also changing the value of the object if 
-it is reference anywhere outside the function as well. 
+                        const Inventory = {
+                            ...meatInventory, 
+                            ...veggieInventory,
+                            ...duengonChest,
+                            teleportscrolls: 100,
+                        };
+            
+        ```
+        Output: 'Inventory' object will combine other object that include the spread Operators
+                (...), as well as update its own properties.
+                
+                *Noitce that some properties have the same name but different values. They will
+                    NOT combine together rathher the value further down the document will be the 
+                    update.
+
+**ALERT:** If you update the values of an object within a function, you are also changing the value of the object if it is reference anywhere outside the function as well. 
+------------------------------------------------------------------------
+##Maps
+------------------------------------------------------------------------
