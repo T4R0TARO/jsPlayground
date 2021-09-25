@@ -1,34 +1,84 @@
-### What is a Mutation Method
-1. What is a Mutation
-    A change from its original form 
-2. What is a Immutable Method
-    It cannot change the orignal form
+1. Create an Array  with a length of 10 spots
+2. Then fill it with the content of `return`
+3. Within the callback function set the arguments to the `undefined` items and index
+4. 
+ ```js
+        const range = Array.from({ length: 10}, function (item, index) {
+        return index;
+    });
 
-```js
-        // Mutation Method
-        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-        numbers.reverse();
-        console.log(numbers);
-        // Immutable 
-        const pizzaSlice = numbers.slice(2,4); // cuts out a portion of the array 
-        console.log(pizzaSlice);
-```
-When data is `slice()` out from an array it does NOT change the original form of the array.
+    /* Output:
+         
+        Array(10) [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+        ​
+            0: 0
+            ​
+            1: 1
+            ​
+            2: 2
+            ​
+            3: 3
+            ​
+            4: 4
+            ​
+            5: 5
+            ​
+            6: 6
+            ​
+            7: 7
+            ​
+            8: 8
+            ​
+            9: 9
+            ​
+            length: 10
+    */
+ ```
 
-When data is `reverse()` in an array it changes the order of the original form
-
-**NOTE**: Anytime you use a mutation method but do NOT want to change the original form of the array you MUST make a COPY of the array then change the COPY.
-
-```js
-// Mutation Method
-    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-// anytime you want to use a mutation method and NOT mutate the original arrya
-// we need to take a copy of the array
-
-    const numbersReversed = [...numbers]; 
-    numbersReversed.reverse(); 
+    To expand on this function wrap constant `range` within a function that has parameters of start and end. 
     
-// This works too ⬇
-    // const numbersReversed = [...numbers].reverse();
+    In the the original function the array has a set length of 10. So if the user inputs a range that is less than 10 in length then it will continue the count ignoring the original end parameter. 
+
+
+
+```js
+    
+    function createRange(start, end){
+        const range = Array.from({ length: 10 }, function (item, index) {
+            return index;
+        });
+        return range;
+    }    
+
+
+/* Output
+            createRange(1, 5)
+            Array(10) [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+*/
 ```
+
+To correct this, figure out how many slots will be needed based from the starting point and the ending point. 
+
+```js
+        function createRange(start, end){
+        const range = Array.from({ length: end - start  }, function (item, index) {
+            return index + start;
+        });
+        return range;
+    }    
+
+/* Output
+            createRange(1, 5)
+            Array(4) [ 1, 2, 3, 4 ]
+            
+            createRange(1, 10)
+            Array(9) [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+​
+*/
+```
+ NOTE: `{ length: end - start + 1  }` will add the ending item to the array if you want 
+
+
+    
+
+
