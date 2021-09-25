@@ -1,3 +1,5 @@
+# Static Method
+
 1. Create an Array  with a length of 10 spots
 2. Then fill it with the content of `return`
 3. Within the callback function set the arguments to the `undefined` items and index
@@ -35,11 +37,10 @@
     */
  ```
 
-    To expand on this function wrap constant `range` within a function that has parameters of start and end. 
-    
-    In the the original function the array has a set length of 10. So if the user inputs a range that is less than 10 in length then it will continue the count ignoring the original end parameter. 
 
+To expand on this function wrap constant `range` within a function that has parameters of start and end. 
 
+In the the original function the array has a set length of 10. So if the user inputs a range that is less than 10 in length then it will continue the count ignoring the original end parameter. 
 
 ```js
     
