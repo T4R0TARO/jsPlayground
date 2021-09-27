@@ -1,4 +1,8 @@
 # Static Method
+ isArray()
+ entries()
+ values()
+ forEach()
 
 1. Create an Array  with a length of 10 spots
 2. Then fill it with the content of `return`
@@ -79,7 +83,34 @@ To correct this, figure out how many slots will be needed based from the startin
 ```
  NOTE: `{ length: end - start + 1  }` will add the ending item to the array if you want 
 
+`Array.isArray(myRange)`
+Checks if array is an array 
+`Object.entries(objecName);`:
+Gives an array of arrays with both key and value pairs
+`Object.keys(ObjectName);` 
+Gives the key name  of the target property 
+ `Object.value(ObjectName);`
+Gives the value of the key name  
 
     
 
+# Instance Method 
 
+join()
+split()
+pop()
+push()
+shift()
+unshift()
+slice()
+splice()
+indexOf()
+includes()
+reverse();
+
+# Callback Methods
+find()
+filter()
+some()
+every()
+sort()
