@@ -34,9 +34,19 @@ Static Methods
 =====================*/
 
 // Array.of();
-
+const newArray = Array.of('🍙');
+console.log(newArray)
 // Make a function that creates a range from x to y with Array.from();
 
+function createRange(start, end){
+    const range = Array.from({length: end - start + 1}, (item, index) => {
+        return index + start;
+    });
+    return range;
+}
+
+const newRange = createRange(3, 7);
+console.log(newRange);
 // Check if the last array you created is really an array with Array.isArray();
 
 // Take the meats object and make three arrays with Object.entries(), Object.keys, Object.values()
