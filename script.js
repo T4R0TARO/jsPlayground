@@ -1,111 +1,169 @@
 
- const toppings = ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese'];
+const toppings = ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese'];
 
- const buns = ['egg', 'wonder', 'brioche'];
+const students = [
+  {
+    id: '11ce',
+    first_name: 'Dall',
+    last_name: 'Puckring',
+  },
+  {
+    id: '2958',
+    first_name: 'Margarete',
+    last_name: 'Brandi',
+  },
+  {
+    id: '565a',
+    first_name: 'Bendicty',
+    last_name: 'Woodage',
+  },
+  {
+    id: '3a16',
+    first_name: 'Micki',
+    last_name: 'Mattes',
+  },
+  {
+    id: 'f396',
+    first_name: 'Flory',
+    last_name: 'Gladeche',
+  },
+  {
+    id: 'de5f',
+    first_name: 'Jamill',
+    last_name: 'Emilien',
+  },
+  {
+    id: '54cb',
+    first_name: 'Brett',
+    last_name: 'Aizikowitz',
+  },
+  {
+    id: '9135',
+    first_name: 'Lorry',
+    last_name: 'Smallman',
+  },
+  {
+    id: '978f',
+    first_name: 'Gilly',
+    last_name: 'Flott',
+  },
+];
 
- const meats = {
- beyond: 10,
- beef: 5,
- pork: 7
- };
+const people = [
+  {
+    birthday: 'April 22, 1993',
+    names: {
+      first: 'Keith',
+      last: 'Buckley'
+    }
+  },
+  {
+    birthday: 'January 3, 1975',
+    names: {
+      first: 'Larry',
+      last: 'Heep'
+    }
+  },
+  {
+    birthday: 'February 12, 1944',
+    names: {
+      first: 'Linda',
+      last: 'Bermeer'
+    }
+  }
+];
 
- const prices = {
- hotDog: 453,
- burger: 765,
- sausage: 634,
- corn: 234,
- };
 
- const orderTotals = [342, 1002, 523, 34, 634, 854, 1644, 2222];
+const buns = ['egg', 'wonder', 'brioche'];
 
- const feedback = [
- { comment: 'Love the burgs', rating: 4 },
- { comment: 'Horrible Service', rating: 2 },
- { comment: 'Smoothies are great, liked the burger too', rating: 5 },
- { comment: 'Ambiance needs work', rating: 3 },
- { comment: 'I DONT LIKE BURGERS', rating: 1 },
- ];
+const meats = {
+  beyond: 10,
+  beef: 5,
+  pork: 7
+};
+
+const prices = {
+  hotDog: 453,
+  burger: 765,
+  sausage: 634,
+  corn: 234,
+};
+
+const orderTotals = [342, 1002, 523, 34, 634, 854, 1644, 2222];
+
+const feedback = [
+  { comment: 'Love the burgs', rating: 4 },
+  { comment: 'Horrible Service', rating: 2 },
+  { comment: 'Smoothies are great, liked the burger too', rating: 5 },
+  { comment: 'Ambiance needs work', rating: 3 },
+  { comment: 'I DONT LIKE BURGERS', rating: 1 },
+];
+
+const faces = ['😃', '🤠', '🤡', '🤑', '😵', '🌞', '🐶', '😺'];
+
+const inventory = [
+  { type: 'shirt', price: 4000 },
+  { type: 'pants', price: 4532 },
+  { type: 'socks', price: 234 },
+  { type: 'shirt', price: 2343 },
+  { type: 'pants', price: 2343 },
+  { type: 'socks', price: 542 },
+  { type: 'pants', price: 123 },
+];
 
 
-//  Array Cardio 
+/*
+  Looping Methods forEach()
+*/
+function logToppings(topping, index, originalArray){
+    const prevTopping = originalArray[index - 1];
+    const nextTopping = originalArray[index + 1];
+    
+    //log topping
+    console.log(topping);
+    
+    //log prev topping
+    prevTopping ? console.log(prevTopping) : null;
+    
+    //log next topping
+    nextTopping ? console.log(nextTopping) : null;
 
-/*===================
-Static Methods
-=====================*/
+    //if last item say "good bye"
+    index === originalArray.length - 1 
+     ? console.log('good bye')
+     : console.log('prepare next item');
+       console.log('---🍖----');
+   }
+    toppings.forEach(logToppings);
 
-// Array.of();
-const newArray = Array.of('🍙');
-console.log(newArray)
-// Make a function that creates a range from x to y with Array.from();
-
-function createRange(start, end){
-    const range = Array.from({length: end - start + 1}, (item, index) => {
-        return index + start;
+/*  Arrow Function 
+  toppings.forEach(topping => {
+      console.log(topping);
     });
-    return range;
+*/
+
+//  Map, Filter, Reduce
+    console.clear();
+
+function addArms(face) {
+return `🦾${face}✌`
 }
 
-const newRange = createRange(3, 7);
-console.log(newRange);
-// Check if the last array you created is really an array with Array.isArray();
+const toys = faces.map(addArms);
+console.log(toys);
 
-// Take the meats object and make three arrays with Object.entries(), Object.keys, Object.values()
+function bosify(name) {
+return `${name} Bos`;
+}
 
-/*======================
-Instance Methods
-========================*/
+function capitalize(word) {
+return `${word[0].toUpperCase()}${word.slice(1)}`;
+}
 
-// Display all bun types with " or " - use join()
+const fullNames = ['wes', 'kait', 'poppy']
+.map(capitalize)
+.map(bosify);
+console.log(fullNames);
 
-// We have a string "hot dogs,hamburgers,sausages,corn" - use split() to turn it into a string
-
-// take the last item off toppings with pop()
-
-// add it back with push()
-
-// take the first item off toppings with shift()
-
-// add it back in with unshift()
-
-// Do the last four,but immutable (with spreads and new variables)
-
-// Make a copy of the toppings array with slice()
-
-// Make a copy of the toppings array with a spread 🍙
-
-// take out items 3 to 5 of your new toppings array with splice()
-
-// find the index of Avocado with indexOf() / lastIndexOf()
-
-// Check if hot sauce is in the toppings with includes()
-
-// add it if it's not
-
-// flip those toppings around with reverse()
-
-/*=======================
-Callback Methods
-=========================*/
-
-// find the first rating that talks about a burger with find()
-
-// find all ratings that are above 2 with filter()
-
-// find all ratings that talk about a burger with filter()
-
-// Remove the one star rating however you like!
-
-// check if there is at least 5 of one type of meat with some() *turn into  array of object
-
-// make sure we have at least 3 of every meat with every()
-
-// sort the toppings alphabetically with sort()
-
-// sort the order totals from most expensive to least with .sort()
-
-// Sort the prices with sort()
-
-/*===========================
-Looping Methods (next)
-=============================*/
-
+const orderTotalsWithTax = orderTotals.map(total => total * 1.13);
+console.log(orderTotalsWithTax);
