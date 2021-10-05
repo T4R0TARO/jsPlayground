@@ -115,6 +115,7 @@ const inventory = [
 /*
   Looping Methods forEach()
 */
+
 function logToppings(topping, index, originalArray){
     const prevTopping = originalArray[index - 1];
     const nextTopping = originalArray[index + 1];
