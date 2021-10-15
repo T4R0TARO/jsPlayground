@@ -28,6 +28,13 @@ AJAX lets use retrieve data from without leaving the curren webpage
 * This is the asynchronous part of ajax
 * The most important event  is the onreadystatechange which is triggered whenever there's a change in an AJAX request
 
+### readyState Values 
+0. request nor initialized 
+1. server connection established
+2. request recieved
+3. processing request
+4. request finished and response is ready 
+
 ```js
 // 2. Create a callback function cont.
     xhr.onreadystatechange = function () {
@@ -99,7 +106,20 @@ function sendAJAX() {
 ```
 * We can make the page more interactive by attaching the sendAJAX to a function eventlistener  and have the button disappear when after click
 
+-------------------------------------------------------------------
 
+## GET and POST
+
+* GET. Used  for most requests. Browsers uses the GET  method whenever it requests a new web page, CSS file,image, so on. Use GET when you want  to "get" something from the server 
+
+
+* POST. Used frequently  with web forms to send data to store in a database. Use POST when sending data that will store, delete or update information from a database
+
+* POST sens its data in the "body" of the request. GET sends data in the URL. 
+----------------------------------------------
+## JSON.parse()
+
+ Takes a string and attempts to convert it to a JS object
 
 
 
