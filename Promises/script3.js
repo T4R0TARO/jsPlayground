@@ -86,3 +86,7 @@ mathPromise
     .then(finalValue)
     .catch( err => console.log(err))
 // You must specify a number as the value
+// If a promise get rejected because `value` is a string, for example the sequence jumps straight to `catch` 
+
+
+
