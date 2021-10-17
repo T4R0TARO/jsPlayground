@@ -18,6 +18,7 @@ const recordVideoThree = new Promise((resolve, reject) => {
  * In this example all the promises pass
  * Add a `.then` and will send us an array of all successfull messages
  */
+
 Promise.all([
     recordVideoOne,
     recordVideoTwo,
@@ -25,4 +26,6 @@ Promise.all([
 ]).then((messages) => {
     console.log(messages)
 })
+
+
 
