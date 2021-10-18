@@ -39,6 +39,6 @@ mathPromise
     .then(double)
     .then(levelUp)
     .then(finalValue)
-    .catch( err => console.log(err))
+    .catch( err => console.log(err)) // catch() handles reject()
 
 
