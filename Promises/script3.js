@@ -19,6 +19,8 @@ const breakfastPromise = new Promise( (resolve, reject) => {
     }, 3000)
 });
 
+
+
 // Next, pass `then` a reference to `onResolve` and `catch` a reference to `onReject`
 
 const order = true;
@@ -26,13 +28,11 @@ breakfastPromise
 .then(onResolve)
 .catch(onReject)
 
-/** Promise Chaining
- *  Remember `.then()` itself always return a new promise.
- *  So you're able to call `.then` more than once on the same promise.
- *  In other words, by chaining multiple `then` together,
- *  You can transform values or run addtional async operations one after another  
- */
-
+const order = true;
+breakfastPromise
+    .then(onResolve)
+    .catch(onReject)
+    
 // The function `addFive` and `double` perform a math operation on a number (represented b `n`)
 // The function `finalValue` prints a final value to the console
 
