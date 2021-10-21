@@ -1,4 +1,3 @@
-console.log('wah');
 
 //Callback Function
 
@@ -13,6 +12,7 @@ function sayHello() {
 function executeCallback( callback ){
     callback();
 }
+
 // Function fires callback function
 executeCallback(sayHello);
 
@@ -64,3 +64,5 @@ const blurHandler =  event => {
 
  messageTextArea.addEventListener('focus',  focusHandler);
  messageTextArea.addEventListener('blur', blurHandler);
+
+

@@ -1,4 +1,10 @@
 ### Create a new Promise
+1. What is a promises in JS?
+A promise represent a unknown value now, that MAY become known in the future.
+In other words, an asyncronous value 
+
+
+
 ```js
 let p = new Promise((resolve, reject) => {
     //Condition to promise 

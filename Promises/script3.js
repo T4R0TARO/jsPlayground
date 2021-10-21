@@ -7,6 +7,7 @@ function onReject() {
     console.log(Error('Oh no! There was a problem with your order.'))
 
 }
+
 // In the Promise contructor, call resolve() if order is true, and reject() if it's false
 
 const breakfastPromise = new Promise( (resolve, reject) => {
