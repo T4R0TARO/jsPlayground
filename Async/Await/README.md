@@ -55,7 +55,7 @@ Attach async to function before we can use await
 async function doWork(){
     const response = await makeRequest('Google')
     console.log('Response Recieved')
-    const processedResponse = await processRequest('response')
+    const processedResponse = await processRequest(response)
     console.log(processedResponse)
 }
 
