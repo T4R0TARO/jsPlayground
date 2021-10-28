@@ -5,9 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="fetchAPI.js"></script>
 </head>
 <body>
+    <div id="title">
+        <!--Title  -->
+    </div>
     
+
+
+    <script >
+
+// const endPoint = `https://ghibliapi.herokuapp.com/films/` 
+
+function getData() {
+
+    fetch('https://ghibliapi.herokuapp.com/films/')
+    .then((res) => res.json())
+    .then((data) => {
+        
+        const films = data
+        console.log(films)
+
+    // TODO: Loop through the array and display all data on page
+    // Issue: Display only last item on array instead of all items
+        document.getElementById('title').innerHTML = `
+        <div>
+            <h1>${data[8].title}</h1>
+            <h2>${data[8].original_title}</h2>
+            <h3>${data[8].original_title_romanised}</h3>
+            <img src=${data[8].image} alt="film img" />
+            <img src=${data[8].movie_banner} alt="film img banner"/>
+            <p>${data[8].description}</p>
+            <p>${data[8].director} </p>
+            <p>${data[8].producer}</p>
+            <p>${data[8].release_date}</p>
+        </div>
+        ` 
+
+    })
+    .catch((err) => console.log(err))
+}
+
+
+getData()
+    </script>
+
 </body>
 </html>
