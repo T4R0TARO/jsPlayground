@@ -30,15 +30,15 @@ function getData() {
     // Issue: Display only last item on array instead of all items
        let film = document.getElementById('title').innerHTML = `
         <div>
-            <h1>${data[8].title}</h1>
-            <h2>${data[8].original_title}</h2>
-            <h3>${data[8].original_title_romanised}</h3>
-            <img src=${data[8].image} alt="film img" />
-            <img src=${data[8].movie_banner} alt="film img banner"/>
-            <p>${data[8].description}</p>
-            <p>${data[8].director} </p>
-            <p>${data[8].producer}</p>
-            <p>${data[8].release_date}</p>
+            <h1>${data.title}</h1>
+            <h2>${data.original_title}</h2>
+            <h3>${data.original_title_romanised}</h3>
+            <img src=${data.image} alt="film img" />
+            <img src=${data.movie_banner} alt="film img banner"/>
+            <p>${data.description}</p>
+            <p>${data.director} </p>
+            <p>${data.producer}</p>
+            <p>${data.release_date}</p>
         </div>
         ` 
     })

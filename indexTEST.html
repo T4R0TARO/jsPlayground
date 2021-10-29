@@ -15,7 +15,9 @@
 
     <script >
 
-// const endPoint = `https://ghibliapi.herokuapp.com/films/` 
+// const movieContainer = document.getElementById('title').innerHTML
+const titlesContainer =document.getElementById('title').innerHTML 
+
 
 function getData() {
 
@@ -23,25 +25,23 @@ function getData() {
     .then((res) => res.json())
     .then((data) => {
         
-        const films = data
-        console.log(films)
+        console.log(data) // original data 
+        const allFilms = [...data] // copy of original array
+        console.log(allFilms)
+        const film = allFilms.forEach(film => {
+           
+           console.log(film.original_title)
+                
+        })
 
-    // TODO: Loop through the array and display all data on page
-    // Issue: Display only last item on array instead of all items
-    
-       let film = document.getElementById('title').innerHTML = `
-        <div>
-            <h1>${data[8].title}</h1>
-            <h2>${data[8].original_title}</h2>
-            <h3>${data[8].original_title_romanised}</h3>
-            <img src=${data[8].image} alt="film img" />
-            <img src=${data[8].movie_banner} alt="film img banner"/>
-            <p>${data[8].description}</p>
-            <p>${data[8].director} </p>
-            <p>${data[8].producer}</p>
-            <p>${data[8].release_date}</p>
-        </div>
-        ` 
+        // TODO: Loop through the array and display all data on page
+        // Issue: Display only last item on array instead of all items
+        
+                //1. Copy data array into variable 
+                //2. Iterate through array items
+                //3. For each loop add an array item to the HTML for display
+                //4. The loop will cont. until it loops through all items
+
     })
     .catch((err) => console.log(err))
 }
