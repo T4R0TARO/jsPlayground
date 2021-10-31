@@ -7,48 +7,59 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="title">
+    <div id="root">
         <!--Title  -->
     </div>
     
 
 
     <script >
+const app = document.getElementById('root') 
+const container = document.createElement('div')
 
-// const movieContainer = document.getElementById('title').innerHTML
-const titlesContainer =document.getElementById('title').innerHTML 
-
+container.setAttribute('class', 'container')
+app.appendChild(container)
 
 function getData() {
-
     fetch('https://ghibliapi.herokuapp.com/films/')
     .then((res) => res.json())
-    .then((data) => {
-        
-        console.log(data) // original data 
-        const allFilms = [...data] // copy of original array
-        console.log(allFilms)
-        const film = allFilms.forEach(film => {
-           
-           console.log(film.original_title)
-                
-        })
+    .then((data) => {      
+        console.log(data)
 
-        // TODO: Loop through the array and display all data on page
-        // Issue: Display only last item on array instead of all items
-        
-                //1. Copy data array into variable 
-                //2. Iterate through array items
-                //3. For each loop add an array item to the HTML for display
-                //4. The loop will cont. until it loops through all items
+        for(let i = 0; i < data.length; i++){
 
+        
+            const card = document.createElement('div')
+            card.setAttribute('class', 'card')
+
+            const h1 = document.createElement('h1')
+            h1.textContent = data[i].title
+
+            const h2 = document.createElement('h2')
+            h2.textContent =  data[i].original_title
+
+            const h3 = document.createElement('h3')
+            h3.textContent = data[i].director
+
+            const p = document.createElement('p')
+            p.textContent =  data[i].description
+
+            const movieCover = document.createElement('img')
+            movieCover.src = `${data[i].image}`
+            
+
+            container.appendChild(card)
+            card.appendChild(h1)
+            card.appendChild(h2)
+            card.appendChild(h3)
+            card.appendChild(movieCover)
+            card.appendChild(p)
+            
+        }
     })
     .catch((err) => console.log(err))
 }
-
-
 getData()
     </script>
-
 </body>
 </html>

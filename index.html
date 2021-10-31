@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="title">
+    <div id="root">
         <!--Title  -->
     </div>
     
@@ -15,38 +15,36 @@
 
     <script >
 
-// const endPoint = `https://ghibliapi.herokuapp.com/films/` 
+// const movieContainer = document.getElementById('title').innerHTML
+const app = document.getElementById('root') 
+const container = document.createElement('div')
+
+container.setAttribute('class', 'container')
+app.appendChild(container)
 
 function getData() {
-
     fetch('https://ghibliapi.herokuapp.com/films/')
     .then((res) => res.json())
-    .then((data) => {
-        
-        const films = data
-        console.log(films)
+    .then((data) => {      
 
-    // TODO: Loop through the array and display all data on page
-    // Issue: Display only last item on array instead of all items
-       let film = document.getElementById('title').innerHTML = `
-        <div>
-            <h1>${data.title}</h1>
-            <h2>${data.original_title}</h2>
-            <h3>${data.original_title_romanised}</h3>
-            <img src=${data.image} alt="film img" />
-            <img src=${data.movie_banner} alt="film img banner"/>
-            <p>${data.description}</p>
-            <p>${data.director} </p>
-            <p>${data.producer}</p>
-            <p>${data.release_date}</p>
-        </div>
-        ` 
+        for(let i = 0; i < data.length; i++){
+            const card = document.createElement('div')
+            card.setAttribute('class', 'card')
+
+            const h1 = document.createElement('h1')
+            h1.textContent = data[i].title
+
+            container.appendChild(card)
+            card.appendChild(h1)
+        }
+
+
     })
     .catch((err) => console.log(err))
 }
-
-
 getData()
+
+
     </script>
 
 </body>
