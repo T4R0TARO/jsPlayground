@@ -13,13 +13,31 @@
     
 
 
-    <script >
+    <script>
+        /*
+            Create and label variables and append them to the appropriate parent element
+        */
+// contain the div cotainer 'root' in a variable
 const app = document.getElementById('root') 
+// create a div element and store it in a variable 
 const container = document.createElement('div')
 
+// set the attribute of the new div 'container' and set its class to equal 'container'
 container.setAttribute('class', 'container')
+// have the new container become the child of the 'root' div
 app.appendChild(container)
 
+
+/* getData()
+* fetch api data 
+* parse data to json 
+* execute code block:
+* for every item in the data array create a div, h1, h2, h3, p.
+* atatch the data from the API to the newly created variables
+* set the attributes for the new variables
+* appends the variables to the appropriate parent element 
+* the catch() for any errors
+*/
 function getData() {
     fetch('https://ghibliapi.herokuapp.com/films/')
     .then((res) => res.json())
@@ -59,6 +77,7 @@ function getData() {
     })
     .catch((err) => console.log(err))
 }
+// call function getData()
 getData()
     </script>
 </body>
