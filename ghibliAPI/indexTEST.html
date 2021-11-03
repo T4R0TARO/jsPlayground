@@ -38,6 +38,7 @@ app.appendChild(container)
 * appends the variables to the appropriate parent element 
 * the catch() for any errors
 */
+
 function getData() {
     fetch('https://ghibliapi.herokuapp.com/films/')
     .then((res) => res.json())
@@ -45,8 +46,7 @@ function getData() {
         console.log(data)
 
         for(let i = 0; i < data.length; i++){
-
-        
+            
             const card = document.createElement('div')
             card.setAttribute('class', 'card')
 
@@ -64,13 +64,18 @@ function getData() {
 
             const movieCover = document.createElement('img')
             movieCover.src = `${data[i].image}`
+            // TODO: Set class attribute
             
-
+            const movieBanner = document.createElement('img')
+            movieBanner.src = `${data[i].movie_banner}`
+            // TODO: Set class attribute
+            
             container.appendChild(card)
             card.appendChild(h1)
             card.appendChild(h2)
             card.appendChild(h3)
             card.appendChild(movieCover)
+            card.appendChild(movieBanner)
             card.appendChild(p)
             
         }

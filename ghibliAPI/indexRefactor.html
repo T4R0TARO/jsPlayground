@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        <!--Title  -->
+    </div>
+<script>
+
+const app = document.getElementById('root') 
+const container = document.createElement('div') 
+container.setAttribute('class', 'container')
+app.appendChild(container)
+const baseEndpoint = 'https://ghibliapi.herokuapp.com/films/'
+
+
+async function getData() {
+    try{
+        const response = await fetch(`${baseEndpoint}`)
+        const data = await response.json()
+
+    data.forEach((item) => {
+        const html = data.map(
+        (film) => `
+            <div class="card">
+                <h1>${film.title}</h1>
+                <h2>${film.original_title}</h2>
+                <h3>${film.director}</h3>
+                <p>${film.description}<p>
+                <img src="${film.image}">
+                <img src="${film.movie_banner}">
+            </div>
+            <br>`)
+            container.innerHTML = html.join('')
+        })
+    } catch (err) {
+        console.log(err)
+        console.log('Yabai')
+    }
+}
+
+getData()
+
+    </script>
+</body>
+</html>
