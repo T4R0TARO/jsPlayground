@@ -19,6 +19,8 @@ app.appendChild(container)
 const baseEndpoint = 'https://ghibliapi.herokuapp.com/films/'
 
 
+// TODO: add class names to the new film elements for styling
+
 async function getData() {
     try{
         const response = await fetch(`${baseEndpoint}`)
