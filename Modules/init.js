@@ -1,11 +1,8 @@
 // init module
-//TODO📌: import modules 
 import {fromSelect, toSelect} from './elements.js';
 import currencies from './currencies.js';
 import { generateOptions } from './utils.js';
 import { handleInput } from './handlers.js';
-
-
 
 
 export function init() {
