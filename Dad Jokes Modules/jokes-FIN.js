@@ -1,11 +1,14 @@
 //TODO📌: Break down the logic into Modules 
 
+
+// Elements Module
 // Contain the approriate elemets in variables for later use 
 const jokeButton = document.querySelector('.getJoke');
 const jokeButtonSpan = jokeButton.querySelector('.jokeText');
 const jokeHolder = document.querySelector('.joke p');
 const loader = document.querySelector('.loader');
 
+//
 // An array of strings
 const buttonText = [
   'Ugh.',
