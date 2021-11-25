@@ -1,74 +1,7 @@
 //TODO📌: Break down the logic into Modules 
-
-
-// Elements Module
-// Contain the approriate elemets in variables for later use 
-const jokeButton = document.querySelector('.getJoke');
-const jokeButtonSpan = jokeButton.querySelector('.jokeText');
-const jokeHolder = document.querySelector('.joke p');
-const loader = document.querySelector('.loader');
-
-//
-// An array of strings
-const buttonText = [
-  'Ugh.',
-  '🤦🏻‍♂️',
-  'omg dad.',
-  'you are the worst',
-  'seriously',
-  'stop it.',
-  'please stop',
-  'that was the worst one',
-];
-
-/** async function fetchJoke()
- * removes class name 'hidden' to turn on loader
- * fetch data from api url with
- * fetch properties (review)
- * parse data to json
- * add class 'hidden' to turn off loader 
- * return data from API
- */
-async function fetchJoke() {
-  // turn loader on
-  loader.classList.remove('hidden');
-  const response = await fetch('https://icanhazdadjoke.com', {
-    headers: {
-      Accept: 'application/json',
-    },
-  });
-  const data = await response.json();
-  // turn the loader off
-  loader.classList.add('hidden');
-  return data;
-}
-
-/** randomItemFromArray(arr, not)
- * 
- * @param {} arr 
- * @param {} not 
- * @returns 
- */
-function randomItemFromArray(arr, not) {
-  const item = arr[Math.floor(Math.random() * arr.length)];
-  if (item === not) {
-    console.log('Ahh we used that one last time, look again');
-    return randomItemFromArray(arr, not);
-  }
-  return item;
-}
-
-/** handleClick()
- * calls fetchJoke()
- * Change textContent of elements on handleClick()
- */
-async function handleClick() {
-  const { joke } = await fetchJoke();
-  jokeHolder.textContent = joke;
-  jokeButtonSpan.textContent = randomItemFromArray(
-    buttonText,
-    jokeButtonSpan.textContent
-  );
-}
+import {jokeButton} from './lib/elements'
+import {handleClick} from './lib/handlers'
 
 jokeButton.addEventListener('click', handleClick);
+
+console.log('wah')
