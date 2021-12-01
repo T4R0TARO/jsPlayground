@@ -44,10 +44,11 @@
       font-size: 20px;
       background-size: cover;
       background-position: center;
-      flex: 1;
-      justify-content: center;
-      display: flex;
-      flex-direction: column;
+
+      flex: 1; /*📌*/ 
+      justify-content: center; /*📌*/ 
+      display: flex; /*📌*/
+      flex-direction: column; /*📌*/
     }
 
     .panel1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
@@ -61,16 +62,18 @@
       margin: 0;
       width: 100%;
       transition: transform 0.5s;
-      flex: 1 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      
+      flex: 1 0 auto; /*📌*/ 
+      display: flex; /*📌*/
+      justify-content: center; /*📌*/
+      align-items: center; /*📌*/
     }
 
-    .panel > *:first-child { transform: translateY(-100%); }
-    .panel.open-active > *:first-child { transform: translateY(0); }
-    .panel > *:last-child { transform: translateY(100%); }
-    .panel.open-active > *:last-child { transform: translateY(0); }
+
+    .panel > *:first-child { transform: translateY(-100%); } /*📌*/
+    .panel.open-active > *:first-child { transform: translateY(0); } /*📌*/
+    .panel > *:last-child { transform: translateY(100%); } /*📌*/
+    .panel.open-active > *:last-child { transform: translateY(0); } /*📌*/
 
     .panel p {
       text-transform: uppercase;
@@ -84,10 +87,12 @@
     }
 
     .panel.open {
-      flex: 5;
+      flex: 5; /*📌*/
       font-size: 40px;
     }
     
+    /*📌*/
+    /* max size panels 600px */
     @media only screen and (max-width: 600px) {
       .panel p {
         font-size: 1em;
@@ -124,15 +129,17 @@
     </div>
   </div>
 
-  <!--TODO: 📌 Breakdown logic -->
   <script>
+    // selected default elements 📌
     const panels = document.querySelectorAll('.panel');
 
+    // action1 📌
     function toggleOpen() {
       console.log('Hello');
       this.classList.toggle('open');
     }
 
+    // action2 📌
     function toggleActive(e) {
       console.log(e.propertyName);
       if (e.propertyName.includes('flex')) {
@@ -140,6 +147,8 @@
       }
     }
 
+
+    //apply event listeners for each panel 📌🎮
     panels.forEach(panel => panel.addEventListener('click', toggleOpen));
     panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
   </script>
