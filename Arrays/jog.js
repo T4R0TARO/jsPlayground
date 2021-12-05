@@ -21,3 +21,10 @@ console.log(array1)
 // creates a new array with all elements that pass the test provided by the function
 const results = words.filter(x => x.length > 10)
 console.log(results)
+
+/*slice()*/
+// returns shallow copy of a portion of an array into a new array selected from `start` to `end`. The original array will not be modified
+const sliceArray = words.slice(1, 3)
+console.log(sliceArray)
+console.log(words)
+
