@@ -28,3 +28,5 @@ const sliceArray = words.slice(1, 3)
 console.log(sliceArray)
 console.log(words)
 
+/*splice() */
+// changes the contents of an array by removing or replacing existing elements
