@@ -3,6 +3,7 @@ const array2 = ['a', 'b', 'c', 'd', 'e']
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 
 /*map()*/
+// non-mutable
 // creates a new array populated with the results of calling  a provided function on every element in the calling array
 
 arrayDoubler = array1.map( x => x + x)
@@ -14,7 +15,6 @@ arrayDoubler = array1.map( x => x + x)
 const reducer = (a,b) => a + b;
 const arraySum = array1.reduce(reducer)
 // console.log(arraySum)
-// console.log(array1)
 
 
 /*filter()*/
@@ -37,7 +37,7 @@ console.log(words)
 /*concat() */
 // used to merge two or more arrays. This method does not change the existing array;
 const concatArray = array2.concat(words)
-console.log(concatArray)
+// console.log(concatArray)
 
 /*push() */
 // adds one or more elements to the end of an array and returns the new length
@@ -46,9 +46,7 @@ console.log(concatArray)
 /*forEach() */
 // executes a provided funtion once for each array element
 
-spliceArray.forEach((element) => {
-    words.push(element)
-})
+spliceArray.forEach(element => words.push(element))
 
 console.log(words)
 
@@ -56,6 +54,11 @@ console.log(words)
 // sorts the elements of an array and returns the sorted array. The default sort ascending.
 words.sort();
 console.log(words)
+
+/**isArray() */
+// checks if array is a array and returns a boolean value
+console.log(Array.isArray(words));
+
 
 
 
