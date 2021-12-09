@@ -59,6 +59,8 @@ console.log(words)
 // checks if array is a array and returns a boolean value
 console.log(Array.isArray(words));
 
+words.push('wah')
+console.log(words);
 
 
 
