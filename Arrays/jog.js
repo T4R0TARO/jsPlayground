@@ -39,9 +39,6 @@ console.log(words)
 const concatArray = array2.concat(words)
 // console.log(concatArray)
 
-/*push() */
-// adds one or more elements to the end of an array and returns the new length
-
 
 /*forEach() */
 // executes a provided funtion once for each array element
@@ -62,5 +59,10 @@ console.log(Array.isArray(words));
 words.push('wah')
 console.log(words);
 
+/*pop*/
+// remove the last item from the targeted array 
+// This method changes the array
+words.pop();
+console.log(words);
 
 
