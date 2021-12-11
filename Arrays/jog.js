@@ -66,3 +66,5 @@ words.pop();
 console.log(words);
 
 
+console.log(words.indexOf('destruction'));
+
