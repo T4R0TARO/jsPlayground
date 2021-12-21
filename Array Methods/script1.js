@@ -33,6 +33,7 @@ Static Methods
 =====================*/
 
 // Array.of();
+const newErArray = Array.of('hmu');
 const newArray = Array.of('wah');
 // console.log(newArray);
 
@@ -45,6 +46,7 @@ return range;
 }
 
 const newRange = createRange(3, 7);
+
 // console.log(newRange);
 
 // Check if the last array you created is really an array with Array.isArray();
