@@ -73,5 +73,7 @@ console.log(words);
 console.log(words.indexOf('destruction'));
 
 // TODO: Highlight comments for things that are priority and need to be easily spotted 
+// TODO: Color bracket settings  
+// TODO: MDN Animation Docs  
 
 
