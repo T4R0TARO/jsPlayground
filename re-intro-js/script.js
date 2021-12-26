@@ -1,4 +1,6 @@
-l//JS DATA TYPES
+// RE-INTR0 TO JAVASCRIPT
+
+//JS DATA TYPES
 /**
  * Numbers
  * Strings
@@ -23,4 +25,6 @@ console.log('hello'.length);
 console.log('hello'.charAt(1));
 console.log('hello, world'.replace('world', 'wah'));
 console.log('hello'.toUpperCase()); 
+
+
 
