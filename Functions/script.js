@@ -46,3 +46,17 @@ console.log(halve(100));
 // 50
 console.log(n);
 // 10
+
+//Big O Notation
+
+function logAtMost10(n) {
+    for (var i = 1; i <= Math.min(n, 10); i++) {
+        console.log(i);
+    }
+}
+
+function logAtLeast10(n) {
+    for (var i = 1; i <= Math.max(n, 10); i++) {
+        console.log(i);
+    }
+}
