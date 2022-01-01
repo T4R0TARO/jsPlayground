@@ -93,3 +93,15 @@ console.log(twice(5));
 let thrice = multiplier(3);
 console.log(thrice(5))
 // 15
+
+// Recursion 
+function power(base, exponent) {
+    if (exponent == 0) {
+        return 1;
+    } else {
+        return base * power(base, exponent - 1);
+    }
+}
+
+console.log(power(2, 3));
+// 8
