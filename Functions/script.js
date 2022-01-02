@@ -48,19 +48,19 @@ console.log(n);
 // 10
 
 //Big O Notation
-
+//O(1)
 function logAtMost10(n) {
     for (var i = 1; i <= Math.min(n, 10); i++) {
         console.log(i);
     }
 }
-
+//O(n)
 function logAtLeast10(n) {
     for (var i = 1; i <= Math.max(n, 10); i++) {
         console.log(i);
     }
 }
-
+//O(n)
 // Closures 
 function wrapValue(n) {
     let local = n;
@@ -93,6 +93,7 @@ console.log(twice(5));
 let thrice = multiplier(3);
 console.log(thrice(5))
 // 15
+
 
 // Recursion 
 function power(base, exponent) {
