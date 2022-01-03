@@ -29,6 +29,8 @@ const myNodeList = document.getElementsByTagName("LI");
  * Have myNodeList current item become the parent of the new span 
 */
 
+
+// Iterate through the items in the NodeList
 /**Refactor ES6 */
 [].forEach.call(myNodeList, (item, index) => {
     const span = document.createElement("SPAN"); 
