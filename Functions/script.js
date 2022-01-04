@@ -48,6 +48,13 @@ console.log(n);
 // 10
 
 //Big O Notation
+/*
+* To anyalyze the performance of an algorithm, Big O Notation
+* Big O Notation can give use a high level of understanding of the time or space complexity of an algo
+* Big O Notation doesn't care about percision, only about general trends.(linear? quadratic? constant?)
+* The time or space complexity (as measured by Big O) depends only on the algorithms, not the hardware used to run the algorithm
+
+*/
 //O(1)
 function logAtMost10(n) {
     for (var i = 1; i <= Math.min(n, 10); i++) {
@@ -106,3 +113,4 @@ function power(base, exponent) {
 
 console.log(power(2, 3));
 // 8
+
