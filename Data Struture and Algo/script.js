@@ -313,3 +313,44 @@ function maxSubarraySum(arr, num) {
 }
 
 maxSubarraySum([2,6,9,2,1,8,5,6,3],3) // 19
+
+
+// Write a function called sameFrequency
+//Give two positive integers
+//Find out if the two numbers have the sameFrequency of digits
+
+function sameFrequency(int1, int2){
+    let strNum1 = int1.toString();
+    let strNum2 = int2.toString();
+
+    if (strNum1.length !== strNum2.length){
+        return false;
+    }
+
+    let lookup1 = {};
+    let lookup2 = {};
+
+    for(let num of strNum1){  
+     lookup1[num] = (lookup1[num] || 0) + 1
+    }
+
+
+    for(let num of strNum2){
+    lookup2[num] = (lookup2[num] || 0) + 1
+    }
+
+
+    for(let key in lookup1){
+        if(lookup1[key] !== lookup2[key]){
+           return false;
+        }
+    }
+    return true;
+}
+
+sameFrequency(182, 281) // true
+sameFrequency(34, 14) // false
+sameFrequency(182, 281) // true
+sameFrequency(34, 14) // false
+sameFrequency(3589578, 5879385) // true
+sameFrequency(22, 222) // false
