@@ -52,3 +52,46 @@ a part of the problem?
 //==============================================================
 // BREAK IT DOWN
 //==============================================================
+
+
+```js
+// REFACTOR (FREQUENCY_COUNTER)
+// function same take two param 
+function same(arr1, arr2){
+    // edge case if arr1 is not equal length of arr2 return false
+    if(arr1.length !== arr2.length){
+        return false;
+    }
+    // create two objects
+    let frequencyCounter1 = {}
+    let frequencyCounter2 = {}
+
+    //seperate loops
+    // let val become the items of arr1
+    for(let val of arr1){
+        //access object and have object items equal val or 0 + 1
+        frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1
+    }
+    for(let val of arr2){
+        frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1
+    }
+    // let key be the items in frequencyCounter1 
+    for(let key in frequencyCounter1){
+        // if key squared is NOT in frequencyCounter2 return false
+        if(!(key ** 2 in frequencyCounter2)){
+            return false
+        }
+        // if key squared in frequencyCounter2  is not equal to frequencyCounters1 key items return false
+        if(frequencyCounter2[key ** 2] !== frequencyCounter1[key]){
+            return false
+        }
+    }
+    console.log(frequencyCounter1);
+    console.log(frequencyCounter2);
+    // otherwise return true
+    return true
+}
+
+same([1,2,3,2], [9,1,4,4])
+
+```
