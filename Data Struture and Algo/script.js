@@ -319,32 +319,40 @@ maxSubarraySum([2,6,9,2,1,8,5,6,3],3) // 19
 //Give two positive integers
 //Find out if the two numbers have the sameFrequency of digits
 
+// function takes two param int1 + int2
 function sameFrequency(int1, int2){
+    // convert to strings
     let strNum1 = int1.toString();
     let strNum2 = int2.toString();
 
+    // short circut
     if (strNum1.length !== strNum2.length){
         return false;
     }
 
+    // loook up objects
     let lookup1 = {};
     let lookup2 = {};
 
+    //iterate string and object
     for(let num of strNum1){  
      lookup1[num] = (lookup1[num] || 0) + 1
     }
 
-
+    //iterate string and object
     for(let num of strNum2){
     lookup2[num] = (lookup2[num] || 0) + 1
     }
 
 
+    //have object items become key to compare
     for(let key in lookup1){
+            // if keys are not equal return false
         if(lookup1[key] !== lookup2[key]){
            return false;
         }
     }
+    // if no possible false return then return true
     return true;
 }
 
