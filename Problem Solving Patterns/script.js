@@ -80,3 +80,6 @@ function countUniqueValues(arr){
 }
 
 console.log(countUniqueValues([1,1,2,2,3,4,5,6,6,7,7,8,8,9,])) // 9
+
+
+

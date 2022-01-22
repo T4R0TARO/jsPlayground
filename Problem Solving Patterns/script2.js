@@ -38,22 +38,34 @@ console.log(maxSubarraySum([2,6,9,2,1,8,5,6,3],3))
 
 // REFACTOR 
 function maxSubarraySumR(arr, num){
+    //variables
     let maxSum = 0;
     let tempSum = 0;
 
+    //edge case 
     if(arr.length < num) return null;
     
+    //create our first sum
+    // loops iterates based on num passed 
+    // then store that in var maxSum
     for(let i = 0; i < num; i++){
         maxSum += arr[i];
     }
 
+    // have temp sum equal max sum 
     tempSum = maxSum;
 
+    //loop
     for(let i = num; i < arr.length; i ++){
+        //have tempSum 
         tempSum = tempSum - arr[i -  num] + arr[i];
+        //have maxSum Math.max on both var
         maxSum = Math.max(maxSum, tempSum);
     }
     return maxSum;
 }
 
-console.log(maxSubarraySumR([2,6,9,2,1,8,5,6,3],3))
+//                    arr[i - num]   arr[i]
+//                             ⬇     ⬇ 
+console.log(maxSubarraySumR([2,6,9,2,1,8,5,6,3],3)) // 19
+//                             -   -
