@@ -76,3 +76,19 @@ function countDownR(num){
     console.log("All done!")
 }
 countDownR(5)
+
+//RECURSION2
+
+function sumRange(num){
+    if(num === 1) return 1;
+    return num + sumRange(num-1);
+}
+
+//Can you spot the base case?
+
+//Do you notice the different input?
+
+//What would happen if we didn't return?
+
+console.log(sumRange(3)) 
+    
