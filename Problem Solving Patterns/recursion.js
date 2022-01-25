@@ -91,4 +91,85 @@ function sumRange(num){
 //What would happen if we didn't return?
 
 console.log(sumRange(3)) 
-    
+
+//Naive / Easy
+function factorial(num){
+    let total = 1;
+    for(let i = num; i > 1; i--){
+        total *= i
+    }
+    return total;
+}
+
+console.log(factorial(3)) // 6
+
+//Recursion
+function factorialR(num){
+    if(num === 1 ) return 1; // base case 
+    return num * factorialR(num - 1) // --
+}
+
+console.log(factorialR(3)) // 6
+
+// WHERE THINGS GO WRONG
+// No base case 
+// Forgetting to return or returning the wrong thing!
+// Stack overflow!
+
+function factorialRR(num){
+    if(num === 1)  return 1; 
+    return num + factorialRR(num);
+}
+
+// WRONG  'return' is missing on the base case
+// Stackoverflow  means too many function being called
+function factorialRR(num){
+    if(num === 1) console.log(1);
+    return num * factorial(num -1);
+}
+
+// HELPER METHOD RECURSION 
+function outer(input){
+
+    var outScopedVariable = []
+
+    function helper(helperInput){
+        // modify the outerScopedVariable
+        helper(helperInput--)
+    }
+    helper(input)
+    return outerSpaceVariable;
+}
+
+// Recursion_Helper_Method
+function collectOddValues(arr){
+    let result = []
+
+    function helper(helperInput){
+        if(helperInput.length === 0){
+            return;
+        }
+        if(helperInput[0] % 2 !== 0){
+            result.push(helperInput[0])
+        }
+        helper(helperInput.slice(1))
+    }
+    helper(arr)
+    return result;
+}
+
+
+//PURE RECURSIONS
+function collectOddValues(arr){
+    let newArr = [];
+    if(arr.length === 0) {
+        return newArr;
+    }
+
+    if(arr[0] % 2 !== 0){
+        newArr.push(arr[0]);
+    }
+
+    newArr = newArr.concat(collectOddValues(arr.slice(1)))
+    return newArr;
+}
