@@ -162,6 +162,7 @@ function collectOddValues(arr){
 //PURE RECURSIONS
 function collectOddValues(arr){
     let newArr = [];
+    // base point
     if(arr.length === 0) {
         return newArr;
     }
@@ -173,3 +174,5 @@ function collectOddValues(arr){
     newArr = newArr.concat(collectOddValues(arr.slice(1)))
     return newArr;
 }
+
+console.log(collectOddValues([1,2,3,4,5])) // [1,3,5]
