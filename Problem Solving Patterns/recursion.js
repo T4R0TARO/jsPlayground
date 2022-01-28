@@ -128,15 +128,21 @@ function factorialRR(num){
     return num * factorial(num -1);
 }
 
-// HELPER METHOD RECURSION 
+// HELPER METHOD RECURSION ALGO
+
+// outer function non-recursive
 function outer(input){
 
+    //out outscoped variable
     var outScopedVariable = []
 
+    // inner helper function recursive 
     function helper(helperInput){
-        // modify the outerScopedVariable
-        helper(helperInput--)
+        // modify the outerScopedVariable 
+        helper(helperInput--) // recursive logic
     }
+
+    //call helper function that accepts input then updates outscoped variable
     helper(input)
     return outerSpaceVariable;
 }
@@ -144,38 +150,45 @@ function outer(input){
 
 // Recursion_Helper_Method
 /**
- * Function collectOddValues accept an array
- * create new results array
- * function helper accepts a helperInput array
- * function helpers base case if length is 0 return 
- * function helper checks if helperInput's first item is odd
- * if true push helperInput item into result array 
- * if false then there is no item pushed 
- * function helper is called again with the result of the rest of the array
+ * Function collectOddValues accept an array // [1,2,3,4,5,6,7,8,9]
+ * create new results array 
+ * function helper accepts a helperInput array // [1,2,3,4,5,6,7,8,9]
+ * function helpers base case if length is 0 return // false [1,2,3,4,5,6,7,8,9]
+ * function helper checks if helperInput's first item is odd // true [1]
+ * if true push helperInput item into result array // true [1] push into results array
+ * if false then there is no item pushed // 
+ * function helper is called again with the result of the rest of the array [2,3,4,5,6,7,8,9]
  * helperInput.slice(1) access the array without the 0 index
+ * function helper is called and accepts arr // [1,2,3,4,5,6,7,8,9]
+ * return results array 
  */
-//  outer function is not recursive
-// inner function is recursive
+
+// outer function is not not recursive
 function collectOddValues(arr){
+    //creates new array
     let result = [];
 
-    //
+    //inner function is recursive
     function helper(helperInput){
         //base case 
         if(helperInput.length === 0){
             return;
         }
+        //checks if item is odd
         if(helperInput[0] % 2 !== 0){
             result.push(helperInput[0])
         }
+        //call recursive function starting at index 1
         helper(helperInput.slice(1))
     }
 
+    //call inner recursive function
     helper(arr)
     return result;
 }
 
 console.log(collectOddValues([1,2,3,4,5,6,7,8,9]))
+
 //PURE RECURSIONS
 /**
  * function collectOddValues accepts an array ex. [1,2,3,4,5]
