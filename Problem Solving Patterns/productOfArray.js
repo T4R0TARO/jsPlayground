@@ -39,18 +39,23 @@ function recursiveRange(num){
   //eg.      1,1,2,3,5,8, 13,21,34,55
   //fib(10)  1,2,3,4,5,6, 7, 8, 9, 10  
 
-  
+
   function fib(num){
     let a = 1;
     let b = 0;
     let temp;
 
     while(num >= 0){
-      temp = a; 
-      a = a + b;
-      b = temp; 
-      num--;
+      //calculate the next number by adding th current number to the old number
+      temp = a; //first number `temp = 1` `temp = 1` `temp = 2` `temp = 3`
+      a = a + b; //first number + next number `1 = 1 + 0`  `a = 1 + 1 = 2' `a = 1 + 2 = 3` `a = 2 + 3 = 5`
+      b = temp; // next number = first number `0 = 1` `b = 2` `b = 3` `b = 5`
+      num--; // countdown till `4,3,2,1`
     }
-    return b;
+    return b; //return first number `1` `2` `3` `5`
   }
+
+  a = 1
+  a = 1 + 0
+  b = 1 + 0
 
