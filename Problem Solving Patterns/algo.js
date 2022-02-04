@@ -19,3 +19,26 @@ function reverseString(str){
     return reverseString( str.slice(1)) + str[0];
 }
 
+// SAMPLE INPUT / OUTPUT
+//write a function that accepts an array and callback.
+//the function returns true...
+//if a single value in the array returns true when passed to the callback
+//otherwise return false
+
+//callback function
+function isOdd(val) {
+    return val % 2 !== 0;
+}
+
+function someRecursive(array, callback){
+//     //base case
+        //if the array is empty return false
+        if(array.length === 0) return false;
+        //if callback function accepts an array with a item in index 0 return true 
+        if(callback(array[0])) return true;
+        //recusive loop
+        //return recursive function passing array starting at index 1 and the callback 
+        return someRecursive(array.slice(1), callback);
+}
+
+ someRecursive([2,4,6,8,9], isOdd) //true
