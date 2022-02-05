@@ -42,3 +42,29 @@ function someRecursive(array, callback){
 }
 
  someRecursive([2,4,6,8,9], isOdd) //true
+
+
+//FIB SEQUENCE
+function fib(num){
+    //base case
+    // if(num <= 2 ) return 1;
+    // // fib( 4 - 1) + fib(4 - 2)
+    // //        3            2
+    // // return the `num`th which is the sum of the prev two numbers
+    // //   previous num  + prev previous num 
+    // return fib(num -1) +  fib(num -2);
+    
+    const result = [0,1];
+ 
+    
+    for(let i = 2; i <= num; i++){
+        const prevNum1 = result[i - 1];
+        const prevNum2 = result[i -2];
+        result.push(prevNum1 + prevNum2);
+    }
+        return result.pop(); 
+}
+
+  //eg.      1,1,2,3,5,8, 13,21,34,55
+  //fib(10)  1,2,3,4,5,6, 7, 8, 9, `10`  
+fib(10) //55
