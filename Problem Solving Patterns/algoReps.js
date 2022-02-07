@@ -9,7 +9,7 @@
 /**
  * Write a function that takes two numbers and returns the sum of those numbers
  */
-function add(){}
+function add(num1, num2){}
 
 console.log("add", add(2, 3)); //Expect 5
 
