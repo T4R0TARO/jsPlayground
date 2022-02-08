@@ -32,7 +32,16 @@ console.log(
 /**
  * Write a function that takes an array of objects, and returns an array of the objects 'name' property, only if that property exists
  */
-function getNames() {
+function getNames(array) {
+    let results = [];
+
+    for(let i = 0; i < array.length; i++){
+        if(array[i].hasOwnProperty("name")) {
+            results.push(array[i].name)
+        }
+    }
+    return results;
+}
 
     console.log(
         "getNames",
@@ -45,7 +54,8 @@ function getNames() {
             { b:2 }
         ])
     ); //Expect ['Jone', 'Mark', 'Sophia']
-}
+
+
 
 /**
  * Write a function that takes an array of numbers and returns the index of the largest number
