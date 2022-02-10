@@ -48,7 +48,18 @@ console.log(
  * Write a function that takes an array of objects, and returns an array of the objects 'name' property, only if that property exists
  */
 function getNames(array) {
-
+    //create empty array called results
+    let result = [];
+    //loop through array length
+    for(let i = 0; i < array.length; i++){
+        //if array item has property called name 
+        //push said item into the results array
+        if(array[i].hasOwnProperty('name')){
+            result.push(array[i].name);
+        }
+    } 
+    //return update results array
+    return result;
 }
 
     console.log(
@@ -68,11 +79,16 @@ function getNames(array) {
 /**
  * Write a function that takes an array of numbers and returns the index of the largest number
  */
-function getLargestNumberIndex() {
-
-    console.log("getLargestNumberIndex", getLargestNumberIndex([7,1,4,12,9]));
+function getLargestNumberIndex(array) {
+    //sort array
+    //reverse array 
+    //return first item of array 
+    array.sort(function(a,b){
+        return a - b;
+    });
+    return array;
 }
-
+console.log("getLargestNumberIndex", getLargestNumberIndex([7,1,4,12,9]));
 /**
  * Write a function that returns a promise that resolves after n number of miliseconds
  */
