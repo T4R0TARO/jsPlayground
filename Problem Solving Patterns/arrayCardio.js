@@ -30,5 +30,9 @@ console.log(isPalindrome('apples')) //expect false
 //ex. reverseInt(521) === 125]
 
 function reverseInt(int){
-
+let changeToString = int.toString().split('').reverse().join('');
+let parsedString =parseInt(changeToString);
+return parsedString;
 }
+
+console.log(reverseInt(123456789))

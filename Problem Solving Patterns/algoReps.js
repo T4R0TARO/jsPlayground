@@ -100,3 +100,4 @@ function delay(n){}
     await delay(1000);
     console.timeEnd("Testing delay");
 })();
+
