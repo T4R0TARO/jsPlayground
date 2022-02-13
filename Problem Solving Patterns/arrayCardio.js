@@ -36,3 +36,27 @@ return parsedString;
 }
 
 console.log(reverseInt(123456789))
+
+// Write a function that takes an array of arrays and flattens them in a recursive way 
+
+// flatten([1, 2, 3, [4, 5] ]) // [1, 2, 3, 4, 5]
+// flatten([1, [2, [3, 4], [[5]]]]) // [1, 2, 3, 4, 5]
+// flatten([[1],[2],[3]]) // [1,2,3]
+// flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]) // [1,2,3]
+
+function flatten(oldArr){
+    
+    for(let i = 0; i < oldArr.length; i++){
+        if(Array.isArray(oldArr[i])){
+            newArray = newArray.concat(flatten
+                (oldArr[i]))
+        } else {
+            newArr.push(oldArr[i])
+            }
+        }
+        return newArr
+    }
+console.log(
+    "flatten()",
+    flatten('')
+)
