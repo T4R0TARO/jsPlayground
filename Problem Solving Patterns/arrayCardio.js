@@ -83,8 +83,12 @@ function capitalizeFirst (arr) {
     }
     
 
-    return results;
+    return results.join(', ');
 
 }
 
-console.log(capitalizeFirst(['car','taco','banana']))
+console.log(capitalizeFirst(['car','taco','banana']));
+
+
+
+
