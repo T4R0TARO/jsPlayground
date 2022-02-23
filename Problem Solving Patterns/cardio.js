@@ -2,103 +2,140 @@
 // Return a string in reverse 
 // ex. reverseString('hello') === 'olleh';
 function reverseString(str){
-
+  return str.split('').reverse().join('')
 }
 
-// console.log('reverseString()',
-//     reverseString('takodachi')
-// )
+console.log('reverseString()',
+    reverseString('takodachi')
+)
 
 // CHALLENGE 2: VALIDATE A PALINDROME
 // Return true if palindrome and false if not 
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 function isPalindrome(str){
-
+  //reverse string 
+  const reverseStr = str.split('').reverse().join('');
+  //compare string
+  if(reverseStr === str){
+    return true
+  } else return false;
 }
 
-// console.log('isPalindrome()',
-//     isPalindrome('racecar')
-// )
+console.log('isPalindrome()',
+    isPalindrome('racecar')
+)
 
  // CHALLENGE 3: REVERSE AN INTEGER
  // Return an integer in reverse
  // ex. reverseInt(521) === 125
 function reverseInt(int){
-
+  const changeToString = int.toString().split('').reverse().join('');
+  const parsedStr = parseInt(changeToString);
+  return parsedStr;
 }
 
-// console.log('reverseInt()',
-//     reverseInt(12345)
-// )
+console.log('reverseInt()',
+    reverseInt(12345)
+)
 
  //CHALLENGE 4: CAPITALIZE LETTERS
  //Return a string with the first letter of every word capitalized
  // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 function capitalLetters(sen){
-
+  return sen
+  .toLowerCase()
+  .split(' ')
+  .map(function(word){
+    return word[0].toUpperCase() + word.slice(1)
+  })
+  .join(' ')
 }
 
-// console.log('capitalLetters()', 
-//     capitalLetters('ina of the mountain, what is your wisdom')
-// )
+console.log('capitalLetters()', 
+    capitalLetters('ina of the mountain, what is your wisdom')
+)
 
 //CHALLENGE 5: MAX CHARACTER
 //Return the character that is most common in a string 
 // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str){
+  let charMap = {};
+  let maxNum = 0;
+  let maxChar = '';
 
+  str.split('').forEach(function(char){
+    if(charMap[char]){
+      charMap[char]++;
+    } else {
+      charMap[char] = 1;
+    }
+  })
+
+  for(let char in charMap){
+    if(charMap[char] > maxNum){
+      maxNum = charMap[char];
+      maxChar = char;
+    }
+  }
+
+  return maxChar;
 }
 
-// console.log('maxCharacter()', 
-//     maxCharacter('takodachiiii')
-// )
+console.log('maxCharacter()', 
+    maxCharacter('takodachiiii')
+)
 
 //CHALLENGE 6: FIZZBUZZ
 //Write a program that prints all the numbers from 1 to 100. For multiples of 3, instead of the number, print "Fizz", for multiples of 5 print "Buzz".
 //For numbers which are multiples of both 3 and 5, print "FizzBuzz".
 
 function fizzBuzz(){
-
+  for(let i = 1; i <= 100; i++){
+    if(i % 3 === 0 && i % 5){
+      console.log("FizzBuzz")
+    } else if (i % 3 === 0){
+       console.log("Fizz")
+    } else if (i % 5 === 0){
+       console.log("Buzz")
+    } else {
+      console.log(i)
+    }
+  }
 }
 
-// console.log('fizzBuzz()',
-//     fizzBuzz()
-// )
+console.log('fizzBuzz()',
+    fizzBuzz()
+)
 
 // ARRAY CARDIO 2
-
 // CHALLENGE 1: LONGEST WORD
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
-
-    // SOLUTION 1 - Return a single longest word
-    // SOLUTION 2 - Return an array and include multiple words if they have the same length
-    // SOLUTION 3 - Only return an array if multiple words, otherwise return a string
-
 function longestWord(sen) {
-    // Create a filtered array 
+  // create array of words
     const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g)
-
-    //Sort by length 
+  //sort the words from longest to shortest 
     const sorted = wordArr.sort(function(a,b){
-        return b.length - a.length;
+      return b.length - a.length;
     })
+  //create an array of the longest word
+  const longestWordArr = sorted.filter(function(word){
+      return word.length === sorted[0].length
+  })
 
-    // If multiple words put into array 
-    const longestWordArr = sorted.filter(function(word){
-        return word.length === sorted[0].length;
-    })
+  // if 1 word retrun word 
+  //else there are multiple longest word return array of longestword
+  if(longestWordArr.length === 1){
+    return longestWordArr[0]
+  } else {
+    return longestWordArr
+  }
 
-    //Check if more than one array val
-    if(longestWordArr  === 1){
-        return longestWordArr[0]
-    } else {
-        return longestWordArr;
-    }
 }
+
   
   console.log('longestWord()',
-    longestWord('Ina of the mountain, what is your wisdom???')
+    longestWord('Ina of the mountain, what is your wisdommm???')
   )
 
   // CHALLENGE 2: ARRAY CHUNKING
