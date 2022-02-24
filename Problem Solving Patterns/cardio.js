@@ -2,7 +2,7 @@
 // Return a string in reverse 
 // ex. reverseString('hello') === 'olleh';
 function reverseString(str){
-  return str.split('').reverse().join('')
+ return str.split('').reverse().join('')
 }
 
 console.log('reverseString()',
@@ -13,12 +13,14 @@ console.log('reverseString()',
 // Return true if palindrome and false if not 
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 function isPalindrome(str){
-  //reverse string 
+  //reverse str
   const reverseStr = str.split('').reverse().join('');
-  //compare string
+  //compare reverseStr to str
   if(reverseStr === str){
-    return true
-  } else return false;
+    return true;
+  } else {
+    return false;
+  }
 }
 
 console.log('isPalindrome()',
@@ -29,9 +31,12 @@ console.log('isPalindrome()',
  // Return an integer in reverse
  // ex. reverseInt(521) === 125
 function reverseInt(int){
-  const changeToString = int.toString().split('').reverse().join('');
-  const parsedStr = parseInt(changeToString);
-  return parsedStr;
+  //change int to str then reverse string
+  const intToStr = int.toString().split('').reverse().join('');
+  //change str to int
+  const parsed = parseInt(intToStr)
+  //return reversed int
+  return parsed;
 }
 
 console.log('reverseInt()',
@@ -42,13 +47,17 @@ console.log('reverseInt()',
  //Return a string with the first letter of every word capitalized
  // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 function capitalLetters(sen){
-  return sen
-  .toLowerCase()
-  .split(' ')
-  .map(function(word){
-    return word[0].toUpperCase() + word.slice(1)
-  })
-  .join(' ')
+//make all char in str lowerCase
+//split str into words
+//map() str to words / uppercase first letter of word / + add substr of word starting at index 1
+//join words back to str
+return sen
+.toLowerCase()
+.split(' ')
+.map(function(word){
+  return word[0].toUpperCase() + word.slice(1)
+})
+.join(' ')
 }
 
 console.log('capitalLetters()', 
@@ -59,10 +68,11 @@ console.log('capitalLetters()',
 //Return the character that is most common in a string 
 // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str){
-  let charMap = {};
+// create empty object
+  const charMap = {};
   let maxNum = 0;
   let maxChar = '';
-
+// split string to char
   str.split('').forEach(function(char){
     if(charMap[char]){
       charMap[char]++;
@@ -71,14 +81,16 @@ function maxCharacter(str){
     }
   })
 
+// iterate through charMap obj
+// if charMaps[char] items are greater than empty var have empty var take on the value 
+// return the updated value
   for(let char in charMap){
     if(charMap[char] > maxNum){
-      maxNum = charMap[char];
-      maxChar = char;
+      maxNum = charMap[char]
+      maxChar = char
     }
   }
-
-  return maxChar;
+  return maxChar
 }
 
 console.log('maxCharacter()', 
@@ -91,12 +103,12 @@ console.log('maxCharacter()',
 
 function fizzBuzz(){
   for(let i = 1; i <= 100; i++){
-    if(i % 3 === 0 && i % 5){
-      console.log("FizzBuzz")
+    if(i % 3 === 0 && i % 5 === 0){
+      console.log('FizzBuzz')
     } else if (i % 3 === 0){
-       console.log("Fizz")
+      console.log('Fizz')
     } else if (i % 5 === 0){
-       console.log("Buzz")
+      console.log('Buzz')
     } else {
       console.log(i)
     }
@@ -112,30 +124,27 @@ console.log('fizzBuzz()',
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 function longestWord(sen) {
-  // create array of words
-    const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g)
-  //sort the words from longest to shortest 
-    const sorted = wordArr.sort(function(a,b){
-      return b.length - a.length;
-    })
-  //create an array of the longest word
-  const longestWordArr = sorted.filter(function(word){
-      return word.length === sorted[0].length
+  //create words array 
+  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
+  //sort words array from longest length to shortest length
+  const sorted = wordArr.sort(function(a,b){
+    return b.length - a.length;
   })
-
-  // if 1 word retrun word 
-  //else there are multiple longest word return array of longestword
-  if(longestWordArr.length === 1){
-    return longestWordArr[0]
-  } else {
-    return longestWordArr
-  }
+  //if there is 1 longest word return word
+   const longestWordArr = sorted.filter(function(word){
+     return word.length === sorted[0].length
+   })
+   if(longestWordArr.length === 1){
+     return longestWordArr[0];
+   } else {
+     return longestWordArr;
+   }
 
 }
 
   
   console.log('longestWord()',
-    longestWord('Ina of the mountain, what is your wisdommm???')
+    longestWord('Ina of the mountain, what is your wisdom???')
   )
 
   // CHALLENGE 2: ARRAY CHUNKING
@@ -143,10 +152,44 @@ function longestWord(sen) {
   // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3],[4, 5, 6],[7]]
   // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
   
-  function chunkArray(arr, len) {}
+  function chunkArray(arr, len) {
+    //Solution 1
+    
+    //Init chunked arr
+    const chunckedArr = [];
+    //Set Index
+    let i = 0;
+    //Loop while index is less than the array length 
+    while(i < arr.length){
+    //slice out from the index to the index + the chunk length and push on to the chuncked arr
+      chunckedArr.push(arr.slice(i, i + len));
+    //Increment by chunk length 
+      i += len
+    }
+    
+    return chunckedArr;
+    //Solution 2 
+
+    // //Init chunked arr 
+    // const chunkedArr = [];
+
+    // //Loop through arr
+    // arr.forEach(function(val){
+    //     //get last element 
+    //     const last = chunkedArr[chunkedArr.length - 1];
+    //     //check if last and if last length is equal to the chuck len
+    //     if(!last || last.length === len) {
+    //       chunkedArr.push([val]);
+    //     } else {
+    //       last.push(val)
+    //     }
+    // });
+    
+    // return chunkedArr; 
+  }
   
   console.log('chunkArray()',
-    chunkArray()
+    chunkArray([1,2,3,4,5,6,7,8,9,10], 3)
   )
   // CHALLENGE 3: FLATTEN ARRAY
   // Take an array of arrays and flatten to a single array
