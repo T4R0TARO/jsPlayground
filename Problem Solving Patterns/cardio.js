@@ -124,22 +124,7 @@ console.log('fizzBuzz()',
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 function longestWord(sen) {
-  //create words array 
-  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
-  //sort words array from longest length to shortest length
-  const sorted = wordArr.sort(function(a,b){
-    return b.length - a.length;
-  })
-  //if there is 1 longest word return word
-   const longestWordArr = sorted.filter(function(word){
-     return word.length === sorted[0].length
-   })
-   if(longestWordArr.length === 1){
-     return longestWordArr[0];
-   } else {
-     return longestWordArr;
-   }
-
+  
 }
 
   
@@ -153,39 +138,7 @@ function longestWord(sen) {
   // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
   
   function chunkArray(arr, len) {
-    //Solution 1
-    
-    //Init chunked arr
-    const chunckedArr = [];
-    //Set Index
-    let i = 0;
-    //Loop while index is less than the array length 
-    while(i < arr.length){
-    //slice out from the index to the index + the chunk length and push on to the chuncked arr
-      chunckedArr.push(arr.slice(i, i + len));
-    //Increment by chunk length 
-      i += len
-    }
-    
-    return chunckedArr;
-    //Solution 2 
 
-    // //Init chunked arr 
-    // const chunkedArr = [];
-
-    // //Loop through arr
-    // arr.forEach(function(val){
-    //     //get last element 
-    //     const last = chunkedArr[chunkedArr.length - 1];
-    //     //check if last and if last length is equal to the chuck len
-    //     if(!last || last.length === len) {
-    //       chunkedArr.push([val]);
-    //     } else {
-    //       last.push(val)
-    //     }
-    // });
-    
-    // return chunkedArr; 
   }
   
   console.log('chunkArray()',
