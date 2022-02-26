@@ -124,12 +124,26 @@ console.log('fizzBuzz()',
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 function longestWord(sen) {
-  
+  //init word arr
+  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g)
+  //init sort arr 
+  const sorted = wordArr.sort(function(a,b){
+    return b.length - a.length
+  })
+  //init longestWord arr
+  const longestWordArr = sorted.filter(function(word){
+    return word.length === sorted[0].length;
+  })
+  //if longestWord length is 1 return item 
+  if(longestWordArr.length === 1){
+    return longestWordArr[0]
+  } else {
+    return longestWordArr
+  }
 }
 
-  
   console.log('longestWord()',
-    longestWord('Ina of the mountain, what is your wisdom???')
+    longestWord('Ina of the mountain, what is your wisdommm???')
   )
 
   // CHALLENGE 2: ARRAY CHUNKING
@@ -138,7 +152,19 @@ function longestWord(sen) {
   // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
   
   function chunkArray(arr, len) {
-
+    //init chunked arr
+    const chunkedArr = [];
+    //set index
+    let i = 0;
+    //loop through arr
+    while(i < arr.length){
+      //slice arr and push to chunkedArr
+      chunkedArr.push(arr.slice(i, i+len));
+      //incrementaly increase index
+      i += len;
+    } 
+    //return update chunked arr
+    return chunkedArr;
   }
   
   console.log('chunkArray()',
@@ -148,19 +174,45 @@ function longestWord(sen) {
   // Take an array of arrays and flatten to a single array
   // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
   
-  function flattenArray(arrays) {}
+  function flattenArray(arrays) {
+    //Solution 1
+    // return arrays.reduce(function(a,b){
+    //   return a.concat(b);
+    // })
+
+    //Solution 2
+    // return [].concat.apply([], arrays)
+    
+    // Solution 3
+    return [].concat(...arrays)
+  
+  }
   
   console.log('flattenArray()',
-    flattenArray()
+    flattenArray([[1, 2], [3, 4], [5, 6], [7]])
   )
+
   // CHALLENGE 4: ANAGRAM
   // Return true if anagram and false if not
   // ex. 'elbow' === 'below'
   // ex. 'Dormitory' === 'dirty room##'
   
-  function isAnagram(str1, str2) {}
+  function isAnagram(str1, str2) {
+    return formatStr(str1) === formatStr(str2);
+  }
+
+  //Helper function 
+  function formatStr(str){
+    return str
+    .replace(/[^\w]/g, '')
+    .toLowerCase()
+    .split('')
+    .sort()
+    .join('')
+  }
+
   console.log('isAnagram()',
-    isAnagram()
+    isAnagram('elbow', 'below')
   )
   // CHALLENGE 5: LETTER CHANGES
   // Change every letter of the string to the one that follows it and capitalize the vowels
