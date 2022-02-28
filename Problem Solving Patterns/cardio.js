@@ -124,22 +124,7 @@ console.log('fizzBuzz()',
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 function longestWord(sen) {
-  //init wordArr 
-  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g)
-  //sort word arr
-  const sorted = wordArr.sort(function(a,b){
-    return b.length - a.length;
-  })
-  //init longest word arr 
-  const longestWordArr = sorted.filter(function(word){
-    return word.length === sorted[0].length
-  })
-  // return update  wordArr or wordArr[0]
-  if(longestWordArr.length === 1){
-    return longestWordArr[0]
-  } else {
-    return longestWordArr
-  }
+
 }
 
   console.log('longestWord()',
@@ -152,19 +137,7 @@ function longestWord(sen) {
   // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
   
   function chunkArray(arr, len) {
-    //init chunked arr
-    const chunkedArr = []
-    //set index 
-    let i = 0
-    //loop through arr.length
-    while(i < arr.length){
-      //slice arr and push into chunkedArr
-      chunkedArr.push(arr.slice(i, i + len))
-      //increment index by len 
-      i += len 
-    }
-    //return updatd chunked arr
-    return chunkedArr;
+
   }
   
   console.log('chunkArray()',
@@ -175,11 +148,11 @@ function longestWord(sen) {
   // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
   
   function flattenArray(arrays) {
-    return [].concat(...arrays)
+ 
   }
   
   console.log('flattenArray()',
-    flattenArray([[1, 2], [3, 4], [5, 6], [7]])
+   flattenArray([[1, 2], [3, 4], [5, 6], [7]])
   )
 
   // CHALLENGE 4: ANAGRAM
@@ -188,18 +161,11 @@ function longestWord(sen) {
   // ex. 'Dormitory' === 'dirty room##'
   
   function isAnagram(str1, str2) {
-    return formatStr(str1) === formatStr(str2);
+
   }
 
   //Helper Function 
-  function formatStr(str){
-    return str
-    .replace(/[^\w]/g, '') // replace all non-words with empty space 
-    .toLowerCase()
-    .split('')
-    .sort()
-    .join()
-  }
+
   
   console.log('isAnagram()',
     isAnagram('elbow', 'below')
@@ -210,23 +176,7 @@ function longestWord(sen) {
   // ex. 'hello there' === 'Ifmmp UIfsf'
   
   function letterChanges(str) {
-    //init newStr
-    //replace char if z return a
-    //else return letter that follow current char
-    let newStr = str.toLowerCase().replace(/[a-z]/gi, function(char){
-      if( char === 'z' || char === 'Z') {
-        return 'a'
-      } else {
-        return String.fromCharCode(char.charCodeAt() + 1)
-      }
-    })
-    
-    // update newStr to replace vowels with Uppercase vowels
-    newStr = newStr.replace(/a|e|i|o|u/gi, function(vowel){
-      return vowel.toUpperCase()
-    })
-
-    return newStr;
+  
 
   }
   console.log('letterChanges()',
