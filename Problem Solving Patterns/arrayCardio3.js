@@ -2,14 +2,14 @@
 // Return a string in reverse 
 // ex. reverseString('hello') === 'olleh';
 
-// function reverseString(string){
-//     return string.split('').reverse().join('');
-// }
+function reverseString(string){
+    return string.split('').reverse().join('');
+}
 
 ///////////////
 
 // Arrow Function
-const reverseString = (string) => string.split('').reverse().join('');
+// const reverseString = (string) => string.split('').reverse().join('');
 
 console.log('reverseString()',
     reverseString('hello')
