@@ -13,8 +13,8 @@ console.log('reverseString()',
 // Return true if palindrome and false if not 
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 function isPalindrome(str){
-  const reversed = str.split('').reverse().join('');
-  return reversed === str;
+  const reverseStr = str.split('').reverse().join('')
+  return str === reverseStr
 }
 
 console.log('isPalindrome()',
@@ -27,7 +27,7 @@ console.log('isPalindrome()',
 function reverseInt(int){
   const numToStr = int.toString().split('').reverse().join('')
   const parsed = parseInt(numToStr)
-  return parsed;
+  return parsed
 }
 
 console.log('reverseInt()',
@@ -42,7 +42,7 @@ function capitalLetters(sen){
   .toLowerCase()
   .split(' ')
   .map(function(word){
-    return word[0].toUpperCase() + word.substring(1)
+    return word[0].toUpperCase() + word.slice(1)
   })
   .join(' ')
 }
@@ -55,25 +55,30 @@ console.log('capitalLetters()',
 //Return the character that is most common in a string 
 // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str){
-  const charMap = {};
-  let maxNum = 0;
-  let maxChar = '';
-  
-  str.split('').forEach(function(char){
-    if(charMap[char]){
-      charMap[char]++;
-    } else {
-      charMap[char] = 1;
+  // init charMap
+  const charMap = {}
+  let maxNum = 0
+  let maxChar = ''
+
+  //split and loop str
+    //populate charMap with string char
+    str.split('').forEach(function(char){
+      if(charMap[char]){
+        charMap[char]++
+      } else {
+        charMap[char] = 1
+      }
+    })
+
+    //return most common char
+    for(let char in charMap){
+      if(charMap[char] > maxNum){
+        maxNum = charMap[char]
+        maxChar = char
+      }
     }
-  })
-  
-  for(let char in charMap){
-    if(charMap[char] > maxNum){
-      maxNum = charMap[char];
-      maxChar = char;
-    }
-  }
-  return maxChar;
+
+    return maxChar
 }
 
 console.log('maxCharacter()', 
@@ -88,9 +93,9 @@ function fizzBuzz(){
   for(let i = 1; i <= 100; i++){
     if(i % 3 === 0 && i % 5 === 0){
       console.log('FizzBuzz')
-    } else if (i % 3 === 0) {
+    } else if (i % 3 === 0){
       console.log('Fizz')
-    } else if (i % 5 === 0) {
+    } else if (i % 5 === 0){
       console.log('Buzz')
     } else {
       console.log(i)
@@ -107,20 +112,22 @@ console.log('fizzBuzz()',
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 function longestWord(sen) {
-  // init wordArr 
-  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g)
-  // sort wordArr 
+  //init wordArr
+  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
+  //sort arr
   const sorted = wordArr.sort(function(a,b){
-    return b.length - a.length;
+    return b.length - a.length 
   })
-  // if multiple words put into arr
+  //init longestword arr
   const longestWordArr = sorted.filter(function(word){
-   return word.length === sorted[0].length
+    return word.length === sorted[0].length
   })
-  //return word or longestWordArr
+  //return word or arr
   if(longestWordArr.length === 1){
     return longestWordArr[0]
-  } else return longestWordArr
+  } else {
+    return longestWordArr
+  }
 }
 
   console.log('longestWord()',
@@ -136,16 +143,16 @@ function longestWord(sen) {
     //init chunkedArr
     const chunkedArr = []
     //set index
-    let i = 0;
-    //loop through arr
+    let i = 0
+    //loop
     while(i < arr.length){
       //slice arr and push into chunkedArr
-      chunkedArr.push(arr.slice(i, i + len))
-      //increase index by len
+      chunkedArr.push(arr.slice(i, i+len))
+      //increase index by
       i += len
-    }
+    }  
     //return chunkedArr
-    return chunkedArr
+    return chunkedArr;
   }
   
   console.log('chunkArray()',
@@ -172,7 +179,7 @@ function longestWord(sen) {
     return formatStr(str1) === formatStr(str2)
   }
   
-  //Helper Function
+  //Helper function
   function formatStr(str){
     return str
     .replace(/[^\w]/g, '')
@@ -181,7 +188,7 @@ function longestWord(sen) {
     .sort()
     .join('')
   }
-  
+
   console.log('isAnagram()',
     isAnagram('elbow', 'below!!')
   )
@@ -192,17 +199,24 @@ function longestWord(sen) {
   
   function letterChanges(str) {
     // init newStr
-  
-     // if char is z return a
-     //replace char with char that follows it
-      
-      
+      let newStr = str.toLowerCase().replace(/[a-z]/gi, function(char){
+        // if char is z return a
+        if( char === 'z' || char === 'Z'){
+          return 'a'
+        } else {
+             //replace char with char that follows it
+          return String.fromCharCode(char.charCodeAt() + 1)
+        }
+      });
+    
     //mutate newStr
     // replace vowels toUpperCase()
-
+      newStr = newStr.replace(/a|e|i|o|u/gi, function(vowel){
+        return vowel.toUpperCase()
+      })
 
     // return newStr
- 
+      return newStr
   }
 
   console.log('letterChanges()',
@@ -210,3 +224,67 @@ function longestWord(sen) {
   )
   
 
+// ARRAY CARDIO 3
+  // CHALLENGE 1: ADD ALL NUMBERS
+// Return a sum of all parameters entered regardless of the amount of numbers - NO ARRAYS
+// ex. addAll(2,5,6,7) === 20
+
+// Solution 1: ES5 arguments & for loop
+function addAll() {
+
+}
+
+console.log('addAll()')
+// CHALLENGE 2: SUM ALL PRIMES
+// Pass in a number to loop up to and add all of the prime numbers. A prime number is a whole number greater than 1 whose only factors are 1 and itself
+// ex. sumAllPrimes(10) == 17
+
+function sumAllPrimes(num) {
+
+}
+
+console.log('sumAllPrimes()')
+// CHALLENGE 3: SEEK & DESTROY
+// Remove from the array whatever is in the following arguments. Return the leftover values in an array
+// ex. seekAndDestroy([2, 3, 4, 6, 6, 'hello'], 2, 6) == [3, 4, 'hello']
+
+// Solution 1: arguments, indexOf, filter
+function seekAndDestroy(arr) {
+
+}
+
+
+console.log('seekAndDestroy()')
+// CHALLENGE 4: SORT BY HEIGHT
+// Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees.
+// ex.
+// a = [-1, 150, 190, 170, -1, -1, 160, 180]
+// sortByHeight(a) == [-1, 150, 160, 170, -1, -1, 180, 190]
+
+function sortByHeight(a) {
+
+}
+
+console.log('sortByHeight()')
+// CHALLENGE 5: MISSING LETTERS
+// Find the missing letter in the passed letter range and return it. If all letters are present, return undefined
+// ex.
+// missingLetters("abce") == "d"
+// missingLetters("abcdefghjklmno") == "i"
+// missingLetters("abcdefghijklmnopqrstuvwxyz") == undefined
+
+function missingLetters(str) {
+
+}
+
+console.log('missingLetters()')
+// CHALLENGE 6: EVEN & ODD SUMS
+// Take in an array and return an array of the sums of even and odd numbers
+// ex.
+// evenOddSums([50, 60, 60, 45, 71]) == [170, 116]
+
+function evenOddSums(arr) {
+
+}
+
+console.log('evenOddSums()')
