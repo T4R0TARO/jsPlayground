@@ -229,12 +229,39 @@ function longestWord(sen) {
 // Return a sum of all parameters entered regardless of the amount of numbers - NO ARRAYS
 // ex. addAll(2,5,6,7) === 20
 
-// Solution 1: ES5 arguments & for loop
-function addAll() {
 
+function addAll(...numbers) {
+  // Solution 1: ES5 arguments & for loop
+  // const args = Array.from(arguments)
+
+  // let total = 0;
+
+  // for(let i = 0; i < args.length; i++){
+  //   total += args[i]
+  // }
+
+  // return total
+  // Solution 2:
+  // let total = 0
+
+  // numbers.forEach(function(num){
+  //   total += num
+  // })
+  
+  // return total
+  //Solution 3:
+  // return numbers.reduce(function(acc, cur){
+  //   return acc + cur
+  // })
+  
+  return numbers.reduce((acc, cur) => acc + cur)
 }
 
-console.log('addAll()')
+
+
+console.log('addAll()',
+  addAll(2,5,6,7,5)
+)
 // CHALLENGE 2: SUM ALL PRIMES
 // Pass in a number to loop up to and add all of the prime numbers. A prime number is a whole number greater than 1 whose only factors are 1 and itself
 // ex. sumAllPrimes(10) == 17
