@@ -34,13 +34,7 @@ console.log('reverseInt()',
  //Return a string with the first letter of every word capitalized
  // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 function capitalLetters(sen){
-   return sen 
-    .toLowerCase()
-    .split(' ')
-    .map(function(word){
-      return word[0].toUpperCase() + word.slice(1)
-    })
-    .join(' ')
+
 }
 
 console.log('capitalLetters()', 
@@ -51,28 +45,7 @@ console.log('capitalLetters()',
 //Return the character that is most common in a string 
 // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str){
-  //init charMap object
-  const charMap = {};
-  //init maxNum 
-  let maxNum = 0;
-  //init maxChar
-  let maxChar = '';
-  //split char and populate charMap
-    // increase for multiple char
-    // default value = 1
-    str.split('').forEach(function(char){
-      if(charMap[char]){
-        charMap[char]++
-      } else {
-        charMap[char] = 1
-      }
-    })
- 
-    for(let char in charMap){
-      if(charMap[char] > maxNum){
-        charMap[char] = maxNum
-      }
-    }
+
 }
 
 console.log('maxCharacter()', 
@@ -84,17 +57,7 @@ console.log('maxCharacter()',
 //For numbers which are multiples of both 3 and 5, print "FizzBuzz".
 
 function fizzBuzz(){
-  for(let i = 1; i <= 100; i++){
-    if(i % 3 === 0 && i % 5 === 0){
-      console.log('FizzBuzz')
-    } else if (i % 3 === 0){
-      console.log('Fizz')
-    } else if (i % 5 === 0){
-      console.log('Buzz')
-    } else {
-      console.log(i)
-    }
-  }
+
 }
 
 console.log('fizzBuzz()',
@@ -106,23 +69,7 @@ console.log('fizzBuzz()',
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 function longestWord(sen) {
-  // init wordArr
-  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g)
-  // sorted arr 
-  const sorted = wordArr.sort(function(a,b){
-    return b.length - a.length
-  })
-  // longestWord arr
-  const longestWordArr = sorted.filter(function(word){
-    return word.length === sorted[0].length
-  })
 
-  // return longestWordArr item
-  if(longestWordArr.length === 1){
-    return longestWordArr[0]  
-  } else {
-    return longestWordArr
-  }
 
 }
 
@@ -136,19 +83,7 @@ function longestWord(sen) {
   // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
   
   function chunkArray(arr, len) {
-    //init chunkedArr
-    const chunkedArr = []
-    //set index 
-    let i = 0
 
-    //loop through arr length 
-    while(i < arr.length){
-      chunkedArr.push(arr.slice(i , i + len))
-      i += len        
-    }
-
-    //return chunkedArr
-    return chunkedArr
   }
   
   console.log('chunkArray()',
@@ -159,7 +94,7 @@ function longestWord(sen) {
   // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
   
   function flattenArray(arrays) {
-    return [].concat(...arrays)
+
   }
   
   console.log('flattenArray()',
@@ -172,18 +107,9 @@ function longestWord(sen) {
   // ex. 'Dormitory' === 'dirty room##'
   
   function isAnagram(str1, str2) {
-    return formatStr(str1) === formatStr(str2)
+  
   }
   
-  //Helper Function 
-  function formatStr(str){
-    return str
-    .replace(/[^\w]/g, '')
-    .toLowerCase()
-    .split('')
-    .sort()
-    .join('')
-  }
 
   console.log('isAnagram()',
     isAnagram('elbow', 'below!!')
@@ -194,18 +120,20 @@ function longestWord(sen) {
   // ex. 'hello there' === 'Ifmmp UIfsf'
   
   function letterChanges(str) {
-    // replace char with char specified by function 
+    //init newStr
     let newStr = str.toLowerCase().replace(/[a-z]/gi, function(char){
-      if(char === 'z' || char === 'Z'){
+      if(char === "z" || char === "Z"){
         return 'a'
       } else {
         return String.fromCharCode(char.charCodeAt() + 1)
       }
     })
-    //mutate newStr replace vowels with uppercase
+
+    //uppercase all vowels
     newStr = newStr.replace(/a|e|i|o|u/gi, function(vowel){
       return vowel.toUpperCase()
     })
+
     return newStr
   }
 
@@ -221,11 +149,8 @@ function longestWord(sen) {
 
 
 function addAll(...numbers) {
-  return numbers.reduce(function(acc, cur){
-    return acc += cur
-  })
+ return numbers.reduce((acc, cur) => acc + cur)
 }
-
 
 
 console.log('addAll()',
@@ -236,27 +161,24 @@ console.log('addAll()',
 // ex. sumAllPrimes(10) == 17
 //2,3,5,7
 function sumAllPrimes(num) {
-   let total = 0;
+ let total = 0;
 
-    function checkForPrime(i){
-      for(let j = 2; j < i; j++){
-        if(i % j === 0){
-          return false 
-        }
-      }
-      return true
-    }
-
-
-   for(let i = 2; i < num; i++){
-      if(checkForPrime(i)){
-        total += i
-      }
+ function checkForPrime(i){
+   for(let j = 2; j < i; j++){
+     if(i % j === 0){
+       return false
+     }
    }
+   return true
+ }
 
-   return total
+ for(let i = 2; i < num; i++){
+   if(checkForPrime(i)){
+     total += i
+   }
+  }
+  return total
 }
-
 console.log('sumAllPrimes()',
   sumAllPrimes(10)
 )

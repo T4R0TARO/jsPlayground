@@ -304,6 +304,7 @@ function longestWord(sen) {
 // Solution 1: ES5 arguments & for loop
 function addAll() {
   var args = Array.prototype.slice.call(arguments);
+    // var args = Array.from(arguments)
   var total = 0;
   for (let i = 0; i < args.length; i++) {
     total += args[i];
@@ -311,7 +312,14 @@ function addAll() {
   return total;
 }
 
-// Solution 2: ...rest & reduce/forEach
+  // Solution 2:
+  // let total = 0;
+  // numbers.forEach(function(num){
+  //     total += num
+  // })
+  // return total;
+
+// Solution 3: ...rest & reduce/forEach
 function addAll(...numbers) {
   return numbers.reduce((acc, cur) => acc + cur);
 }
