@@ -94,7 +94,7 @@ function longestWord(sen) {
   // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
   
   function flattenArray(arrays) {
-  return [].concat(...arrays)
+
   }
   
   console.log('flattenArray()',
@@ -120,21 +120,7 @@ function longestWord(sen) {
   // ex. 'hello there' === 'Ifmmp UIfsf'
   
   function letterChanges(str) {
-    //init newStr
-    let newStr = str.toLowerCase().replace(/[a-z]/gi, function(char){
-      if(char === "z" || char === "Z"){
-        return 'a'
-      } else {
-        return String.fromCharCode(char.charCodeAt() + 1)
-      }
-    })
 
-    //uppercase all vowels
-    newStr = newStr.replace(/a|e|i|o|u/gi, function(vowel){
-      return vowel.toUpperCase()
-    })
-
-    return newStr
   }
 
   console.log('letterChanges()',
@@ -149,7 +135,7 @@ function longestWord(sen) {
 
 
 function addAll(...numbers) {
- return numbers.reduce((acc, cur) => acc + cur)
+
 }
 
 
@@ -161,23 +147,7 @@ console.log('addAll()',
 // ex. sumAllPrimes(10) == 17
 //2,3,5,7
 function sumAllPrimes(num) {
- let total = 0;
 
- function checkForPrime(i){
-   for(let j = 2; j < i; j++){
-     if(i % j === 0){
-       return false
-     }
-   }
-   return true
- }
-
- for(let i = 2; i < num; i++){
-   if(checkForPrime(i)){
-     total += i
-   }
-  }
-  return total
 }
 console.log('sumAllPrimes()',
   sumAllPrimes(10)
