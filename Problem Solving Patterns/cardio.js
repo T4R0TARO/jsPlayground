@@ -2,7 +2,7 @@
 // Return a string in reverse 
 // ex. reverseString('hello') === 'olleh';
 function reverseString(str){  
-
+  return str.split('').reverse().join('')
 }
 
 console.log('reverseString()',
@@ -13,6 +13,8 @@ console.log('reverseString()',
 // Return true if palindrome and false if not 
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 function isPalindrome(str){
+  const reversedStr = str.split('').reverse().join('')
+  return reversedStr === str
 }
 
 console.log('isPalindrome()',
@@ -23,7 +25,9 @@ console.log('isPalindrome()',
  // Return an integer in reverse
  // ex. reverseInt(521) === 125
 function reverseInt(int){
-
+  const intToStr = int.toString().split('').reverse().join('');
+  const parsed = parseInt(intToStr);
+  return parsed;
 }
 
 console.log('reverseInt()',
@@ -34,7 +38,13 @@ console.log('reverseInt()',
  //Return a string with the first letter of every word capitalized
  // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 function capitalLetters(sen){
-
+  return sen
+  .toLowerCase()
+  .split(' ')
+  .map(function(word){
+    return word[0].toUpperCase() + word.slice(1)
+  })
+  .join(' ')
 }
 
 console.log('capitalLetters()', 
@@ -45,7 +55,27 @@ console.log('capitalLetters()',
 //Return the character that is most common in a string 
 // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str){
+  const charMap = {};
+  let maxNum = 0;
+  let maxChar = '';
 
+
+  str.split('').forEach(function(char){
+    if(charMap[char]){
+      charMap[char]++
+    } else {
+      charMap[char] = 1;
+    }
+  })
+
+  for(let char in charMap){
+    if(charMap[char] > maxNum){
+      maxNum = charMap[char]
+      maxChar = char
+    }
+  }
+
+  return maxChar;
 }
 
 console.log('maxCharacter()', 
