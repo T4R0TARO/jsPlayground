@@ -109,8 +109,20 @@ console.log('fizzBuzz()',
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 function longestWord(sen) {
-
-
+  // create filtered arr
+  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g)
+  // sort by length 
+  const sorted =  wordArr.sort((a,b) => b.length - a.length)
+  // if multiple words, put into arr
+  const longestWordArr = sorted.filter(function(word){
+    return word.length === sorted[0].length
+  })
+  // check if more that one arr val 
+  if (longestWordArr.length === 1){
+    return longestWordArr[0];
+  } else {
+    return longestWordArr
+  }
 }
 
   console.log('longestWord()',
@@ -123,16 +135,19 @@ function longestWord(sen) {
   // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
   
   function chunkArray(arr, len) {
+    //init chunked arr 
     const chunkedArr = [];
+    //set index
     let i = 0;
-
+    // loop while indes is less than the arr length 
     while(i < arr.length){
-      chunkedArr.push(arr.slice(i, i + len))
+      //slice out from the index to the index +  the chunk length push on to the chunked arr
+      chunkedArr.push(arr.slice(i, i+len))
+      //increment by chunk length   
       i += len
     }
-    return chunkedArr;
+    return chunkedArr
   }
-  
   console.log('chunkArray()',
     chunkArray([1,2,3,4,5,6,7,8,9,10], 3)
   )
@@ -141,7 +156,7 @@ function longestWord(sen) {
   // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
   
   function flattenArray(arrays) {
-
+    return [].concat(...arrays)
   }
   
   console.log('flattenArray()',
@@ -154,9 +169,18 @@ function longestWord(sen) {
   // ex. 'Dormitory' === 'dirty room##'
   
   function isAnagram(str1, str2) {
-  
+    return formatStr(str1) === formatStr(str2)
   }
   
+  //helper function
+  function formatStr(str){
+    return str
+      .replace(/[^\w]/g, '')
+      .toLowerCase()
+      .split('')
+      .sort()
+      .join('')
+  }
 
   console.log('isAnagram()',
     isAnagram('elbow', 'below!!')
