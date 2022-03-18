@@ -2,7 +2,7 @@
 // Return a string in reverse 
 // ex. reverseString('hello') === 'olleh';
 function reverseString(str){  
-  return str.split('').reverse().join('')
+
 }
 
 console.log('reverseString()',
@@ -13,8 +13,7 @@ console.log('reverseString()',
 // Return true if palindrome and false if not 
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 function isPalindrome(str){
-  const reversedStr = str.split('').reverse().join('')
-  return reversedStr === str
+
 }
 
 console.log('isPalindrome()',
@@ -25,9 +24,7 @@ console.log('isPalindrome()',
  // Return an integer in reverse
  // ex. reverseInt(521) === 125
 function reverseInt(int){
-  const intToStr = int.toString().split('').reverse().join('');
-  const parsed = parseInt(intToStr);
-  return parsed;
+
 }
 
 console.log('reverseInt()',
@@ -38,13 +35,7 @@ console.log('reverseInt()',
  //Return a string with the first letter of every word capitalized
  // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 function capitalLetters(sen){
-  return sen
-  .toLowerCase()
-  .split(' ')
-  .map(function(word){
-    return word[0].toUpperCase() + word.slice(1)
-  })
-  .join(' ')
+
 }
 
 console.log('capitalLetters()', 
@@ -55,27 +46,7 @@ console.log('capitalLetters()',
 //Return the character that is most common in a string 
 // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str){
-  const charMap = {};
-  let maxNum = 0;
-  let maxChar = '';
 
-
-  str.split('').forEach(function(char){
-    if(charMap[char]){
-      charMap[char]++
-    } else {
-      charMap[char] = 1;
-    }
-  })
-
-  for(let char in charMap){
-    if(charMap[char] > maxNum){
-      maxNum = charMap[char]
-      maxChar = char
-    }
-  }
-
-  return maxChar;
 }
 
 console.log('maxCharacter()', 
@@ -87,17 +58,7 @@ console.log('maxCharacter()',
 //For numbers which are multiples of both 3 and 5, print "FizzBuzz".
 
 function fizzBuzz(){
-  for(let i = 1; i <= 100; i++){
-    if(i % 3 === 0 && i % 5 === 0){
-      console.log("FizzBuzz")
-    } else if (i % 3 === 0){
-      console.log("Fizz")
-    } else if (i % 5 === 0){
-      console.log('Buzz')
-    } else {
-      console.log(i)
-    }
-  }
+
 }
 
 console.log('fizzBuzz()',
@@ -109,20 +70,7 @@ console.log('fizzBuzz()',
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 function longestWord(sen) {
-  // create filtered arr
-  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g)
-  // sort by length 
-  const sorted =  wordArr.sort((a,b) => b.length - a.length)
-  // if multiple words, put into arr
-  const longestWordArr = sorted.filter(function(word){
-    return word.length === sorted[0].length
-  })
-  // check if more that one arr val 
-  if (longestWordArr.length === 1){
-    return longestWordArr[0];
-  } else {
-    return longestWordArr
-  }
+
 }
 
   console.log('longestWord()',
@@ -135,18 +83,7 @@ function longestWord(sen) {
   // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
   
   function chunkArray(arr, len) {
-    //init chunked arr 
-    const chunkedArr = [];
-    //set index
-    let i = 0;
-    // loop while indes is less than the arr length 
-    while(i < arr.length){
-      //slice out from the index to the index +  the chunk length push on to the chunked arr
-      chunkedArr.push(arr.slice(i, i+len))
-      //increment by chunk length   
-      i += len
-    }
-    return chunkedArr
+
   }
   console.log('chunkArray()',
     chunkArray([1,2,3,4,5,6,7,8,9,10], 3)
@@ -156,7 +93,7 @@ function longestWord(sen) {
   // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
   
   function flattenArray(arrays) {
-    return [].concat(...arrays)
+
   }
   
   console.log('flattenArray()',
@@ -169,18 +106,9 @@ function longestWord(sen) {
   // ex. 'Dormitory' === 'dirty room##'
   
   function isAnagram(str1, str2) {
-    return formatStr(str1) === formatStr(str2)
+
   }
   
-  //helper function
-  function formatStr(str){
-    return str
-      .replace(/[^\w]/g, '')
-      .toLowerCase()
-      .split('')
-      .sort()
-      .join('')
-  }
 
   console.log('isAnagram()',
     isAnagram('elbow', 'below!!')
