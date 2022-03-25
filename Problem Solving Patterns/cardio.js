@@ -13,7 +13,8 @@ console.log('reverseString()',
 // Return true if palindrome and false if not 
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 function isPalindrome(str){
-
+  const reverseStr = str.split('').reverse().join('')
+  return str === reverseStr
 }
 
 console.log('isPalindrome()',
