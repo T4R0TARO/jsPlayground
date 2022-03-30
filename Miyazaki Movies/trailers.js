@@ -1,3 +1,10 @@
+const trailers = [
+    {
+        id: 1,
+        title: "spirited away",
+        trailer: "https://www.youtube.com/watch?v=ByXuk9QqQkk",
+    },
+];
 
 // Get DATA
 const baseEndPoint = 'https://ghibliapi.herokuapp.com/films/'
