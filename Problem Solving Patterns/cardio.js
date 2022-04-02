@@ -2,7 +2,7 @@
 // Return a string in reverse 
 // ex. reverseString('hello') === 'olleh';
 function reverseString(str){  
-  const reverseStr = str.split('').reverse().join('')
+
 }
 
 console.log('reverseString()',
@@ -13,8 +13,7 @@ console.log('reverseString()',
 // Return true if palindrome and false if not 
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 function isPalindrome(str){
-  const reverseStr = str.split('').reverse().join('')
-  return reverseStr === str
+
 }
 
 console.log('isPalindrome()',
@@ -25,9 +24,7 @@ console.log('isPalindrome()',
  // Return an integer in reverse
  // ex. reverseInt(521) === 125
 function reverseInt(int){
-  const numToStrRev = int.toString().split('').reverse().join('')
-  const parsed = parseInt(numToStrRev)
-  return parsed
+
 }
 
 console.log('reverseInt()',
@@ -38,18 +35,7 @@ console.log('reverseInt()',
  //Return a string with the first letter of every word capitalized
  // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 function capitalLetters(sen){
-  return sen
-  //lowercase str
-  .toLowerCase()
-  //split string to words
-  .split(' ')
-  //map out words
-  .map(function(word){
-    //uppercase first letter + word from 1 index
-    return word[0].toUpperCase() + word.substring(1)
-  })
-  //join words
-  .join(' ')
+
 }
 
 console.log('capitalLetters()', 
@@ -60,14 +46,10 @@ console.log('capitalLetters()',
 //Return the character that is most common in a string 
 // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str){
-  //init empt object
   const charMap = {}
-  //init empt str
-  let maxChar = ''
-  //init empt num
   let maxNum = 0
+  let maxChar = ''
 
-  //populate object and map out char
   str.split('').forEach(function(char){
     if(charMap[char]){
       charMap[char]++
@@ -83,9 +65,8 @@ function maxCharacter(str){
     }
   }
 
-  //empty num take largest num
-  //empty str take largest str
-  return `There are ${maxNum} counts of ${maxChar}`
+  return maxChar
+
 }
 
 
@@ -100,17 +81,7 @@ console.log('maxCharacter()',
 //For numbers which are multiples of both 3 and 5, print "FizzBuzz".
 
 function fizzBuzz(){
-  for(let i = 0; i <= 100; i++){
-    if(i % 3 === 0 && i % 5 === 0){
-      console.log("FizzBuzz")
-    } else if (i % 3 === 0){
-      console.log("Fizz")
-    } else if (i % 5 === 0){
-      console.log("Buzz")
-    } else {
-      console.log(i)
-    }
-  }
+
 }
 
 // console.log('fizzBuzz()',
@@ -122,17 +93,17 @@ function fizzBuzz(){
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 function longestWord(sen) {
-  //create wordArr
+  // wordArr
   const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
-  //sort arr
+  //sorted arr
   const sorted = wordArr.sort(function(a,b){
-    return b.length - a.length
+    return b.length - a.length;
   })
-  //if multiple longest word arr
+  //longestWordArr
   const longestWordArr = sorted.filter(function(word){
     return word.length === sorted[0].length
   })
-  //if single word return word else return  longest word arr
+  //if one word return word// if multiple word return arr
   if(longestWordArr.length === 1){
     return longestWordArr[0]
   } else {
@@ -141,9 +112,9 @@ function longestWord(sen) {
 }
 
 
-  // console.log('longestWord()',
-  //   longestWord('Ina of the mountain, what is your wisdom???')
-  // )
+  console.log('longestWord()',
+    longestWord('Ina of the mountain, what is your wisdom??? mountain')
+  )
 
   // CHALLENGE 2: ARRAY CHUNKING
   // Split an array into chunked arrays of a specific length
@@ -156,9 +127,8 @@ function longestWord(sen) {
 
     while(i < arr.length){
       chunkedArr.push(arr.slice(i, i + len))
-      i += len
+      i += len 
     }
-
     return chunkedArr
   }
   
@@ -184,23 +154,22 @@ function longestWord(sen) {
   // ex. 'Dormitory' === 'dirty room##'
   
   function isAnagram(str1, str2) {
-  
+    return formatStr(str1) === formatStr(str2)
   }
 
 // helper function 
-  function formatStr(str) {
-    return str
-      .replace(/[^w\g]/,'')
+  function formatStr(str){
+    return str 
+      .replace(/[^\w]/g,'')
       .toLowerCase()
       .split('')
       .sort()
       .join('')
   }
-  
 
-  // console.log('isAnagram()',
-  //   isAnagram('elbow', 'below!!')
-  // )
+  console.log('isAnagram()',
+    isAnagram('elbow', 'below!!')
+  )
 
   // CHALLENGE 5: LETTER CHANGES
   // Change every letter of the string to the one that follows it and capitalize the vowels
