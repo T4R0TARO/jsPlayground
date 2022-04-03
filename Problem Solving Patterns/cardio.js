@@ -2,7 +2,7 @@
 // Return a string in reverse 
 // ex. reverseString('hello') === 'olleh';
 function reverseString(str){  
-
+  return str.split('').reverse().join('')
 }
 
 console.log('reverseString()',
@@ -13,7 +13,8 @@ console.log('reverseString()',
 // Return true if palindrome and false if not 
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 function isPalindrome(str){
-
+  const reverseStr = str.split('').reverse().join('')
+  return str === reverseStr
 }
 
 console.log('isPalindrome()',
@@ -24,7 +25,9 @@ console.log('isPalindrome()',
  // Return an integer in reverse
  // ex. reverseInt(521) === 125
 function reverseInt(int){
-
+  const numToStr = int.toString().split('').reverse().join('');
+  const parsed = parseInt(numToStr)
+  return parsed
 }
 
 console.log('reverseInt()',
@@ -35,7 +38,13 @@ console.log('reverseInt()',
  //Return a string with the first letter of every word capitalized
  // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 function capitalLetters(sen){
-
+  return sen
+  .toLowerCase()
+  .split(' ')
+  .map(function(word){
+    return word[0].toUpperCase() + word.substring(1)
+  })
+  .join(' ')
 }
 
 console.log('capitalLetters()', 
