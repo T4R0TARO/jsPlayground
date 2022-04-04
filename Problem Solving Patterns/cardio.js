@@ -2,7 +2,7 @@
 // Return a string in reverse 
 // ex. reverseString('hello') === 'olleh';
 function reverseString(str){  
-  return str.split('').reverse().join('')
+
 }
 
 console.log('reverseString()',
@@ -13,8 +13,7 @@ console.log('reverseString()',
 // Return true if palindrome and false if not 
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 function isPalindrome(str){
-  const reverseStr = str.split('').reverse().join('')
-  return str === reverseStr
+
 }
 
 console.log('isPalindrome()',
@@ -25,9 +24,7 @@ console.log('isPalindrome()',
  // Return an integer in reverse
  // ex. reverseInt(521) === 125
 function reverseInt(int){
-  const numToStr = int.toString().split('').reverse().join('');
-  const parsed = parseInt(numToStr)
-  return parsed
+
 }
 
 console.log('reverseInt()',
@@ -38,13 +35,7 @@ console.log('reverseInt()',
  //Return a string with the first letter of every word capitalized
  // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 function capitalLetters(sen){
-  return sen
-  .toLowerCase()
-  .split(' ')
-  .map(function(word){
-    return word[0].toUpperCase() + word.substring(1)
-  })
-  .join(' ')
+
 }
 
 console.log('capitalLetters()', 
@@ -55,26 +46,6 @@ console.log('capitalLetters()',
 //Return the character that is most common in a string 
 // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str){
-  const charMap = {}
-  let maxNum = 0
-  let maxChar = ''
-
-  str.split('').forEach(function(char){
-    if(charMap[char]){
-      charMap[char]++
-    } else {
-      charMap[char] = 1
-    }
-  })
-
-  for(let char in charMap){
-    if(charMap[char] > maxNum){
-      maxNum = charMap[char]
-      maxChar = char
-    }
-  }
-
-  return maxChar
 
 }
 
@@ -102,17 +73,17 @@ function fizzBuzz(){
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 function longestWord(sen) {
-  // wordArr
+  //wordArr
   const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
-  //sorted arr
+  //sort
   const sorted = wordArr.sort(function(a,b){
-    return b.length - a.length;
+    return b.length - a.length
   })
   //longestWordArr
   const longestWordArr = sorted.filter(function(word){
     return word.length === sorted[0].length
   })
-  //if one word return word// if multiple word return arr
+  //if there are multi words
   if(longestWordArr.length === 1){
     return longestWordArr[0]
   } else {
@@ -135,9 +106,10 @@ function longestWord(sen) {
     let i = 0
 
     while(i < arr.length){
-      chunkedArr.push(arr.slice(i, i + len))
-      i += len 
+      chunkedArr.push(arr.slice(i, i+len))
+      i += len
     }
+
     return chunkedArr
   }
   
@@ -163,18 +135,11 @@ function longestWord(sen) {
   // ex. 'Dormitory' === 'dirty room##'
   
   function isAnagram(str1, str2) {
-    return formatStr(str1) === formatStr(str2)
+
   }
 
 // helper function 
-  function formatStr(str){
-    return str 
-      .replace(/[^\w]/g,'')
-      .toLowerCase()
-      .split('')
-      .sort()
-      .join('')
-  }
+
 
   console.log('isAnagram()',
     isAnagram('elbow', 'below!!')
