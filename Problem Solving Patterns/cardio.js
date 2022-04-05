@@ -2,7 +2,7 @@
 // Return a string in reverse 
 // ex. reverseString('hello') === 'olleh';
 function reverseString(str){  
-
+  return str.split('').reverse().join('')
 }
 
 console.log('reverseString()',
@@ -13,7 +13,8 @@ console.log('reverseString()',
 // Return true if palindrome and false if not 
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 function isPalindrome(str){
-
+  const reverseStr = str.split('').reverse().join('');
+  return str === reverseStr
 }
 
 console.log('isPalindrome()',
@@ -24,7 +25,9 @@ console.log('isPalindrome()',
  // Return an integer in reverse
  // ex. reverseInt(521) === 125
 function reverseInt(int){
-
+  const numToStr = int.toString().split('').reverse().join('');
+  const parsed = parseInt(numToStr);
+  return parsed;
 }
 
 console.log('reverseInt()',
@@ -171,11 +174,18 @@ function longestWord(sen) {
   // ex. 'Dormitory' === 'dirty room##'
   
   function isAnagram(str1, str2) {
-
+    return formatStr(str1) === formatStr(str2)
   }
 
 // helper function 
-
+  function formatStr(str){
+    return str
+    .replace(/[^w]/g, '')
+    .toLowerCase()
+    .split('')
+    .sort()
+    .join('')
+  }
 
   console.log('isAnagram()',
     isAnagram('elbow', 'below!!')
@@ -187,12 +197,28 @@ function longestWord(sen) {
   // ex. 'hello there' === 'Ifmmp UIfsf'
   
   function letterChanges(str) {
+    //replace char with char specified by function
+    let newStr = str.toLowerCase().replace(/[a-z]/gi, function(char){
+      if(char === 'z' || char === 'Z'){
+        return 'a';
+      } else {
+        //return create string from specified sequence = char code next following
+        return String.fromCharCode(char.charCodeAt() + 1);
+      }
+    });
+
+    newStr = newStr.replace(/a|e|i|o|u/gi, function(vowel){
+      return vowel.toUpperCase()
+    })
+
+    return newStr
+
 
   }
 
-  // console.log('letterChanges()',
-  //   letterChanges('hello there')
-  // )
+  console.log('letterChanges()',
+    letterChanges('hello there')
+  )
   
 
 // ARRAY CARDIO 3
@@ -201,14 +227,16 @@ function longestWord(sen) {
 // ex. addAll(2,5,6,7) === 20
 
 
-function addAll() {
-
+function addAll(...numbers) {
+  return numbers.reduce(function(acc, cur){
+    return acc + cur
+  },0)
 }
 
 
-// console.log('addAll()',
-//   addAll(2,5,6,7,5)
-// )
+console.log('addAll()',
+  addAll(2,5,6,7,5)
+)
 
 // CHALLENGE 2: SUM ALL PRIMES
 // Pass in a number to loop up to and add all of the prime numbers. A prime number is a whole number greater than 1 whose only factors are 1 and itself
