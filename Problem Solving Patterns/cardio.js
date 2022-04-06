@@ -13,7 +13,7 @@ console.log('reverseString()',
 // Return true if palindrome and false if not 
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 function isPalindrome(str){
-  const reverseStr = str.split('').reverse().join('');
+  const reverseStr = str.split('').reverse().join('')
   return str === reverseStr
 }
 
@@ -25,9 +25,9 @@ console.log('isPalindrome()',
  // Return an integer in reverse
  // ex. reverseInt(521) === 125
 function reverseInt(int){
-  const numToStr = int.toString().split('').reverse().join('');
-  const parsed = parseInt(numToStr);
-  return parsed;
+  const numToStr = int.toString().split('').reverse().join('')
+  const parsed = parseInt(numToStr)
+  return parsed
 }
 
 console.log('reverseInt()',
@@ -38,7 +38,7 @@ console.log('reverseInt()',
  //Return a string with the first letter of every word capitalized
  // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 function capitalLetters(sen){
-  return sen
+  return sen 
   .toLowerCase()
   .split(' ')
   .map(function(word){
@@ -59,23 +59,21 @@ function maxCharacter(str){
   let maxNum = 0
   let maxChar = ''
 
-
   str.split('').forEach(function(char){
     if(charMap[char]){
       charMap[char]++
-    } else {
+    }else{
       charMap[char] = 1
     }
   })
 
   for(let char in charMap){
     if(charMap[char] > maxNum){
-      maxNum = charMap[char]
+      maxNum = charMap[char] 
       maxChar = char
     }
   }
-
-  return maxChar
+  return `char ${maxChar} has the most amount of char with a count of ${maxNum}`
 }
 
 
@@ -90,17 +88,6 @@ console.log('maxCharacter()',
 //For numbers which are multiples of both 3 and 5, print "FizzBuzz".
 
 function fizzBuzz(){
- for(let i = 1; i <= 100; i++){
-   if( i % 3 === 0 && i % 5 === 0){
-     console.log("FizzBuzz")
-   } else if (i % 3 === 0){
-     console.log("Fizz")
-   } else if (i % 5 === 0){
-     console.log("Buzz")
-   } else {
-     console.log(i)
-   }
- }
 }
 
 // console.log('fizzBuzz()',
@@ -112,17 +99,17 @@ function fizzBuzz(){
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 function longestWord(sen) {
-  //wordArr
+  //init arr
   const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
-  //sort
+  //sort arr
   const sorted = wordArr.sort(function(a,b){
     return b.length - a.length
   })
-  //longestWordArr
+  //arr for multi long words
   const longestWordArr = sorted.filter(function(word){
     return word.length === sorted[0].length
   })
-  //if there are multi words
+  // if 1 word return word else return arr
   if(longestWordArr.length === 1){
     return longestWordArr[0]
   } else {
@@ -145,10 +132,9 @@ function longestWord(sen) {
     let i = 0
 
     while(i < arr.length){
-      chunkedArr.push(arr.slice(i, i+len))
+      chunkedArr.push(arr.slice(i, i + len))
       i += len
     }
-
     return chunkedArr
   }
   
@@ -180,7 +166,7 @@ function longestWord(sen) {
 // helper function 
   function formatStr(str){
     return str
-    .replace(/[^w]/g, '')
+    .replace(/[^\w]/g, '')
     .toLowerCase()
     .split('')
     .sort()
@@ -197,23 +183,20 @@ function longestWord(sen) {
   // ex. 'hello there' === 'Ifmmp UIfsf'
   
   function letterChanges(str) {
-    //replace char with char specified by function
     let newStr = str.toLowerCase().replace(/[a-z]/gi, function(char){
-      if(char === 'z' || char === 'Z'){
-        return 'a';
+      if(char === "z" || char === "Z"){
+        return "a"
       } else {
-        //return create string from specified sequence = char code next following
-        return String.fromCharCode(char.charCodeAt() + 1);
+        // return str to the one that follows it
+        return  String.fromCharCode(char.charCodeAt() + 1)
       }
-    });
-
+    })
+    
+    // mutate str replace vowels with uppercase
     newStr = newStr.replace(/a|e|i|o|u/gi, function(vowel){
       return vowel.toUpperCase()
     })
-
-    return newStr
-
-
+    return  newStr
   }
 
   console.log('letterChanges()',
@@ -229,7 +212,7 @@ function longestWord(sen) {
 
 function addAll(...numbers) {
   return numbers.reduce(function(acc, cur){
-    return acc + cur
+    return acc + cur;
   },0)
 }
 
