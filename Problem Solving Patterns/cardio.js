@@ -22,9 +22,7 @@ console.log('isPalindrome()',
  // Return an integer in reverse
  // ex. reverseInt(521) === 125
 function reverseInt(int){
-  const intToStr = int.toString().split('').reverse().join('')
-  const parsed = parseInt(intToStr)
-  return parsed
+
 }
 
 console.log('reverseInt()',
@@ -35,13 +33,7 @@ console.log('reverseInt()',
  //Return a string with the first letter of every word capitalized
  // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 function capitalLetters(sen){
-  return sen
-  .toLowerCase()
-  .split(' ')
-  .map(function(word){
-    return word[0].toUpperCase() + word.substring(1)
-  })
-  .join(' ')
+
 }
 
 console.log('capitalLetters()', 
@@ -52,27 +44,7 @@ console.log('capitalLetters()',
 //Return the character that is most common in a string 
 // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str){
-  const charMap = {}
-  let maxNum = 0
-  let maxChar = ''
 
-
-  str.split('').forEach(function(char){
-    if(charMap[char]){
-      charMap[char]++
-    } else {
-      charMap[char] = 1
-    }
-  })
-
-  for(let char in charMap){
-    if(charMap[char] > maxNum){
-      maxNum = charMap[char] 
-      maxChar = char
-    }
-  }
-
-  return maxChar
 
 }
 
@@ -113,7 +85,14 @@ function longestWord(sen) {
   // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
   
   function chunkArray(arr, len) {
+    const chunkedArr = []
+    let i = 0
 
+    while(i < arr.length){
+      chunkedArr.push(arr.slice(i, i+len))
+      i+=len
+    }
+    return chunkedArr
   }
   
   console.log('chunkArray()',
@@ -125,7 +104,7 @@ function longestWord(sen) {
   // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
   
   function flattenArray(arrays) {
-
+    return [].concat(...arrays)
   }
   
   console.log('flattenArray()',
@@ -138,11 +117,18 @@ function longestWord(sen) {
   // ex. 'Dormitory' === 'dirty room##'
   
   function isAnagram(str1, str2) {
- 
+    return formatStr(str1) === formatStr(str2)
   }
 
   //format Str
-
+  function formatStr(str){
+    return str
+    .replace(/[^/w]/gi, '')
+    .toLowerCase()
+    .split('')
+    .sort()
+    .join('')
+  }
 
   console.log('isAnagram()',
     isAnagram('elbow', 'below!!')
@@ -154,7 +140,19 @@ function longestWord(sen) {
   // ex. 'hello there' === 'Ifmmp UIfsf'
   
   function letterChanges(str) {
+    let newStr = str.toLowerCase().replace(/[a-z]/gi, function(char){
+      if(char === "z" || char === "Z"){
+        return "a";
+      } else {
+        return String.fromCharCode(char.charCodeAt() + 1)
+      }
+    })
 
+    newStr = newStr.replace(/a|e|i|o|u/gi, function(vowel){
+      return vowel.toUpperCase()
+    })
+
+    return newStr
   }
 
   console.log('letterChanges()',
@@ -169,7 +167,9 @@ function longestWord(sen) {
 
 
 function addAll(...numbers) {
-
+  return numbers.reduce(function(acc, cur){
+    return acc + cur
+  },0)
 }
 
 
