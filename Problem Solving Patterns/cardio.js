@@ -35,13 +35,7 @@ console.log('reverseInt()',
  //Return a string with the first letter of every word capitalized
  // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 function capitalLetters(sen){
-  return sen
-  .toLowerCase()
-  .split(' ')
-  .map(function(word){
-    return word[0].toUpperCase() + word.substring(1)
-  })
-  .join(' ')
+
 }
 
 console.log('capitalLetters()', 
@@ -52,26 +46,7 @@ console.log('capitalLetters()',
 //Return the character that is most common in a string 
 // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str){
-  let charMap = {}
-  let maxNum = 0
-  let maxChar = ''
 
-  str.split('').forEach(function(char){
-    if(charMap[char]){
-      charMap[char]++
-    } else {
-      charMap[char] = 1
-    }
-  })
-
-  for(let char in charMap){
-    if(charMap[char] > maxNum){
-      maxNum = charMap[char]
-      maxChar = char
-    }
-  }
-  
-  return maxChar
 }
 
 
@@ -98,22 +73,7 @@ function fizzBuzz(){
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 function longestWord(sen) {
-  // wordArr match()
-  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
-  // sorted arr sort()
-  const sorted = wordArr.sort(function(a,b){
-    return b.length - a.length 
-  })
-  // longestWordArr filter()
-  const longestWordArr = sorted.filter(function(word){
-    return word.length === sorted[0].length 
-  })
-  // if one word return word else return arr
-  if(longestWordArr.length === 1){
-    return longestWordArr[0]
-  } else {
-    return longestWordArr
-  }
+
 }
 
 
@@ -134,7 +94,6 @@ function longestWord(sen) {
       chunkedArr.push(arr.slice(i, i + len))
       i += len
     }
-
     return chunkedArr
   }
   
@@ -160,10 +119,10 @@ function longestWord(sen) {
   // ex. 'Dormitory' === 'dirty room##'
   
   function isAnagram(str1, str2) {
-    return formatStr(str2) === formatStr(str1)
+    return formatStr(str1) === formatStr(str2)
   }
 
-  //format Str to just letters 
+  //helper function
   function formatStr(str){
     return str
     .replace(/[^\w]/gi, '')
@@ -172,7 +131,6 @@ function longestWord(sen) {
     .sort()
     .join('')
   }
-
 
 
   console.log('isAnagram()',
@@ -185,16 +143,18 @@ function longestWord(sen) {
   // ex. 'hello there' === 'Ifmmp UIfsf'
   
   function letterChanges(str) {
+    //change letter if z return a
     let newStr = str.toLowerCase().replace(/[a-z]/gi, function(char){
-      if( char === 'z' || char === 'Z') {
+      if(char === 'z' || char === 'Z'){
         return 'a'
       } else {
+        //change every letter to the one that follows it
         return String.fromCharCode(char.charCodeAt() + 1)
-      }
+      }  
     })
-
-    newStr = newStr.replace(/a|e|i|o|u/gi, function(vowel){
-      return vowel.toUpperCase()
+    //capitalize vowels
+    newStr = newStr.replace(/a|e|i|o|u/gi, function(vowels){
+      return vowels.toUpperCase()
     })
     return newStr
   }
