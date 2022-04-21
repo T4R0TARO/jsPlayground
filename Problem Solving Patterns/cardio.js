@@ -73,7 +73,22 @@ function fizzBuzz(){
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 function longestWord(sen) {
-
+//newWordArr  without symbols
+const newWordArr = sen.toLowerCase().match(/[a-z09]+/g);
+//sorted arr
+const sorted =newWordArr.sort(function(a,b){
+  return b.length - a.length
+})
+//if more than 1 longestWord create arr
+const longestWordArr = sorted.filter(function(word){
+  return sorted[0] === word
+})
+// if 1 word return word else return arr
+  if (longestWordArr.length === 1){
+    return longestWordArr[0]
+  } else {
+    return longestWordArr;
+  }
 }
 
 
