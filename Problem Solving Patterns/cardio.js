@@ -73,21 +73,21 @@ function fizzBuzz(){
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 function longestWord(sen) {
-//newWordArr  without symbols
-const newWordArr = sen.toLowerCase().match(/[a-z09]+/g);
-//sorted arr
-const sorted =newWordArr.sort(function(a,b){
-  return b.length - a.length
-})
-//if more than 1 longestWord create arr
-const longestWordArr = sorted.filter(function(word){
-  return sorted[0] === word
-})
-// if 1 word return word else return arr
-  if (longestWordArr.length === 1){
+  //newWordArr
+  const newWordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
+  //sorted arr
+  const sorted = newWordArr.sort(function(a,b){
+    return b.length - a.length
+  })
+  //longestWordsArr
+  const longestWordArr = sorted.filter(function(word){
+    return sorted[0].length === word.length
+  })
+  //if one word return word else return arr
+  if(longestWordArr.length === 1){
     return longestWordArr[0]
   } else {
-    return longestWordArr;
+    return longestWordArr
   }
 }
 
@@ -102,12 +102,12 @@ const longestWordArr = sorted.filter(function(word){
   // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
   
   function chunkArray(arr, len) {
-    const chunkedArr = []
+    let chunkedArr = []
     let i = 0
 
     while(i < arr.length){
       chunkedArr.push(arr.slice(i, i + len))
-      i += len
+      i += len 
     }
     return chunkedArr
   }
@@ -137,7 +137,6 @@ const longestWordArr = sorted.filter(function(word){
     return formatStr(str1) === formatStr(str2)
   }
 
-  //helper function
   function formatStr(str){
     return str
     .replace(/[^\w]/gi, '')
@@ -146,6 +145,8 @@ const longestWordArr = sorted.filter(function(word){
     .sort()
     .join('')
   }
+
+
 
 
   console.log('isAnagram()',
@@ -158,18 +159,15 @@ const longestWordArr = sorted.filter(function(word){
   // ex. 'hello there' === 'Ifmmp UIfsf'
   
   function letterChanges(str) {
-    //change letter if z return a
     let newStr = str.toLowerCase().replace(/[a-z]/gi, function(char){
-      if(char === 'z' || char === 'Z'){
+      if( char === 'z' || char === 'Z') {
         return 'a'
-      } else {
-        //change every letter to the one that follows it
-        return String.fromCharCode(char.charCodeAt() + 1)
-      }  
+      } else  {
+        return String.fromCharCode(char.charCodeAt()  + 1)
+      }
     })
-    //capitalize vowels
-    newStr = newStr.replace(/a|e|i|o|u/gi, function(vowels){
-      return vowels.toUpperCase()
+    newStr = newStr.replace(/a|e|i|o|u/gi, function(vowel){
+      return vowel.toUpperCase()
     })
     return newStr
   }
@@ -190,6 +188,8 @@ function addAll(...numbers) {
     return acc + cur
   },0)
 }
+
+
 
 
 console.log('addAll()',
