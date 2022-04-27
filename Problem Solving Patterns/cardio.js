@@ -240,6 +240,26 @@ console.log('addAll()',
 //2,3,5,7
 
 function sumAllPrimes(num) {
+  let total = 0
+
+  //check for primes func
+  function checkForPrimes(i){
+    for(let j = 2; j < i; j++){
+      if(i % j  === 0){
+        return false
+      }
+    }
+    return true
+  }
+
+  //return sum of primes
+  for (let i = 2; i <= num; i++){
+    if(checkForPrimes(i)){
+      total += i
+    }
+  }
+  return total
+
 
 }
 // console.log('sumAllPrimes()',
