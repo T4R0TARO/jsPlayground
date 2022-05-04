@@ -1,81 +1,73 @@
-body {
-    background-color: darkslateblue;
-}
-
-/* Includes the padding and border in an element's total width and height */
-* {
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-/* Remove margins and padding from the list */
-ul {
-    margin: 0;
-    padding: 0;
+.container {
+  padding: 60px 40px;
+  background: snow;
+  height: 100vh;
+  width: 100%;
 }
 
-/* Style the list items */
 ul li {
     position: relative;
     padding: 12px 8px 12px 40px;
-    background: #eee; 
     font-size: 1.2rem;
     transition: 0.2s;
-
-/* make the list items unselectable */
+    background: rgb(37, 195, 248);
     user-select: none;
+    list-style: none;
 }
 
-/* Set all the odd list items to a different color */
 ul li:nth-child(odd){
-    background: #f9f9f9;
+    background: rgb(77, 211, 255);
 }
 
-/* Darker background-color on hover */
 ul li:hover{
-    background: #ddd;
+    background: rgb(161, 229, 252);
 }
 
-
-/* When clicked on, add a background color and strike out text */
 ul li.checked {
-    background: #888;
+    background: rgb(185, 186, 255);
     color: #fff;
     text-decoration: line-through;
 }
 
-/* Add a 'checked' mark when clicked on */
+/* Add check mark when clicked on */
 ul li.checked::before {
     content: '';
     position: absolute;
-    border-color: #fff;
+    border-color: #fff; 
     border-style: solid;
     border-width: 0 2px 2px 0;
     top: 13px;
-    left: 16px;
+    left: 16px; 
     transform: rotate(45deg);
-    height: 15px;
-    width: 7px;
+    height: 15px; 
+    width: 7px; 
 }
 
-/* Style the close button */
+
+/* Style close buttons */
 .close {
     position: absolute;
-    right: 0;
+    right: 0; 
     top: 0;
     padding: 12px 16px 12px 16px;
 }
 
-
 .close:hover {
-    background-color: #f44336;
-    color:white;
+    background-color: rgb(255, 154, 213);
+    color: #fff;
 }
 
-/*Style header  */
+/* Style header */
 .header {
-    background-color: #f44336;
+    background: rgb(185, 186, 255);
     padding: 30px 40px;
-    color: white;
+    color: #fff;
     text-align: center;
 }
 
@@ -86,9 +78,8 @@ ul li.checked::before {
     clear: both;
 }
 
-/* Style the input */
-input{
-    margin: 0;
+
+input {
     border: none;
     border-radius: 0;
     width: 75%;
@@ -97,20 +88,20 @@ input{
     font-size: 16px;
 }
 
-/* Style the "Add" button */
+/* Add Button */
 .addBtn {
     padding: 10px;
-    width: 25%;
-    background: #d9d9d9;
-    color: #555;
-    float: left; 
+    background:rgb(132, 133, 248);
+    width: 25%; 
+    float: left;
     text-align: center;
     font-size: 1rem;
+    pointer-events: all;
+    transition: 0.3s ease;
     cursor: pointer;
-    transition: 0.3s;
     border-radius: 0;
 }
 
 .addBtn:hover {
-    background-color: #bbb;
+    background:rgb(255, 154, 213);
 }
