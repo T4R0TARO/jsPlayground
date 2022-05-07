@@ -1,4 +1,4 @@
-console.log('wah')
+// console.log('wah')
 
 // PROCEDURAL PROGRAMMING
 // let baseSalary = 30_000;
@@ -6,8 +6,8 @@ console.log('wah')
 // let rate = 20;
 
 // function getWage(){
-//     return baseSalary + (overtime * rate);
-// }
+    // }
+    //     return baseSalary + (overtime * rate);
 
 // console.log(getWage())
 
@@ -24,7 +24,7 @@ let employee = {
 
 employee.getWage();
 
-console.log(employee.getWage())
+// console.log(employee.getWage())
 
 // const circle = {
 //     radius: 1,
@@ -41,20 +41,31 @@ console.log(employee.getWage())
 // console.log(circle.radius)
 // console.log(circle.location.y)
 
-// Factory Function 
-function createCircle(radius){
-    return {
-        radius,
-        draw: function() {
-            console.log('draw')
-        }
-    }
-}
-const circle = createCircle(1)
+// // Factory Function 
+// function createCircle(radius){
+//     return {
+//         radius,
+//         draw: function() {
+//             console.log('draw')
+//         }
+//     }
+// }
+// const circle = createCircle(1)
 
-console.log(circle.constructor)
+// console.log(circle.constructor)
 
-// Constructor Function
+// // Constructor Function
+// function Circle(radius){
+//     this.radius = radius;
+//     this.draw = function() {
+//         console.log('draw')
+//     }
+// }
+
+// const another = new Circle(1)
+
+// console.log(another.constructor)
+
 function Circle(radius){
     this.radius = radius;
     this.draw = function() {
@@ -62,7 +73,22 @@ function Circle(radius){
     }
 }
 
-const another = new Circle(1)
+const circle = new Circle(10)
 
-console.log(another.constructor)
+// Iterate through an object 
+for(let key in circle){
+    if (typeof circle[key] !== 'function')
+        console.log(key, circle[key])
+    
+    // console.log(key)
+    // console.log(circle[key])
 
+}
+
+const keys = Object.keys(circle)
+console.log(keys)
+
+if('radius' in circle)
+    console.log('Circle has a radius.');
+
+    
