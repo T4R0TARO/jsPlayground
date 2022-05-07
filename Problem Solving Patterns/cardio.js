@@ -2,7 +2,7 @@
 // Return a string in reverse 
 // ex. reverseString('hello') === 'olleh';
 function reverseString(str){  
-  return str.split('').reverse().join()
+
 }
 
 console.log('reverseString()',
@@ -13,8 +13,7 @@ console.log('reverseString()',
 // Return true if palindrome and false if not 
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 function isPalindrome(str){
-  const reverseStr = str.split('').reverse().join('')
-  return reverseStr === str
+
 }
 
 console.log('isPalindrome()',
@@ -25,9 +24,7 @@ console.log('isPalindrome()',
  // Return an integer in reverse
  // ex. reverseInt(521) === 125
 function reverseInt(int){
-  const intToStr = int.toString().split('').reverse().join('')
-  const parsed = parseInt(intToStr)
-  return parsed
+
 }
 
 console.log('reverseInt()',
@@ -38,13 +35,7 @@ console.log('reverseInt()',
  //Return a string with the first letter of every word capitalized
  // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 function capitalLetters(sen){
-  return sen
-  .toLowerCase()
-  .split(' ')
-  .map(function(word){
-    return word[0].toUpperCase() + word.substring(1)
-  })
-  .join(' ')
+
 }
 
 console.log('capitalLetters()', 
@@ -55,26 +46,7 @@ console.log('capitalLetters()',
 //Return the character that is most common in a string 
 // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str){
-  const charMap = {}
-  let maxNum = 0
-  let maxChar = ''
 
-  str.split('').forEach(function(char){
-    if(charMap[char]){
-      charMap[char]++
-    } else {
-      charMap[char] = 1
-    }
-  })
-
-  for(let char in charMap){
-    if(charMap[char] > maxNum){
-      maxNum = charMap[char]
-      maxChar = char
-    }
-  }
-  
-  return maxChar
 }
 
 
@@ -89,17 +61,7 @@ console.log('maxCharacter()',
 //For numbers which are multiples of both 3 and 5, print "FizzBuzz".
 
 function fizzBuzz(){
-  for(let i = 1; i <= 100; i++){
-    if( i % 3 === 0 && i % 5 === 0){
-      console.log('FizzBuzz')
-    } else if ( i % 3 === 0){
-      console.log('Fizz')
-    } else if (i % 5 === 0){
-      console.log('Buzz')
-    } else {
-      console.log(i)
-    }
-  }
+
 }
 
 // console.log('fizzBuzz()',
@@ -111,22 +73,7 @@ function fizzBuzz(){
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 function longestWord(sen) {
-  //newWordArr
-  const newWordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
-  //sorted arr
-  const sorted = newWordArr.sort(function(a,b){
-    return b.length - a.length
-  })
-  //longestWordsArr
-  const longestWordArr = sorted.filter(function(word){
-    return sorted[0].length === word.length
-  })
-  //if one word return word else return arr
-  if(longestWordArr.length === 1){
-    return longestWordArr[0]
-  } else {
-    return longestWordArr
-  }
+
 }
 
 
@@ -140,14 +87,7 @@ function longestWord(sen) {
   // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
   
   function chunkArray(arr, len) {
-    let chunkedArr = []
-    let i = 0
 
-    while(i < arr.length){
-      chunkedArr.push(arr.slice(i, i + len))
-      i += len 
-    }
-    return chunkedArr
   }
   
   console.log('chunkArray()',
@@ -159,7 +99,7 @@ function longestWord(sen) {
   // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
   
   function flattenArray(arrays) {
-    return [].concat(...arrays)
+
   }
   
   console.log('flattenArray()',
@@ -172,17 +112,9 @@ function longestWord(sen) {
   // ex. 'Dormitory' === 'dirty room##'
   
   function isAnagram(str1, str2) {
-    return formatStr(str1) === formatStr(str2)
+
   }
 
-  function formatStr(str){
-    return str
-    .replace(/[^\w]/gi, '')
-    .toLowerCase()
-    .split('')
-    .sort()
-    .join('')
-  }
 
 
 
@@ -197,17 +129,7 @@ function longestWord(sen) {
   // ex. 'hello there' === 'Ifmmp UIfsf'
   
   function letterChanges(str) {
-    let newStr = str.toLowerCase().replace(/[a-z]/gi, function(char){
-      if( char === 'z' || char === 'Z') {
-        return 'a'
-      } else  {
-        return String.fromCharCode(char.charCodeAt()  + 1)
-      }
-    })
-    newStr = newStr.replace(/a|e|i|o|u/gi, function(vowel){
-      return vowel.toUpperCase()
-    })
-    return newStr
+
   }
 
   console.log('letterChanges()',
@@ -222,9 +144,7 @@ function longestWord(sen) {
 
 
 function addAll(...numbers) {
-  return numbers.reduce(function(acc, cur){
-    return acc + cur
-  },0)
+
 }
 
 
@@ -240,26 +160,6 @@ console.log('addAll()',
 //2,3,5,7
 
 function sumAllPrimes(num) {
-  let total = 0
-
-  //check for primes func
-  function checkForPrimes(i){
-    for(let j = 2; j < i; j++){
-      if(i % j  === 0){
-        return false
-      }
-    }
-    return true
-  }
-
-  //return sum of primes
-  for (let i = 2; i <= num; i++){
-    if(checkForPrimes(i)){
-      total += i
-    }
-  }
-  return total
-
 
 }
 // console.log('sumAllPrimes()',
