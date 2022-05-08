@@ -24,7 +24,7 @@ let employee = {
 
 employee.getWage();
 
-// console.log(employee.getWage())
+console.log(employee.getWage())
 
 // const circle = {
 //     radius: 1,
@@ -91,4 +91,3 @@ console.log(keys)
 if('radius' in circle)
     console.log('Circle has a radius.');
 
-    

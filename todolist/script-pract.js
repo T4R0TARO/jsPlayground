@@ -1,4 +1,4 @@
-// Create a close button for the li items 
+// Create a close button for the li items
 /** Code Block
  * create var that refers to LI elements
  * iterate through LI items
@@ -11,18 +11,17 @@
  * have LI become parent of SPAN
 
  */
+const myNodeList = document.getElementsByTagName("LI");
 
-const myNodeList = document.getElementsByTagName('LI')
-
-for(let i = 0; i < myNodeList.length; i++){
-    const span = document.createElement('SPAN')
-    const text = document.createTextNode('\u00D7')
-    span.className = 'close'
-    span.appendChild(text)
-    myNodeList[i].appendChild(span)
+for (let i = 0; i < myNodeList.length; i++) {
+  const span = document.createElement("SPAN");
+  const txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodeList[i].appendChild(span);
 }
 
-// Click on close button and hide the current list item 
+// Click on close button and hide the current list item
 /** Code Block
  * create var that refers to elements with class name 'close'
  * iterate through the 'close' items
@@ -35,13 +34,13 @@ for(let i = 0; i < myNodeList.length; i++){
 
  */
 
-const close = document.getElementsByClassName('close')
+const close = document.getElementsByClassName("close");
 
-for(let i = 0; i < close.length; i++){
-    close[i].onclick = function(){
-        let div = this.parentElement;
-        div.style.display = 'none'
-    }
+for (let i = 0; i < close.length; i++) {
+  close[i].onclick = function () {
+    let div = this.parentElement;
+    div.style.display = "none";
+  };
 }
 
 // Click LI items to toggle check mark icon
@@ -52,15 +51,16 @@ for(let i = 0; i < close.length; i++){
  * event.target.classList.toggle('checked')
 
  */
-const list = document.querySelector('UL')
 
-list.addEventListener('click', function(event){
-    if(event.target.tagName === 'LI'){
-        event.target.classList.toggle('checked')
-    }
-})
+const list = document.querySelector("ul");
 
-//Create new list item when clicking on the 'Add' button 
+list.addEventListener("click", function (event) {
+  if (event.target.tagName === "LI") {
+    event.target.classList.toggle("checked");
+  }
+});
+
+//Create new list item when clicking on the 'Add' button
 /**Code Block
  * create function that will create new list element
  * create LI element
@@ -79,29 +79,30 @@ list.addEventListener('click', function(event){
 
  */
 
-function newElement(){
-    const li = document.createElement('LI')
-    const inputValue = document.getElementById('myInput').value
-    const t = document.createTextNode(inputValue)
-    li.appendChild(t)
-    // console.log(inputValue)
+function newElement() {
+  const li = document.createElement("li");
+  const inputValue = document.getElementById("myInput").value;
+  const t = document.createTextNode(inputValue);
+  li.appendChild(t);
 
-    if(inputValue === ''){
-        alert('You have to write something') 
-    } document.getElementById('main__ul').appendChild(li)
-    document.getElementById('myInput').value = ''
+  if (inputValue === "") {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
 
-    const span = document.createElement('SPAN')
-    const text = document.createTextNode('\u00D7')
-    span.className = 'close'
-    span.appendChild(text)
-    li.appendChild(span)
+  document.getElementById("myInput").value = "";
 
-    
-    for(let i = 0; i < close.length; i++){
-        close[i].onclick = function(){
-            let div = this.parentElement;
-            div.style.display = 'none'
-        }
-    }
+  const span = document.createElement("SPAN");
+  const txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (let i = 0; i < close.length; i++) {
+    close[i].onclick = function () {
+      let div = this.parentElement;
+      div.style.display = "none";
+    };
+  }
 }
