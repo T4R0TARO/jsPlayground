@@ -9,17 +9,7 @@
  * have SPAN become parent of textNode
  * access the LI index
  * have LI become parent of SPAN
-
  */
-const myNodeList = document.getElementsByTagName("LI");
-
-for (let i = 0; i < myNodeList.length; i++) {
-  const span = document.createElement("SPAN");
-  const txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodeList[i].appendChild(span);
-}
 
 // Click on close button and hide the current list item
 /** Code Block
@@ -29,19 +19,10 @@ for (let i = 0; i < myNodeList.length; i++) {
  * access the 'close' index
  * apply the onlcick funct for each item:
  * onlick():
- * create a var that refers to the parernt of the SPAN > LI 
+ * create a var that refers to the parent of the SPAN > LI 
  * change the style display="none"
 
  */
-
-const close = document.getElementsByClassName("close");
-
-for (let i = 0; i < close.length; i++) {
-  close[i].onclick = function () {
-    let div = this.parentElement;
-    div.style.display = "none";
-  };
-}
 
 // Click LI items to toggle check mark icon
 /** Code Block
@@ -51,14 +32,6 @@ for (let i = 0; i < close.length; i++) {
  * event.target.classList.toggle('checked')
 
  */
-
-const list = document.querySelector("ul");
-
-list.addEventListener("click", function (event) {
-  if (event.target.tagName === "LI") {
-    event.target.classList.toggle("checked");
-  }
-});
 
 //Create new list item when clicking on the 'Add' button
 /**Code Block
@@ -78,31 +51,3 @@ list.addEventListener("click", function (event) {
  * Create functionality to close button
 
  */
-
-function newElement() {
-  const li = document.createElement("li");
-  const inputValue = document.getElementById("myInput").value;
-  const t = document.createTextNode(inputValue);
-  li.appendChild(t);
-
-  if (inputValue === "") {
-    alert("You must write something!");
-  } else {
-    document.getElementById("myUL").appendChild(li);
-  }
-
-  document.getElementById("myInput").value = "";
-
-  const span = document.createElement("SPAN");
-  const txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
-
-  for (let i = 0; i < close.length; i++) {
-    close[i].onclick = function () {
-      let div = this.parentElement;
-      div.style.display = "none";
-    };
-  }
-}

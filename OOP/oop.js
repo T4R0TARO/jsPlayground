@@ -6,25 +6,25 @@
 // let rate = 20;
 
 // function getWage(){
-    // }
-    //     return baseSalary + (overtime * rate);
+// }
+//     return baseSalary + (overtime * rate);
 
 // console.log(getWage())
 
-// OBJECT ORIENDTED PROGRAMING (OOP) 
+// OBJECT ORIENDTED PROGRAMING (OOP)
 
 let employee = {
-    baseSalary: 30_000,
-    overtime: 10,
-    rate: 20,
-    getWage: function(){
-        return this.baseSalary + (this.overtime * this.rate)
-    }
-}
+  baseSalary: 30_000,
+  overtime: 10,
+  rate: 20,
+  getWage: function () {
+    return this.baseSalary + this.overtime * this.rate;
+  },
+};
 
 employee.getWage();
 
-console.log(employee.getWage())
+console.log(employee.getWage());
 
 // const circle = {
 //     radius: 1,
@@ -41,7 +41,7 @@ console.log(employee.getWage())
 // console.log(circle.radius)
 // console.log(circle.location.y)
 
-// // Factory Function 
+// // Factory Function
 // function createCircle(radius){
 //     return {
 //         radius,
@@ -66,28 +66,24 @@ console.log(employee.getWage())
 
 // console.log(another.constructor)
 
-function Circle(radius){
-    this.radius = radius;
-    this.draw = function() {
-        console.log('draw')
-    }
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
 }
 
-const circle = new Circle(10)
+const circle = new Circle(10);
 
-// Iterate through an object 
-for(let key in circle){
-    if (typeof circle[key] !== 'function')
-        console.log(key, circle[key])
-    
-    // console.log(key)
-    // console.log(circle[key])
+// Iterate through an object
+for (let key in circle) {
+  if (typeof circle[key] !== "function") console.log(key, circle[key]);
 
+  // console.log(key)
+  // console.log(circle[key])
 }
 
-const keys = Object.keys(circle)
-console.log(keys)
+const keys = Object.keys(circle);
+console.log(keys);
 
-if('radius' in circle)
-    console.log('Circle has a radius.');
-
+if ("radius" in circle) console.log("Circle has a radius.");
