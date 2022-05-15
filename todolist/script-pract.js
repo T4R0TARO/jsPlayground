@@ -11,6 +11,12 @@
  * have LI become parent of SPAN
  */
 
+const myNodeList = document.getElementsByTagName("LI");
+
+for (let i = 0; i < myNodeList.length; i++) {
+  const span = document.createElement("SPAN");
+}
+
 // Click on close button and hide the current list item
 /** Code Block
  * create var that refers to elements with class name 'close'
