@@ -34,6 +34,15 @@ for (let i = 0; i < myNodeList.length; i++) {
 
  */
 
+const close = document.getElementsByClassName("close");
+
+for (let i = 0; i < close.length; i++) {
+  close[i].onclick = function () {
+    let div = this.parentElement;
+    div.style.display = "none";
+  };
+}
+
 // Click LI items to toggle check mark icon
 /** Code Block
  * create a var that refers to the UL element
