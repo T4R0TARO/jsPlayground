@@ -15,6 +15,10 @@ const myNodeList = document.getElementsByTagName("LI");
 
 for (let i = 0; i < myNodeList.length; i++) {
   const span = document.createElement("SPAN");
+  const txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodeList[i].appendChild(span);
 }
 
 // Click on close button and hide the current list item
