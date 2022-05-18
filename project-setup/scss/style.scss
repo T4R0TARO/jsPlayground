@@ -1,0 +1,19 @@
+// MAIN CUSTOMS
+@use "custom";
+
+// COMPONENTS 
+@use "components/buttons";
+@use "components/animation";
+@use "components/typography";
+@use "components/mixins";
+
+// SECTIONS
+@use "sections/nav";
+@use "sections/intro-section";
+@use "sections/skills-section";
+@use "sections/project-section";
+@use "sections/about-section";
+@use "sections/contact-section";
+@use "sections/footer";
+@use "sections/services-section";
+

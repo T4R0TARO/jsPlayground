@@ -1,0 +1,46 @@
+@use '../custom' as *;
+
+.display-2 {
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+
+
+    &--intro {
+        display: inline-block; 
+        font-weight: 700;
+        font-family: 'Poppins', sans-serif;
+        // color: $white;
+    }
+
+    &--description {
+        display: block;
+        font-size: 1rem;
+        text-transform: none;
+        margin-top: 1.2rem;
+        // color: $white;
+        @include media-breakpoint-up(lg){
+            font-size: 1.5rem;
+        }
+    }
+}
+
+// HEADING LINE
+.heading-line::before {
+    content: '';
+    width: 10rem;
+    height: 0.1rem;
+    display: block;
+    margin: 0 auto;
+    background-color: $primary;
+}
+.heading-line::after {
+    content: '';
+    width: 2rem;
+    padding-top: 0.5rem;
+    height: 0.2rem;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    background-color: $primary;
+}
