@@ -87,3 +87,42 @@ const keys = Object.keys(circle);
 console.log(keys);
 
 if ("radius" in circle) console.log("Circle has a radius.");
+
+// CLOSURES
+//example1:
+const myName = "Josh";
+
+function printName() {
+  console.log(myName);
+}
+
+printName();
+
+//example2:
+function outerFunction(outerVariable) {
+  return function innerFunction(innerVariable) {
+    console.log("Outer Variable: " + outerVariable);
+    console.log("Inner Variable: " + innerVariable);
+  };
+}
+
+const newFunction = outerFunction("outside");
+newFunction("inside");
+
+// NOTE: the inner function has access to the outer function parameters
+// or anything withing the parental scope
+
+//RECURSION
+//a function that calls itself
+
+function power(base, exponent) {
+  // short-circut
+  if (exponent == 0) {
+    return 1;
+  } else {
+    // acts as a counter/iterates  --1
+    return base * power(base, exponent - 1);
+  }
+}
+
+console.log(power(2, 3));
