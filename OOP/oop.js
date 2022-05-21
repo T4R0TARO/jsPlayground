@@ -126,3 +126,35 @@ function power(base, exponent) {
 }
 
 console.log(power(2, 3));
+
+// RECURSIVE EXAMPLE
+/**Code Block
+ * The inner function find() does the recursing
+ * find() takes two param: current, history
+ * current: the current number
+ * history: the string that records how the number is reached
+ * if it finds a solution it returns the string of numbers it went through to reach this num
+ * if no solution can be found starting from this number, it return null.
+ *
+ */
+function findSolution(target) {
+  function find(current, history) {
+    if (current == target) {
+      return history;
+    } else if (current > target) {
+      return null;
+    } else {
+      return (
+        find(current + 5, `(${history} + 5)`) ||
+        find(current * 3, `(${history} * 3)`)
+      );
+    }
+  }
+  return find(1, "1");
+}
+
+// console.log(findSolution(24));
+// Output: (((1 * 3) + 5) * 3)
+
+console.log(findSolution(13));
+// Output: (((1 * 3) + 5) + 5)
