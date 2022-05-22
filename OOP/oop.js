@@ -158,3 +158,41 @@ function findSolution(target) {
 
 console.log(findSolution(13));
 // Output: (((1 * 3) + 5) + 5)
+
+// RECURSIVE EXAMPLE 2
+
+/** Code Block:
+ * printFarmInventory()
+ * takees 2 params: `cows` and `chickens`
+ * init a var cowString that contains string of cows value
+ * iterate throught the length of the var 3 times so we alway have three digits
+ * eg. 000
+ * each iteration add to the string "0"
+ *
+ */
+
+function printFarmInventory(cows, chickens) {
+  let cowString = String(cows);
+  // console.log(typeof cowString)
+
+  while (cowString.length < 3) {
+    cowString = "0" + cowString;
+    console.log(cowString);
+  }
+  console.log(`${cowString} Cows`);
+
+  let chickenString = String(chickens);
+  // console.log(typeof chickenString)
+
+  while (chickenString.length < 3) {
+    chickenString = "0" + chickenString;
+    console.log(chickenString);
+  }
+
+  console.log(`${chickenString} Chickens`);
+}
+
+printFarmInventory(7, 11);
+/**Output: 007 Cows,
+           011 Chickens
+*/
