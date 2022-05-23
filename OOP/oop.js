@@ -134,7 +134,8 @@ console.log(power(2, 3));
  * current: the current number
  * history: the string that records how the number is reached
  * if it finds a solution it returns the string of numbers it went through to reach this num
- * if no solution can be found starting from this number, it return null.
+ * if no solution can be found starting from this number, it return null. Which will remove the last attempt
+ *
  *
  */
 function findSolution(target) {
@@ -196,3 +197,25 @@ printFarmInventory(7, 11);
 /**Output: 007 Cows,
            011 Chickens
 */
+
+// REFACTOR
+
+// BEAN COUNTING
+function countChar(string, char) {
+  let counted = 0;
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] == char) {
+      counted += 1;
+    }
+  }
+  return counted;
+}
+
+function countBs(string) {
+  return countChar(string, "B");
+}
+
+console.log(countBs("BBC"));
+// ➡ 2
+console.log(countChar("kakkerlak", "k"));
+// ➡ 4
