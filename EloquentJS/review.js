@@ -13,8 +13,12 @@ console.log(null === null);
 // ➡ true
 console.log(null === undefined);
 // ➡ false
+
+// probably the only time to use  double equal `==` 
 console.log(null == undefined);
 // ➡ true *
 
 console.log(1 !== "1");
 // true
+
+

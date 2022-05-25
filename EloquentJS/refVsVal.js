@@ -20,8 +20,10 @@ c = c + 1;
 // pass by value OR pass by reference? Pass by REFERENCE
 // the arr is reference by the var
 // if var `j` copies the value of var `z` then
-// BOTH are pointing to the same reference
+// BOTH are pointing to the same reference *
 // this could lead to future bugs if one of the references are change
+// if `j` references a new arr then if change again `c` wont be changed
+// because it is `j` is no longer referencing the [1,2] arr
 
 let x = 10;
 let y = "Hi";
@@ -31,9 +33,9 @@ let j = z;
 j = [3, 4, 5];
 
 /**
- *   Variable    |   Value       Address     |    Value
- *      x              10           0x01        [1 , 2]
- *      y             "Hi"
+ *   Variable    |   Value       Address     |      Value
+ *      x              10           0x01            [1 , 2]
+ *      y             "Hi"          0x02            [3, 4, 5]           
  *      z             <0x01>
- *      d             <0x01>
+ *      d             <0x02>
  */
