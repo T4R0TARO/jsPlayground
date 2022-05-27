@@ -22,3 +22,5 @@ console.log(1 !== "1");
 // true
 
 
+//undefined is when a var is called with no value
+//null must be set on an element value and represent the absents of value 
