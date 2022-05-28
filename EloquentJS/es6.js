@@ -35,7 +35,7 @@ function sayHello() {
 
 sayHello();
 
-// OBJECTS
+// OBJECTS 🐙
 const personOg = {
   name: "Josh",
   walk() {
@@ -58,7 +58,7 @@ const targetMember = "name";
 //access value
 personOg[targetMember.value] = "Ina";
 
-// `this` return a reference to the current object
+// `this` return a reference to the current object 🐙
 
 const person2 = {
   name: "Gura",
@@ -68,7 +68,7 @@ const person2 = {
 };
 
 person2.walk();
-// bind() can set the value of `this` perm.
+// bind() can set the value of `this` perm. 🐙
 const walk = person2.walk.bind(person2);
 walk();
 
@@ -99,7 +99,7 @@ const colors = ["red", "green", "blue"];
 const items = colors.map((color) => `<li>${color}</li>`);
 console.log(items);
 
-// OBJECT DESTRUCTURING
+// OBJECT DESTRUCTURING 🐙
 const address = {
   street: "",
   city: "",
@@ -122,7 +122,7 @@ const { street, city, country } = address;
 
 const { street: st } = address;
 
-// SPREAD OPERATOR
+// SPREAD OPERATOR 🐙
 const first = [1, 2, 3];
 const second = [4, 5, 6];
 
@@ -147,7 +147,7 @@ const clone2 = { ...first1 };
 console.log(combinedObj);
 console.log(clone2);
 
-// CLASSES
+// CLASSES 🐙
 // when you have a obj containing a method you want to create a class for that obj
 // we do this so that if there is a bug is the method we would have to fix all the methods in every obj
 
@@ -165,6 +165,24 @@ class Person {
     console.log("walk");
   }
 }
+
+//what if we create a new class AND we want to include walk() func with it?
+// `extends` access to to `class Person` value pairs
+// to access the `name` param from base class Person... `super(param)`
+// to init param `degree` to this Teacher class... `this.degree = degree`
+
+class Teacher extends Person {
+  constructor(name, degree) {
+    super(name);
+    this.degree = degree;
+  }
+
+  teach() {
+    console.log("teach");
+  }
+}
+
+const teacher1 = new Teacher("Kronii", "Warden");
 
 // How to create a new Person object with class?
 const person = new Person("Josh");
