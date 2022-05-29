@@ -1,45 +1,28 @@
 // CHALLENGE 1:  REVERSE A STRING
 // Return a string in reverse
 // ex. reverseString('hello') === 'olleh';
-function reverseString(str) {
-  return str.split("").reverse().join("");
-}
+function reverseString(str) {}
 
 console.log("reverseString()", reverseString("takodachi"));
 
 // CHALLENGE 2: VALIDATE A PALINDROME
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
-function isPalindrome(str) {
-  const reverseStr = str.split("").reverse().join("");
-  return reverseStr === str;
-}
+function isPalindrome(str) {}
 
 console.log("isPalindrome()", isPalindrome("racecar"));
 
 // CHALLENGE 3: REVERSE AN INTEGER
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
-function reverseInt(int) {
-  const numToStr = int.toString().split("").reverse().join("");
-  let parsed = parseInt(numToStr);
-  return parsed;
-}
+function reverseInt(int) {}
 
 console.log("reverseInt()", reverseInt(12345));
 
 //CHALLENGE 4: CAPITALIZE LETTERS
 //Return a string with the first letter of every word capitalized
 // ex. capitalLettters('i love javascript') === 'I Love Javascript'
-function capitalLetters(sen) {
-  return sen
-    .toLowerCase()
-    .split(" ")
-    .map(function (word) {
-      return word[0].toUpperCase() + word.substring(1);
-    })
-    .join(" ");
-}
+function capitalLetters(sen) {}
 
 console.log(
   "capitalLetters()",
@@ -49,27 +32,7 @@ console.log(
 //CHALLENGE 5: MAX CHARACTER
 //Return the character that is most common in a string
 // ex. maxCharacter('javascript') == 'a'
-function maxCharacter(str) {
-  let charMap = {};
-  let maxNum = 0;
-  let maxChar = "";
-
-  str.split("").forEach(function (char) {
-    if (charMap[char]) {
-      charMap[char]++;
-    } else {
-      charMap[char] = 1;
-    }
-  });
-
-  for (let char in charMap) {
-    if (charMap[char] > maxNum) {
-      maxNum = charMap[char];
-      maxChar = char;
-    }
-  }
-  return maxChar;
-}
+function maxCharacter(str) {}
 
 console.log("maxCharacter()", maxCharacter("takodachiiii"));
 
