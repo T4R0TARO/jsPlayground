@@ -1,4 +1,6 @@
 // CLOSURES
+// The ability to treat functions as values
+// Combined with the fact that local bindings are re-created every time a function is called
 //example1:
 const myName = "Josh";
 
@@ -24,6 +26,7 @@ newFunction("inside");
 
 //RECURSION
 //a function that calls itself
+//it is OK for a function to call itself as long as it does not overflow the stack.
 
 function power(base, exponent) {
   // short-circut

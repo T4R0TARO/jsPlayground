@@ -50,23 +50,7 @@ function fizzBuzz() {}
 // CHALLENGE 1: LONGEST WORD
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
-function longestWord(sen) {
-  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
-
-  const sorted = wordArr.sort(function (a, b) {
-    return b.length - a.length;
-  });
-
-  const longestWordArr = sorted.filter(function (word) {
-    return sorted[0].length === word.length;
-  });
-
-  if (longestWordArr.length === 1) {
-    return longestWordArr[0];
-  } else {
-    return longestWordArr;
-  }
-}
+function longestWord(sen) {}
 
 console.log(
   "longestWord()",
@@ -78,17 +62,7 @@ console.log(
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3],[4, 5, 6],[7]]
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
 
-function chunkArray(arr, len) {
-  const chunkedArr = [];
-  let i = 0;
-
-  while (i < arr.length) {
-    chunkedArr.push(arr.slice(i, i + len));
-    i += len;
-  }
-
-  return chunkedArr;
-}
+function chunkArray(arr, len) {}
 
 console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 
@@ -96,9 +70,7 @@ console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 // Take an array of arrays and flatten to a single array
 // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 
-function flattenArray(arrays) {
-  return [].concat(...arrays);
-}
+function flattenArray(arrays) {}
 
 console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 
@@ -107,14 +79,10 @@ console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 // ex. 'elbow' === 'below'
 // ex. 'Dormitory' === 'dirty room##'
 
-function isAnagram(str1, str2) {
-  return formatStr(str1) === formatStr(str2);
-}
+function isAnagram(str1, str2) {}
 
 // Helper Function
-function formatStr(str) {
-  return str.replace(/[^\w]/gi, "").toLowerCase().split("").sort().join("");
-}
+function formatStr(str) {}
 
 console.log("isAnagram()", isAnagram("elbow", "below!!"));
 
@@ -123,21 +91,7 @@ console.log("isAnagram()", isAnagram("elbow", "below!!"));
 // Z should turn to A
 // ex. 'hello there' === 'Ifmmp UIfsf'
 
-function letterChanges(str) {
-  let newStr = str.toLowerCase().replace(/[a-z]/gi, function (char) {
-    if (char === "z" || char === "Z") {
-      return "a";
-    } else {
-      return String.fromCharCode(char.charCodeAt() + 1);
-    }
-  });
-
-  newStr = newStr.replace(/a|e|i|o|u/gi, function (vowel) {
-    return vowel.toUpperCase();
-  });
-
-  return newStr;
-}
+function letterChanges(str) {}
 console.log("letterChanges()", letterChanges("hello there"));
 
 // ARRAY CARDIO 3
@@ -145,11 +99,9 @@ console.log("letterChanges()", letterChanges("hello there"));
 // Return a sum of all parameters entered regardless of the amount of numbers - NO ARRAYS
 // ex. addAll(2,5,6,7) === 20
 
-function addAll(...numbers) {
-  return numbers.reduce(function (acc, cur) {
-    return acc + cur;
-  }, 0);
-}
+const addAll = (...numbers) => {
+  return numbers.reduce((acc, cur) => acc + cur);
+};
 
 console.log("addAll()", addAll(2, 5, 6, 7, 5));
 
