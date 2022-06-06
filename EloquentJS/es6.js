@@ -189,3 +189,4 @@ const person = new Person("Josh");
 const people = new Person("Ina");
 console.log(person);
 console.log(people);
+
