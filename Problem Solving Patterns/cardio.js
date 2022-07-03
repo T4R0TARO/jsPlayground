@@ -194,7 +194,19 @@ console.log("isAnagram()", isAnagram("elbow", "below!!"));
 // Z should turn to A
 // ex. 'hello there' === 'Ifmmp UIfsf'
 
-function letterChanges(str) {}
+// function letterChanges(str) {}
+
+const letterChanges = (str) => {
+  let newStr = str.toLowerCase().replace(/[a-z]/gi, (char) => {
+    if (char === "z" || char === "Z") return "a";
+    return String.fromCharCode(char.charCodeAt() + 1);
+  });
+
+  newStr = newStr.replace(/a|e|i|o|u/gi, (vowel) => vowel.toUpperCase());
+
+  return newStr;
+};
+
 console.log("letterChanges()", letterChanges("hello there"));
 
 // ARRAY CARDIO 3
@@ -202,7 +214,11 @@ console.log("letterChanges()", letterChanges("hello there"));
 // Return a sum of all parameters entered regardless of the amount of numbers - NO ARRAYS
 // ex. addAll(2,5,6,7) === 20
 
-function addAll(...number) {}
+// function addAll(...number) {}
+
+const addAll = (...numbers) => {
+  return numbers.reduce((acc, cur) => acc + cur);
+};
 console.log("addAll()", addAll(2, 5, 6, 7, 5));
 
 // CHALLENGE 2: SUM ALL PRIMES
