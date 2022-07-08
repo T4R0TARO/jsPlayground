@@ -52,3 +52,31 @@ const counterTestV4 = (obj) => {
 };
 
 console.log(counterTestV4(obj1));
+
+//for...of statement
+
+/**
+ * for (variable of object){
+ *      statement
+ * }
+ */
+
+// Callback Function
+
+function greeting(name) {
+  console.log("Hello" + name);
+}
+
+// function processUserInput(callback) {
+//     let name =
+// }
+
+//forEach()
+
+const array1 = [1, 23, 432, 344, 23, 53435];
+
+array1.forEach((element) => console.log(element));
+
+// array1.forEach(function (element) {
+//   console.log(element);
+// });
