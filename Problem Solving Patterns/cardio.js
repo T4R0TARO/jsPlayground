@@ -12,7 +12,12 @@ console.log("reverseString()", reverseString("takodachi"));
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-function isPalindrome(str) {}
+// function isPalindrome(str) {}
+
+const isPalindrome = (str) => {
+  let reverseString = str.split("").reverse().join("");
+  if (str === reverseString) return true;
+};
 
 console.log("isPalindrome()", isPalindrome("racecar"));
 
@@ -30,10 +35,7 @@ console.log("reverseInt()", reverseInt(12345));
 
 function capitalLetters(str) {}
 
-console.log(
-  "capitalLetters()",
-  capitalLetters("ina of the mountain, what is your wisdom")
-);
+console.log("capitalLetters()", capitalLetters("ina of the mountain, what is your wisdom"));
 
 //CHALLENGE 5: MAX CHARACTER
 //Return the character that is most common in a string
@@ -58,10 +60,7 @@ function fizzBuzz() {}
 
 function longestWord(sen) {}
 
-console.log(
-  "longestWord()",
-  longestWord("Ina of the mountain, what is your wisdom??? mountain")
-);
+console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom??? mountain"));
 
 // CHALLENGE 2: ARRAY CHUNKING
 // Split an array into chunked arrays of a specific length
