@@ -62,11 +62,12 @@ const maxCharacter = (str) => {
   let maxChar = "";
 
   str.split("").forEach((char) => {
-    if (charMap[char]) {
-      charMap[char]++;
-    } else {
-      charMap[char] = 1;
-    }
+    // if (charMap[char]) {
+    //   charMap[char]++;
+    // } else {
+    //   charMap[char] = 1;
+    // }
+    charMap[char] ? charMap[char]++ : (charMap[char] = 1);
   });
 
   for (let char in charMap) {
@@ -79,7 +80,7 @@ const maxCharacter = (str) => {
   return maxChar;
 };
 
-console.log("maxCharacter()", maxCharacter("takodachiiii"));
+console.log("maxCharacter()", maxCharacter("takodachixxx"));
 
 //CHALLENGE 6: FIZZBUZZ
 //Write a program that prints all the numbers from 1 to 100. For multiples of 3, instead of the number, print "Fizz", for multiples of 5 print "Buzz".
