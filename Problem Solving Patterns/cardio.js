@@ -62,12 +62,11 @@ const maxCharacter = (str) => {
   let maxChar = "";
 
   str.split("").forEach((char) => {
-    // if (charMap[char]) {
-    //   charMap[char]++;
-    // } else {
-    //   charMap[char] = 1;
-    // }
-    charMap[char] ? charMap[char]++ : (charMap[char] = 1);
+    if (charMap[char]) {
+      charMap[char]++;
+    } else {
+      charMap[char] = 1;
+    }
   });
 
   for (let char in charMap) {
@@ -106,7 +105,7 @@ function longestWord(sen) {
   return longestWordArr;
 }
 
-console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom??? mountain"));
+// console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom??? mountain")); 🔥
 
 // CHALLENGE 2: ARRAY CHUNKING
 // Split an array into chunked arrays of a specific length
