@@ -56,7 +56,28 @@ console.log("capitalLetters()", capitalLetters("ina of the mountain, what is you
 // ex. maxCharacter('javascript') == 'a'
 
 // function maxCharacter(str) {}
-const maxCharacter = (str) => {};
+const maxCharacter = (str) => {
+  const charMap = {};
+  let maxNum = 0;
+  let maxChar = "";
+
+  str.split("").forEach(function (char) {
+    if (charMap[char]) {
+      charMap[char]++;
+    } else {
+      charMap[char] = 1;
+    }
+  });
+
+  for (let char in charMap) {
+    if (charMap[char] > maxNum) {
+      maxNum = charMap[char];
+      maxChar = char;
+    }
+  }
+
+  return maxChar;
+};
 
 console.log("maxCharacter()", maxCharacter("takodachixxx"));
 
@@ -73,25 +94,31 @@ function fizzBuzz() {}
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
-function longestWord(sen) {
+const longestWord = (sen) => {
   const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
-
   const sort = wordArr.sort((a, b) => b.length - a.length);
-
   const longestWordArr = sort.filter((word) => word.length === sort[0].length);
+  return longestWordArr.length === 1 ? longestWordArr[0] : longestWordArr;
+};
 
-  if (longestWordArr.length === 1) return longestWordArr[0];
-  return longestWordArr;
-}
-
-// console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom??? mountain")); 🔥
+console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom??? mountain"));
 
 // CHALLENGE 2: ARRAY CHUNKING
 // Split an array into chunked arrays of a specific length
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3],[4, 5, 6],[7]]
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
 
-function chunkArray(arr, len) {}
+function chunkArray(arr, len) {
+  const chunkedArr = [];
+  let i = 0;
+
+  while (i < arr.length) {
+    chunkedArr.push(arr.slice(i, i + len));
+    i += len;
+  }
+
+  return chunkedArr;
+}
 
 console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 
@@ -99,7 +126,9 @@ console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 // Take an array of arrays and flatten to a single array
 // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 
-function flattenArray(arrays) {}
+function flattenArray(arrays) {
+  return [].concat(...arrays);
+}
 
 console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 
@@ -108,7 +137,13 @@ console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 // ex. 'elbow' === 'below'
 // ex. 'Dormitory' === 'dirty room##'
 
-function isAnagram(str1, str2) {}
+function isAnagram(str1, str2) {
+  return formatStr(str1) === formatStr(str2);
+}
+
+function formatStr(str) {
+  return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join();
+}
 
 console.log("isAnagram()", isAnagram("elbow", "below!!"));
 
@@ -135,11 +170,27 @@ console.log("addAll()", addAll(2, 5, 6, 7, 5));
 // ex. sumAllPrimes(10) == 17
 //2,3,5,7
 
-function sumAllPrimes(num) {}
+function sumAllPrimes(num) {
+  let total = 0;
 
-// console.log('sumAllPrimes()',
-//   sumAllPrimes(10)
-// )
+  function checkForPrime(i) {
+    for (let j = 2; j < i; j++) {
+      if (i % j === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  for (let i = 2; i <= num; i++) {
+    if (checkForPrime(i)) {
+      total += i;
+    }
+  }
+  return total;
+}
+
+console.log("sumAllPrimes()", sumAllPrimes(10));
 
 // CHALLENGE 3: SEEK & DESTROY
 // Remove from the array whatever is in the following arguments. Return the leftover values in an array
