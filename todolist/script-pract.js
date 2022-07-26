@@ -10,16 +10,15 @@
  * access the LI index
  * have LI become parent of SPAN
  */
-
 const myNodeList = document.getElementsByTagName("LI");
 
-for (let i = 0; i < myNodeList.length; i++) {
+[].forEach.call(myNodeList, (item, index) => {
   const span = document.createElement("SPAN");
   const txt = document.createTextNode("\u00D7");
   span.className = "close";
   span.appendChild(txt);
-  myNodeList[i].appendChild(span);
-}
+  myNodeList[index].appendChild(span);
+});
 
 // Click on close button and hide the current list item
 /** Code Block
@@ -36,12 +35,12 @@ for (let i = 0; i < myNodeList.length; i++) {
 
 const close = document.getElementsByClassName("close");
 
-for (let i = 0; i < close.length; i++) {
-  close[i].onclick = function () {
+[].forEach.call(close, (item, index) => {
+  close[index].onclick = function () {
     let div = this.parentElement;
     div.style.display = "none";
   };
-}
+});
 
 // Click LI items to toggle check mark icon
 /** Code Block
@@ -51,6 +50,14 @@ for (let i = 0; i < close.length; i++) {
  * event.target.classList.toggle('checked')
 
  */
+
+const list = document.querySelector("ul");
+
+list.addEventListener("click", (event) => {
+  if (event.target.tagName === "LI") {
+    event.target.classList.toggle("checked");
+  }
+});
 
 //Create new list item when clicking on the 'Add' button
 /**Code Block
@@ -70,3 +77,9 @@ for (let i = 0; i < close.length; i++) {
  * Create functionality to close button
 
  */
+function newElement() {
+  const li = document.createElement("li");
+  const inputValue = document.getElementById("myInput").value;
+  const t = document.createTextNode(inputValue);
+  li.appendChild(t);
+}
