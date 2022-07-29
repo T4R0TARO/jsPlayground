@@ -57,11 +57,18 @@ console.log("capitalLetters()", capitalLetters("ina of the mountain, what is you
 
 // function maxCharacter(str) {}
 const maxCharacter = (str) => {
+  /**
+   * init empyt obj
+   * populate obj with str char
+   * return obj with key values of char and amount of multiples
+   * access populated obj
+   * get char key with the highest value
+   */
   const charMap = {};
-  let maxNum = 0;
   let maxChar = "";
+  let maxNum = 0;
 
-  str.split("").forEach(function (char) {
+  str.split("").forEach((char) => {
     if (charMap[char]) {
       charMap[char]++;
     } else {
@@ -70,13 +77,13 @@ const maxCharacter = (str) => {
   });
 
   for (let char in charMap) {
-    if (charMap[char] > maxNum) {
+    if (maxNum < charMap[char]) {
       maxNum = charMap[char];
       maxChar = char;
     }
   }
 
-  return charMap;
+  return maxChar;
 };
 
 console.log("maxCharacter()", maxCharacter("takodachixxx"));
