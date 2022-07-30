@@ -10,15 +10,13 @@
  * access the LI index
  * have LI become parent of SPAN
  */
-const myNodeList = document.getElementsByTagName("LI");
-
-[].forEach.call(myNodeList, (item, index) => {
-  const span = document.createElement("SPAN");
-  const txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodeList[index].appendChild(span);
-});
+// Contain li elements in a var
+// Iterate through the amount li elements
+// Each iteration
+// create span element
+// create textNode
+// give class name to element
+// access the each li and make it the parent of the span element
 
 // Click on close button and hide the current list item
 /** Code Block
@@ -32,15 +30,13 @@ const myNodeList = document.getElementsByTagName("LI");
  * change the style display="none"
 
  */
-
-const close = document.getElementsByClassName("close");
-
-[].forEach.call(close, (item, index) => {
-  close[index].onclick = function () {
-    let div = this.parentElement;
-    div.style.display = "none";
-  };
-});
+// Contain the close item values in a var
+// Iterate through close items
+// each close item
+// apply onclick function
+// func will
+// access the close items parent element `div`
+// change the style to display none
 
 // Click LI items to toggle check mark icon
 /** Code Block
@@ -50,14 +46,6 @@ const close = document.getElementsByClassName("close");
  * event.target.classList.toggle('checked')
 
  */
-
-const list = document.querySelector("ul");
-
-list.addEventListener("click", (event) => {
-  if (event.target.tagName === "LI") {
-    event.target.classList.toggle("checked");
-  }
-});
 
 //Create new list item when clicking on the 'Add' button
 /**Code Block
@@ -77,29 +65,3 @@ list.addEventListener("click", (event) => {
  * Create functionality to close  button
 
  */
-function newElement() {
-  const li = document.createElement("li");
-  const inputValue = document.getElementById("myInput").value;
-  const t = document.createTextNode(inputValue);
-  li.appendChild(t);
-
-  if (inputValue === "") {
-    alert("You must write something!");
-  } else {
-    document.getElementById("myUL").appendChild(li);
-  }
-  document.getElementById("myInput").value = "";
-
-  const span = document.createElement("SPAN");
-  const txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
-
-  [].forEach.call(close, (item, index) => {
-    close[index].onclick = function () {
-      let div = this.parentElement;
-      div.style.display = "none ";
-    };
-  });
-}
