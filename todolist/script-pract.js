@@ -17,6 +17,15 @@
 // create textNode
 // give class name to element
 // access the each li and make it the parent of the span element
+const myNodeList = document.getElementsByTagName("LI");
+
+[].forEach.call(myNodeList, (item, index) => {
+  const span = document.createElement("SPAN");
+  const txt = document.createTextNode("\u0007");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodeList[index].appendChild(span);
+});
 
 // Click on close button and hide the current list item
 /** Code Block
@@ -30,6 +39,16 @@
  * change the style display="none"
 
  */
+
+const close = document.getElementsByClassName("close");
+
+[].forEach.call(close, (item, index) => {
+  close[index].onclick = function () {
+    let div = this.parentElement;
+    div.style.display = "none";
+  };
+});
+
 // Contain the close item values in a var
 // Iterate through close items
 // each close item
