@@ -65,6 +65,13 @@ const close = document.getElementsByClassName("close");
  * event.target.classList.toggle('checked')
 
  */
+const list = document.querySelector("ul");
+
+list.addEventListener("click", (event) => {
+  if (event.target.tagName === "LI") {
+    event.target.classList.toggle("checked");
+  }
+});
 
 //Create new list item when clicking on the 'Add' button
 /**Code Block
