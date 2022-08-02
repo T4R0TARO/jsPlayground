@@ -91,3 +91,30 @@ list.addEventListener("click", (event) => {
  * Create functionality to close  button
 
  */
+
+function newElement() {
+  const li = document.createElement("li");
+  const inputValue = document.getElementById("myInput").value;
+  const t = document.createTextNode(inputValue);
+  li.appendChild(t);
+
+  if (inputValue === "") {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  const span = document.createElement("SPAN");
+  const txt = document.createTextNode("\u000D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  [].forEach.call(close, (item, index) => {
+    close[index].onclick = function () {
+      let div = this.parentElement;
+      div.style.display = "none";
+    };
+  });
+}
