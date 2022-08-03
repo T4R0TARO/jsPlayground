@@ -2,9 +2,7 @@
 // Return a string in reverse
 // ex. reverseString('hello') === 'olleh';
 
-// function reverseString(str) {}
-
-const reverseString = (str) => str.split("").reverse().join("");
+function reverseString(str) {}
 
 console.log("reverseString()", reverseString("takodachi"));
 
@@ -12,12 +10,7 @@ console.log("reverseString()", reverseString("takodachi"));
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-// function isPalindrome(str) {}
-
-const isPalindrome = (str) => {
-  let reverseString = str.split("").reverse().join("");
-  if (str === reverseString) return true;
-};
+function isPalindrome(str) {}
 
 console.log("isPalindrome()", isPalindrome("racecar"));
 
@@ -25,13 +18,7 @@ console.log("isPalindrome()", isPalindrome("racecar"));
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
 
-// function reverseInt(int) {}
-
-const reverseInt = (int) => {
-  let changeToStr = int.toString().split("").reverse().join("");
-  let parse = parseInt(changeToStr);
-  return parse;
-};
+function reverseInt(int) {}
 
 console.log("reverseInt()", reverseInt(12345));
 
@@ -39,15 +26,7 @@ console.log("reverseInt()", reverseInt(12345));
 //Return a string with the first letter of every word capitalized
 // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 
-// function capitalLetters(str) {}
-
-const capitalLetters = (str) => {
-  return str
-    .toLowerCase()
-    .split(" ")
-    .map((word) => word[0].toUpperCase() + word.substring(1))
-    .join(" ");
-};
+function capitalLetters(str) {}
 
 console.log("capitalLetters()", capitalLetters("ina of the mountain, what is your wisdom"));
 
@@ -56,35 +35,8 @@ console.log("capitalLetters()", capitalLetters("ina of the mountain, what is you
 // ex. maxCharacter('javascript') == 'a'
 
 // function maxCharacter(str) {}
-const maxCharacter = (str) => {
-  /**
-   * init empyt obj
-   * populate obj with str char
-   * return obj with key values of char and amount of multiples
-   * access populated obj
-   * get char key with the highest value
-   */
-  const charMap = {};
-  let maxChar = "";
-  let maxNum = 0;
 
-  str.split("").forEach((char) => {
-    if (charMap[char]) {
-      charMap[char]++;
-    } else {
-      charMap[char] = 1;
-    }
-  });
-
-  for (let char in charMap) {
-    if (maxNum < charMap[char]) {
-      maxNum = charMap[char];
-      maxChar = char;
-    }
-  }
-
-  return maxChar;
-};
+const maxCharacter = (str) => {};
 
 console.log("maxCharacter()", maxCharacter("takodachixxx"));
 
@@ -101,12 +53,7 @@ function fizzBuzz() {}
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
-const longestWord = (sen) => {
-  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
-  const sort = wordArr.sort((a, b) => b.length - a.length);
-  const longestWordArr = sort.filter((word) => word.length === sort[0].length);
-  return longestWordArr.length === 1 ? longestWordArr[0] : longestWordArr;
-};
+const longestWord = (sen) => {};
 
 console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom??? mountain"));
 
@@ -115,17 +62,7 @@ console.log("longestWord()", longestWord("Ina of the mountain, what is your wisd
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3],[4, 5, 6],[7]]
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
 
-function chunkArray(arr, len) {
-  const chunkedArr = [];
-  let i = 0;
-
-  while (i < arr.length) {
-    chunkedArr.push(arr.slice(i, i + len));
-    i += len;
-  }
-
-  return chunkedArr;
-}
+function chunkArray(arr, len) {}
 
 console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 
@@ -133,9 +70,7 @@ console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 // Take an array of arrays and flatten to a single array
 // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 
-function flattenArray(arrays) {
-  return [].concat(...arrays);
-}
+function flattenArray(arrays) {}
 
 console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 
@@ -144,13 +79,9 @@ console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 // ex. 'elbow' === 'below'
 // ex. 'Dormitory' === 'dirty room##'
 
-function isAnagram(str1, str2) {
-  return formatStr(str1) === formatStr(str2);
-}
+function isAnagram(str1, str2) {}
 
-function formatStr(str) {
-  return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join();
-}
+function formatStr(str) {}
 
 console.log("isAnagram()", isAnagram("elbow", "below!!"));
 
