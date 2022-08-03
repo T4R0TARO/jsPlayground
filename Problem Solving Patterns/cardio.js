@@ -2,7 +2,11 @@
 // Return a string in reverse
 // ex. reverseString('hello') === 'olleh';
 
-function reverseString(str) {}
+// function reverseString(str) {}
+
+const reverseString = (str) => {
+  return str.split("").reverse().join("");
+};
 
 console.log("reverseString()", reverseString("takodachi"));
 
@@ -10,7 +14,12 @@ console.log("reverseString()", reverseString("takodachi"));
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-function isPalindrome(str) {}
+const isPalindrome = (str) => {
+  // init var to contain reverse str value
+  const reverseStr = str.split("").reverse().join("");
+  return reverseStr === str;
+  // return compare str value to reverse value var
+};
 
 console.log("isPalindrome()", isPalindrome("racecar"));
 
@@ -18,7 +27,14 @@ console.log("isPalindrome()", isPalindrome("racecar"));
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
 
-function reverseInt(int) {}
+function reverseInt(int) {
+  // change int to str
+  let intToStr = int.toString().split("").reverse("").join("");
+  // reverse str
+  // change str back to int
+  let parsed = parseInt(intToStr);
+  return parsed;
+}
 
 console.log("reverseInt()", reverseInt(12345));
 
@@ -26,7 +42,15 @@ console.log("reverseInt()", reverseInt(12345));
 //Return a string with the first letter of every word capitalized
 // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 
-function capitalLetters(str) {}
+const capitalLetters = (str) => {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map((word) => {
+      return word[0].toUpperCase() + word.substring(1);
+    })
+    .join(" ");
+};
 
 console.log("capitalLetters()", capitalLetters("ina of the mountain, what is your wisdom"));
 
