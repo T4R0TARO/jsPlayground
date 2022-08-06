@@ -92,9 +92,27 @@ function fizzBuzz() {}
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
-const longestWord = (sen) => {};
+const longestWord = (sen) => {
+  // take str and split() by word put in arr wordArr
+  // do  not inlcude symbols or punctiation
+  // take wordArr and sort by length and put in var
+  // longestWord equals first item of sorted arr
+  //  if there are multiple longestWord return arr
+  let wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
 
-console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom??? mountain"));
+  let sorted = wordArr.sort((a, b) => b.length - a.length);
+
+  let longestWordArr = sorted.filter((word) => {
+    return word.length === sorted[0].length;
+  });
+  if (longestWordArr.length === 1) {
+    return longestWordArr[0];
+  } else {
+    return longestWordArr;
+  }
+};
+
+console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom???"));
 
 // CHALLENGE 2: ARRAY CHUNKING
 // Split an array into chunked arrays of a specific length
