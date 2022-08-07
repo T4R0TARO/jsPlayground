@@ -131,7 +131,23 @@ console.log("longestWord()", longestWord("Ina of the mountain, what is your wisd
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3],[4, 5, 6],[7]]
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
 
-function chunkArray(arr, len) {}
+function chunkArray(arr, len) {
+  // init chunkedArr [];
+  // set starting index value
+  // iterate through arr w/ while loop
+  // each iteration slice() the current index + value of len
+  // incremently increase var i  with the len value
+  // push that item into the chunkedArr
+  // return chunkedArr
+  const chunkedArr = [];
+  let i = 0;
+
+  while (i < arr.length) {
+    chunkedArr.push(arr.slice(i, i + len));
+    i += len;
+  }
+  return chunkArr;
+}
 
 console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 
