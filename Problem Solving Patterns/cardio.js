@@ -146,7 +146,7 @@ function chunkArray(arr, len) {
     chunkedArr.push(arr.slice(i, i + len));
     i += len;
   }
-  return chunkArr;
+  return chunkedArr;
 }
 
 console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
@@ -155,7 +155,7 @@ console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 // Take an array of arrays and flatten to a single array
 // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 
-function flattenArray(arrays) {}
+const flattenArray = (arrays) => [].concat(...arrays);
 
 console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 
