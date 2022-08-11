@@ -194,31 +194,32 @@ console.log("letterChanges()", letterChanges("hello there"));
 // Return a sum of all parameters entered regardless of the amount of numbers - NO ARRAYS
 // ex. addAll(2,5,6,7) === 20
 
-function addAll(...number) {}
+const addAll = (...number) => number.reduce((acc, cur) => acc + cur);
 
 console.log("addAll()", addAll(2, 5, 6, 7, 5));
 
 // CHALLENGE 2: SUM ALL PRIMES
 // Pass in a number to loop up to and add all of the prime numbers. A prime number is a whole number greater than 1 whose only factors are 1 and itself
 // ex. sumAllPrimes(10) == 17
-//2,3,5,7
+
+/**
+ * 1. Pass a num to loop
+ * 2. Add all prime num
+ * A prime num is a whole num greater than 1 whose only fact are 1 and itself
+ */
 
 function sumAllPrimes(num) {
   let total = 0;
 
-  function checkForPrime(i) {
-    for (let j = 2; j < i; j++) {
-      if (i % j === 0) {
-        return false;
-      }
-    }
-    return true;
+  for (let i = 2; i <= num; i++) {
+    if (checkForPrime(i)) total += i;
   }
 
-  for (let i = 2; i <= num; i++) {
-    if (checkForPrime(i)) {
-      total += i;
+  function checkForPrime(i) {
+    for (let j = 2; j < i; j++) {
+      if (i % j === 0) return false;
     }
+    return true;
   }
   return total;
 }
