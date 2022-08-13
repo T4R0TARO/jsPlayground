@@ -231,7 +231,9 @@ console.log("sumAllPrimes()", sumAllPrimes(10));
 // ex. seekAndDestroy([2, 3, 4, 6, 6, 'hello'], 2, 6) == [3, 4, 'hello']
 
 // Solution 1: arguments, indexOf, filter
-function seekAndDestroy(arr) {}
+function seekAndDestroy(arr, ...rest) {
+  return arr.filter((val) => !rest.incudes(val));
+}
 
 // console.log('seekAndDestroy()')
 
