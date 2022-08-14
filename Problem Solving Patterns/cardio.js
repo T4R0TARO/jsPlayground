@@ -243,7 +243,18 @@ function seekAndDestroy(arr, ...rest) {
 // a = [-1, 150, 190, 170, -1, -1, 160, 180]
 // sortByHeight(a) == [-1, 150, 160, 170, -1, -1, 180, 190]
 
-function sortByHeight(a) {}
+function sortByHeight(a) {
+  const arr1 = [];
+  const arr2 = [];
+
+  a.forEach((val, i) => (val === -1 ? arr1.push(i) : arr2.push(val)));
+
+  const sortArr = arr2.sort((a, b) => a - b);
+
+  arr1.forEach((val, i) => sortArr.splice(arr1[i], 0, -1));
+
+  return sortArr;
+}
 
 // console.log('sortByHeight()')
 
@@ -254,7 +265,19 @@ function sortByHeight(a) {}
 // missingLetters("abcdefghjklmno") == "i"
 // missingLetters("abcdefghijklmnopqrstuvwxyz") == undefined
 
-function missingLetters(str) {}
+function missingLetters(str) {
+  let compare = str.charCodeAt(0);
+  let missing;
+
+  str.split("").map((char, i) => {
+    if (str.charCodeAt(i) === compare) {
+      ++compare;
+    } else {
+      missing = String.fromCharCode(compare);
+    }
+  });
+  return missing;
+}
 
 // console.log('missingLetters()')
 
@@ -263,6 +286,16 @@ function missingLetters(str) {}
 // ex.
 // evenOddSums([50, 60, 60, 45, 71]) == [170, 116]
 
-function evenOddSums(arr) {}
+function evenOddSums(arr) {
+  let evenSum = 0;
+  let oddSum = 0;
+
+  arr.forEach((num) => (num % 2 === 0 ? (even += num) : (oddSum += num)));
+
+  return [evenSum, oddSum];
+}
+
+// Call Function
+const output = letterChanges("Hello There");
 
 // console.log('evenOddSums()')
