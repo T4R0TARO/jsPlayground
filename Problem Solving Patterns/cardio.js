@@ -4,9 +4,7 @@
 
 // function reverseString(str) {}
 
-const reverseString = (str) => {
-  return str.split("").reverse().join("");
-};
+const reverseString = (str) => {};
 
 console.log("reverseString()", reverseString("takodachi"));
 
@@ -14,12 +12,7 @@ console.log("reverseString()", reverseString("takodachi"));
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-const isPalindrome = (str) => {
-  // init var to contain reverse str value
-  const reverseStr = str.split("").reverse().join("");
-  return reverseStr === str;
-  // return compare str value to reverse value var
-};
+const isPalindrome = (str) => {};
 
 console.log("isPalindrome()", isPalindrome("racecar"));
 
@@ -27,14 +20,7 @@ console.log("isPalindrome()", isPalindrome("racecar"));
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
 
-function reverseInt(int) {
-  // change int to str
-  let intToStr = int.toString().split("").reverse("").join("");
-  // reverse str
-  // change str back to int
-  let parsed = parseInt(intToStr);
-  return parsed;
-}
+function reverseInt(int) {}
 
 console.log("reverseInt()", reverseInt(12345));
 
@@ -42,15 +28,7 @@ console.log("reverseInt()", reverseInt(12345));
 //Return a string with the first letter of every word capitalized
 // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 
-const capitalLetters = (str) => {
-  return str
-    .toLowerCase()
-    .split(" ")
-    .map((word) => {
-      return word[0].toUpperCase() + word.substring(1);
-    })
-    .join(" ");
-};
+const capitalLetters = (str) => {};
 
 console.log("capitalLetters()", capitalLetters("ina of the mountain, what is your wisdom"));
 
@@ -60,22 +38,7 @@ console.log("capitalLetters()", capitalLetters("ina of the mountain, what is you
 
 // function maxCharacter(str) {}
 
-const maxCharacter = (str) => {
-  let charMap = {};
-  let maxNum = 0;
-  let maxChar = "";
-
-  str.split("").map((char) => {
-    charMap[char] ? charMap[char]++ : (charMap[char] = 1);
-  });
-
-  for (let char in charMap) {
-    if (charMap[char] > maxNum) maxNum = charMap[char];
-    maxChar = char;
-  }
-
-  return maxChar;
-};
+const maxCharacter = (str) => {};
 
 console.log("maxCharacter()", maxCharacter("takodachixxx"));
 
@@ -83,19 +46,7 @@ console.log("maxCharacter()", maxCharacter("takodachixxx"));
 //Write a program that prints all the numbers from 1 to 100. For multiples of 3, instead of the number, print "Fizz", for multiples of 5 print "Buzz".
 //For numbers which are multiples of both 3 and 5, print "FizzBuzz".
 
-function fizzBuzz() {
-  for (let i = 0; i <= 100; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-      console.log("FizzBuzz");
-    } else if (i % 3 === 0) {
-      console.log("Fizz");
-    } else if (i % 5 === 0) {
-      console.log("Buzz");
-    } else {
-      console.log(i);
-    }
-  }
-}
+function fizzBuzz() {}
 
 console.log("fizzBuzz()", fizzBuzz());
 
@@ -104,25 +55,7 @@ console.log("fizzBuzz()", fizzBuzz());
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
-const longestWord = (sen) => {
-  // take str and split() by word put in arr wordArr
-  // do  not inlcude symbols or punctiation
-  // take wordArr and sort by length and put in var
-  // longestWord equals first item of sorted arr
-  //  if there are multiple longestWord return arr
-  let wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
-
-  let sorted = wordArr.sort((a, b) => b.length - a.length);
-
-  let longestWordArr = sorted.filter((word) => {
-    return word.length === sorted[0].length;
-  });
-  if (longestWordArr.length === 1) {
-    return longestWordArr[0];
-  } else {
-    return longestWordArr;
-  }
-};
+const longestWord = (sen) => {};
 
 console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom???"));
 
@@ -131,23 +64,7 @@ console.log("longestWord()", longestWord("Ina of the mountain, what is your wisd
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3],[4, 5, 6],[7]]
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
 
-function chunkArray(arr, len) {
-  // init chunkedArr [];
-  // set starting index value
-  // iterate through arr w/ while loop
-  // each iteration slice() the current index + value of len
-  // incremently increase var i  with the len value
-  // push that item into the chunkedArr
-  // return chunkedArr
-  const chunkedArr = [];
-  let i = 0;
-
-  while (i < arr.length) {
-    chunkedArr.push(arr.slice(i, i + len));
-    i += len;
-  }
-  return chunkedArr;
-}
+function chunkArray(arr, len) {}
 
 console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 
@@ -155,7 +72,7 @@ console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 // Take an array of arrays and flatten to a single array
 // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 
-const flattenArray = (arrays) => [].concat(...arrays);
+function flatenArray(arr) {}
 
 console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 
@@ -164,8 +81,7 @@ console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 // ex. 'elbow' === 'below'
 // ex. 'Dormitory' === 'dirty room##'
 
-const isAnagram = (str1, str2) => formatStr(str1) === formatStr(str2);
-const formatStr = (str) => str.replace(/[^w/]/g, "").toLowerCase().split("").sort().join("");
+function isAnagram() {}
 
 console.log("isAnagram()", isAnagram("elbow", "below!!"));
 
@@ -174,18 +90,7 @@ console.log("isAnagram()", isAnagram("elbow", "below!!"));
 // Z should turn to A
 // ex. 'hello there' === 'Ifmmp UIfsf'
 
-const letterChanges = (str) => {
-  let newStr = str.toLowerCase().replace(/[a-z]/gi, (char) => {
-    if (char === "z" || char === "Z") return "a";
-    return String.fromCharCode(char.charCodeAt() + 1);
-    // ? Why can't is the ternerary operator not working properly
-    // char === "z" || char === "Z" ? "a" : String.fromCharCode(char.charCodeAt() + 1);
-  });
-
-  newStr = newStr.replace(/a|e|i|o|u/gi, (vowel) => vowel.toUpperCase());
-
-  return newStr;
-};
+const letterChanges = (str) => {};
 
 console.log("letterChanges()", letterChanges("hello there"));
 
@@ -194,8 +99,7 @@ console.log("letterChanges()", letterChanges("hello there"));
 // Return a sum of all parameters entered regardless of the amount of numbers - NO ARRAYS
 // ex. addAll(2,5,6,7) === 20
 
-const addAll = (...number) => number.reduce((acc, cur) => acc + cur);
-
+function addAll(...numbers) {}
 console.log("addAll()", addAll(2, 5, 6, 7, 5));
 
 // CHALLENGE 2: SUM ALL PRIMES
@@ -208,21 +112,7 @@ console.log("addAll()", addAll(2, 5, 6, 7, 5));
  * A prime num is a whole num greater than 1 whose only fact are 1 and itself
  */
 
-function sumAllPrimes(num) {
-  let total = 0;
-
-  for (let i = 2; i <= num; i++) {
-    if (checkForPrime(i)) total += i;
-  }
-
-  function checkForPrime(i) {
-    for (let j = 2; j < i; j++) {
-      if (i % j === 0) return false;
-    }
-    return true;
-  }
-  return total;
-}
+function sumAllPrimes(num) {}
 
 console.log("sumAllPrimes()", sumAllPrimes(10));
 
@@ -231,9 +121,7 @@ console.log("sumAllPrimes()", sumAllPrimes(10));
 // ex. seekAndDestroy([2, 3, 4, 6, 6, 'hello'], 2, 6) == [3, 4, 'hello']
 
 // Solution 1: arguments, indexOf, filter
-function seekAndDestroy(arr, ...rest) {
-  return arr.filter((val) => !rest.incudes(val));
-}
+function seekAndDestroy(arr, ...rest) {}
 
 // console.log('seekAndDestroy()')
 
@@ -243,18 +131,7 @@ function seekAndDestroy(arr, ...rest) {
 // a = [-1, 150, 190, 170, -1, -1, 160, 180]
 // sortByHeight(a) == [-1, 150, 160, 170, -1, -1, 180, 190]
 
-function sortByHeight(a) {
-  const arr1 = [];
-  const arr2 = [];
-
-  a.forEach((val, i) => (val === -1 ? arr1.push(i) : arr2.push(val)));
-
-  const sortArr = arr2.sort((a, b) => a - b);
-
-  arr1.forEach((val, i) => sortArr.splice(arr1[i], 0, -1));
-
-  return sortArr;
-}
+function sortByHeight(a) {}
 
 // console.log('sortByHeight()')
 
@@ -265,19 +142,7 @@ function sortByHeight(a) {
 // missingLetters("abcdefghjklmno") == "i"
 // missingLetters("abcdefghijklmnopqrstuvwxyz") == undefined
 
-function missingLetters(str) {
-  let compare = str.charCodeAt(0);
-  let missing;
-
-  str.split("").map((char, i) => {
-    if (str.charCodeAt(i) === compare) {
-      ++compare;
-    } else {
-      missing = String.fromCharCode(compare);
-    }
-  });
-  return missing;
-}
+function missingLetters(str) {}
 
 // console.log('missingLetters()')
 
@@ -286,14 +151,7 @@ function missingLetters(str) {
 // ex.
 // evenOddSums([50, 60, 60, 45, 71]) == [170, 116]
 
-function evenOddSums(arr) {
-  let evenSum = 0;
-  let oddSum = 0;
-
-  arr.forEach((num) => (num % 2 === 0 ? (even += num) : (oddSum += num)));
-
-  return [evenSum, oddSum];
-}
+function evenOddSums(arr) {}
 
 // Call Function
 const output = letterChanges("Hello There");
