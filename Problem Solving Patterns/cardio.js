@@ -14,7 +14,12 @@ console.log("reverseString()", reverseString("takodachi"));
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-const isPalindrome = (str) => {};
+const isPalindrome = (str) => {
+  // reverse str and contain in var
+  const reversedStr = str.split("").reverse().join("");
+  // compare strs
+  return reversedStr === str;
+};
 
 console.log("isPalindrome()", isPalindrome("racecar"));
 
@@ -74,7 +79,7 @@ console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 // Take an array of arrays and flatten to a single array
 // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 
-function flatenArray(arr) {}
+function flattenArray(arr) {}
 
 console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 
