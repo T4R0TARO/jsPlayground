@@ -100,14 +100,29 @@ function fizzBuzz() {
   }
 }
 
-console.log("fizzBuzz()", fizzBuzz());
+// console.log("fizzBuzz()", fizzBuzz());
 
 // ARRAY CARDIO 2
 // CHALLENGE 1: LONGEST WORD
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
-const longestWord = (sen) => {};
+const longestWord = (sen) => {
+  // create word arr
+  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
+
+  // sort arr
+  const sorted = wordArr.sort((a, b) => b.length - a.length);
+
+  // if multiple words
+  const longestWordArr = sorted.filter((word) => word.length === sorted[0].length);
+
+  if (longestWordArr.length === 1) {
+    return longestWordArr[0];
+  } else {
+    return longestWordArr;
+  }
+};
 
 console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom???"));
 
