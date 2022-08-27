@@ -239,7 +239,9 @@ console.log("sumAllPrimes()", sumAllPrimes(10));
 // ex. seekAndDestroy([2, 3, 4, 6, 6, 'hello'], 2, 6) == [3, 4, 'hello']
 
 // Solution 1: arguments, indexOf, filter
-function seekAndDestroy(arr, ...rest) {}
+function seekAndDestroy(arr, ...rest) {
+  return arr.filter((val) => !rest.includes(val));
+}
 
 // console.log('seekAndDestroy()')
 
@@ -249,7 +251,18 @@ function seekAndDestroy(arr, ...rest) {}
 // a = [-1, 150, 190, 170, -1, -1, 160, 180]
 // sortByHeight(a) == [-1, 150, 160, 170, -1, -1, 180, 190]
 
-function sortByHeight(a) {}
+function sortByHeight(a) {
+  const arr1 = [];
+  const arr2 = [];
+
+  a.forEach((val, i) => sortArr.splice(arr[i], 0, -1));
+
+  const sortArr = arr2.sort((a, b) => a - b);
+
+  arr1.forEach((val, i) => sortArr.splice(arr1[i], 0, -1));
+
+  return sortArr;
+}
 
 // console.log('sortByHeight()')
 
