@@ -247,7 +247,7 @@ function seekAndDestroy(arr, ...rest) {
 
 // CHALLENGE 4: SORT BY HEIGHT
 // Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees.
-// ex.
+// ex
 // a = [-1, 150, 190, 170, -1, -1, 160, 180]
 // sortByHeight(a) == [-1, 150, 160, 170, -1, -1, 180, 190]
 
@@ -273,7 +273,19 @@ function sortByHeight(a) {
 // missingLetters("abcdefghjklmno") == "i"
 // missingLetters("abcdefghijklmnopqrstuvwxyz") == undefined
 
-function missingLetters(str) {}
+function missingLetters(str) {
+  let compare = str.charCodeAt(0);
+  let missing;
+
+  str.split("").map((char, i) => {
+    if (str.charCodeAt(i) === compare) {
+      ++compare;
+    } else {
+      missing = String.fromCharCode(compare);
+    }
+  });
+  return missing;
+}
 
 // console.log('missingLetters()')
 
@@ -282,7 +294,14 @@ function missingLetters(str) {}
 // ex.
 // evenOddSums([50, 60, 60, 45, 71]) == [170, 116]
 
-function evenOddSums(arr) {}
+function evenOddSums(arr) {
+  let evenSum = 0;
+  let oddSum = 0;
+
+  arr.forEach((num) => (num % 2 === 0 ? (evenSum += num) : (oddSum += num)));
+
+  return [evenSum, oddSum];
+}
 
 // Call Function
 const output = letterChanges("Hello There");
