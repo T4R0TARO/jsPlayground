@@ -4,7 +4,7 @@
 
 // function reverseString(str) {}
 
-const reverseString = (str) => {};
+const reverseString = (str) => str.split("").reverse().join("");
 
 console.log("reverseString()", reverseString("takodachi"));
 
@@ -12,7 +12,10 @@ console.log("reverseString()", reverseString("takodachi"));
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-const isPalindrome = (str) => {};
+const isPalindrome = (str) => {
+  let reverStr = str.split("").reverse().join("");
+  return str === reverStr;
+};
 
 console.log("isPalindrome()", isPalindrome("racecar"));
 
@@ -20,7 +23,11 @@ console.log("isPalindrome()", isPalindrome("racecar"));
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
 
-function reverseInt(int) {}
+function reverseInt(int) {
+  let reverStr = int.toString().split("").reverse().join("");
+  let parsed = parseInt(reverStr);
+  return parsed;
+}
 
 console.log("reverseInt()", reverseInt(12345));
 
