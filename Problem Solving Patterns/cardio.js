@@ -192,7 +192,34 @@ console.log("addAll()", addAll(2, 5, 6, 7, 5));
  * A prime num is a whole num greater than 1 whose only fact are 1 and itself
  */
 
-function sumAllPrimes(num) {}
+function sumAllPrimes(num) {
+  let total = 0;
+  // iterate num that is passed
+  // test for prime num
+
+  function checkForPrimes(i) {
+    for (let j = 2; j < i; i++) {
+      if (i % j === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  for (let i = 2; i <= num; i++) {
+    if (checkForPrimes(i)) {
+      total += i;
+    }
+  }
+
+  // checkForPrimes()
+  // a prime num is a num thats only multiple is 1 and itself
+  // if prime number return true
+  // else return false
+
+  // return total of primes
+  return total;
+}
 
 console.log("sumAllPrimes()", sumAllPrimes(10));
 
