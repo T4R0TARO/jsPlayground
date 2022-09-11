@@ -227,10 +227,17 @@ console.log("sumAllPrimes()", sumAllPrimes(10));
 // Remove from the array whatever is in the following arguments. Return the leftover values in an array
 // ex. seekAndDestroy([2, 3, 4, 6, 6, 'hello'], 2, 6) == [3, 4, 'hello']
 
-// Solution 1: arguments, indexOf, filter
-function seekAndDestroy(arr, ...rest) {}
+// arr, ...targets
 
-// console.log('seekAndDestroy()')
+// output newArr
+
+// Solution 1: arguments, indexOf, filter
+function seekAndDestroy(arr, ...rest) {
+  return arr.filter((val) => !rest.includes(val));
+}
+
+console.log("seekAndDestroy()", seekAndDestroy([2, 4, 5, 6, "hello"], 2, 6, "hello"));
+// [4, 5]
 
 // CHALLENGE 4: SORT BY HEIGHT
 // Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees.
