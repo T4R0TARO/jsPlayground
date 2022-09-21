@@ -35,7 +35,21 @@ console.log("reverseInt()", reverseInt(12345));
 //Return a string with the first letter of every word capitalized
 // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 
-const capitalLetters = (str) => {};
+const capitalLetters = (str) => {
+  // toLowerCase
+  // split str
+  // map word
+  // str[char][0].toUpperCase + toString(1)
+  //
+  // join
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map((word) => {
+      return word[0].toUpperCase() + word.substring(1);
+    })
+    .join(" ");
+};
 
 console.log("capitalLetters()", capitalLetters("ina of the mountain, what is your wisdom"));
 
