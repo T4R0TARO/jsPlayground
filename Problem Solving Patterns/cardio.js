@@ -59,7 +59,23 @@ console.log("capitalLetters()", capitalLetters("ina of the mountain, what is you
 
 // function maxCharacter(str) {}
 
-const maxCharacter = (str) => {};
+const maxCharacter = (str) => {
+  let obj1 = {};
+  let maxChar = "";
+  let maxNum = 0;
+
+  str.split("").map((char) => {
+    obj1[char] = (obj1[char] || 0) + 1;
+  });
+
+  for (let key in obj1) {
+    if (obj1[key] > maxNum) {
+      maxNum = obj1[key];
+      maxChar = key;
+    }
+  }
+  return maxChar;
+};
 
 console.log("maxCharacter()", maxCharacter("takodachixxx"));
 
