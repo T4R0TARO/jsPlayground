@@ -134,7 +134,9 @@ console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 // Take an array of arrays and flatten to a single array
 // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 
-function flattenArray(arr) {}
+function flattenArray(arr) {
+  return [].concat(...arr);
+}
 
 console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 
@@ -143,7 +145,13 @@ console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 // ex. 'elbow' === 'below'
 // ex. 'Dormitory' === 'dirty room##'
 
-function isAnagram(str1, str2) {}
+function isAnagram(str1, str2) {
+  return formatStr(str1) === formatStr(str2);
+}
+
+function formatStr(str) {
+  return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
+}
 
 console.log("isAnagram()", isAnagram("elbow", "below!!"));
 
@@ -152,7 +160,21 @@ console.log("isAnagram()", isAnagram("elbow", "below!!"));
 // Z should turn to A
 // ex. 'hello there' === 'Ifmmp UIfsf'
 
-const letterChanges = (str) => {};
+const letterChanges = (str) => {
+  // repalace char w/ ...
+  let newStr = str.toLowerCase().replace(/[a-z]/gi, (char) => {
+    if (char === "z" || char === "Z") {
+      return "a";
+    } else {
+      // return str of next letter
+      return String.fromCharCode(char.charCodeAt() + 1);
+    }
+  });
+
+  newStr = newStr.replace(/a|e|i|o|u/gi, (vowel) => vowel.toUpperCase());
+  // replace vowels w/ capitalize
+  return newStr;
+};
 
 console.log("letterChanges()", letterChanges("hello there"));
 
@@ -161,7 +183,11 @@ console.log("letterChanges()", letterChanges("hello there"));
 // Return a sum of all parameters entered regardless of the amount of numbers - NO ARRAYS
 // ex. addAll(2,5,6,7) === 20
 
-function addAll(...numbers) {}
+function addAll(...numbers) {
+  return numbers.reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
+}
 console.log("addAll()", addAll(2, 5, 6, 7, 5));
 
 // CHALLENGE 2: SUM ALL PRIMES
@@ -174,7 +200,9 @@ console.log("addAll()", addAll(2, 5, 6, 7, 5));
  * A prime num is a whole num greater than 1 whose only fact are 1 and itself
  */
 
-function sumAllPrimes(num) {}
+function sumAllPrimes(num) {
+  
+}
 
 console.log("sumAllPrimes()", sumAllPrimes(10));
 
