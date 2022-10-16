@@ -2,9 +2,7 @@
 // Return a string in reverse
 // ex. reverseString('hello') === 'olleh';
 
-function reverseString(str) {
-  return str.split("").reverse().join("");
-}
+function reverseString(str) {}
 
 console.log("reverseString()", reverseString("takodachi"));
 
@@ -12,10 +10,7 @@ console.log("reverseString()", reverseString("takodachi"));
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-const isPalindrome = (str) => {
-  const reverseStr = str.split("").reverse().join("");
-  return reverseStr === str;
-};
+const isPalindrome = (str) => {};
 
 console.log("isPalindrome()", isPalindrome("racecar"));
 
@@ -23,11 +18,7 @@ console.log("isPalindrome()", isPalindrome("racecar"));
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
 
-function reverseInt(int) {
-  const reverseInt = int.toString().split("").reverse().join("");
-  let parsed = parseInt(reverseInt);
-  return parsed;
-}
+function reverseInt(int) {}
 
 console.log("reverseInt()", reverseInt(12345));
 
@@ -35,15 +26,7 @@ console.log("reverseInt()", reverseInt(12345));
 //Return a string with the first letter of every word capitalized
 // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 
-const capitalLetters = (str) => {
-  return str
-    .toLowerCase()
-    .split(" ")
-    .map((word) => {
-      return word[0].toUpperCase() + word.substring(1);
-    })
-    .join(" ");
-};
+const capitalLetters = (str) => {};
 
 console.log("capitalLetters()", capitalLetters("ina of the mountain, what is your wisdom"));
 
@@ -53,28 +36,7 @@ console.log("capitalLetters()", capitalLetters("ina of the mountain, what is you
 
 // function maxCharacter(str) {}
 
-const maxCharacter = (str) => {
-  let objChar = {};
-  let maxChar = "";
-  let maxNum = 0;
-
-  str.split("").forEach((char) => {
-    if (objChar[char]) {
-      objChar[char]++;
-    } else {
-      objChar[char] = 1;
-    }
-  });
-
-  for (let char in objChar) {
-    if (objChar[char] > maxNum) {
-      maxNum = objChar[char];
-      maxChar = char;
-    }
-  }
-
-  return maxChar;
-};
+const maxCharacter = (str) => {};
 
 console.log("maxCharacter()", maxCharacter("takodachixxx"));
 
@@ -82,19 +44,7 @@ console.log("maxCharacter()", maxCharacter("takodachixxx"));
 //Write a program that prints all the numbers from 1 to 100. For multiples of 3, instead of the number, print "Fizz", for multiples of 5 print "Buzz".
 //For numbers which are multiples of both 3 and 5, print "FizzBuzz".
 
-function fizzBuzz() {
-  for (let i = 0; i <= 100; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-      console.log("FizzBuzz");
-    } else if (i % 3 === 0) {
-      console.log("Fizz");
-    } else if (i % 5 === 0) {
-      console.log("Buzz");
-    } else {
-      console.log(i);
-    }
-  }
-}
+function fizzBuzz() {}
 
 console.log("fizzBuzz()", fizzBuzz());
 
@@ -103,19 +53,7 @@ console.log("fizzBuzz()", fizzBuzz());
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
-const longestWord = (sen) => {
-  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
-
-  const sorted = wordArr.sort((a, b) => b.length - a.length);
-
-  const longestWordArr = sorted.filter((word) => word.length === sorted[0].length);
-
-  if (longestWordArr.length === 1) {
-    return longestWordArr[0];
-  } else {
-    return longestWordArr;
-  }
-};
+const longestWord = (sen) => {};
 
 console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom???"));
 
@@ -124,16 +62,7 @@ console.log("longestWord()", longestWord("Ina of the mountain, what is your wisd
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3],[4, 5, 6],[7]]
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
 
-function chunkArray(arr, len) {
-  const chunkedArr = [];
-  let i = 0;
-
-  while (i < arr.length) {
-    chunkedArr.push(arr.splice(i, i + len));
-    i += len;
-  }
-  return chunkedArr;
-}
+function chunkArray(arr, len) {}
 
 console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 
@@ -141,9 +70,7 @@ console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 // Take an array of arrays and flatten to a single array
 // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 
-function flattenArray(arr) {
-  return [].concat(...arr);
-}
+function flattenArray(arr) {}
 
 console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 
@@ -152,14 +79,10 @@ console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 // ex. 'elbow' === 'below'
 // ex. 'Dormitory' === 'dirty room##'
 
-function isAnagram(str1, str2) {
-  return formatStr(str1) === formatStr(str2);
-}
+function isAnagram(str1, str2) {}
 
 // helper function
-function formatStr(str) {
-  return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
-}
+function formatStr(str) {}
 
 console.log("isAnagram()", isAnagram("elbow", "below!!"));
 
@@ -168,19 +91,7 @@ console.log("isAnagram()", isAnagram("elbow", "below!!"));
 // Z should turn to A
 // ex. 'hello there' === 'Ifmmp UIfsf'
 
-const letterChanges = (str) => {
-  let newStr = str.toLowerCase().replace(/[a-z]/gi, (char) => {
-    if (char === "z" || char === "Z") {
-      return "a";
-    } else {
-      return String.fromCharCode(char.charCodeAt() + 1);
-    }
-  });
-
-  newStr = newStr.replace(/a|e|i|o|u/gi, (vowel) => vowel.toUpperCase());
-
-  return newStr;
-};
+const letterChanges = (str) => {};
 
 console.log("letterChanges()", letterChanges("hello there"));
 
@@ -189,9 +100,7 @@ console.log("letterChanges()", letterChanges("hello there"));
 // Return a sum of all parameters entered regardless of the amount of numbers - NO ARRAYS
 // ex. addAll(2,5,6,7) === 20
 
-function addAll(...numbers) {
-  return numbers.reduce((acc, cur) => acc + cur);
-}
+function addAll(...numbers) {}
 console.log("addAll()", addAll(2, 5, 6, 7, 5));
 
 // CHALLENGE 2: SUM ALL PRIMES
@@ -204,25 +113,7 @@ console.log("addAll()", addAll(2, 5, 6, 7, 5));
  * A prime num is a whole num greater than 1 whose only fact are 1 and itself
  */
 
-function sumAllPrimes(num) {
-  let total = 0;
-
-  function checkForPrime(i) {
-    for (let j = 1; j < i; j++) {
-      if (i % j === 0) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  for (let i = 2; i <= num; i++) {
-    if (checkForPrime(i)) {
-      total += i;
-    }
-  }
-  return total;
-}
+function sumAllPrimes(num) {}
 
 console.log("sumAllPrimes()", sumAllPrimes(10));
 
