@@ -12,7 +12,14 @@ console.log("reverseString()", reverseString("takodachi"));
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-const isPalindrome = (str) => {};
+const isPalindrome = (str) => {
+  //accepts str
+  // reverse str
+  let reverseStr = str.split("").reverse().join("");
+  // compare str === newStr
+  //return bool
+  return str === reverseStr;
+};
 
 console.log("isPalindrome()", isPalindrome("racecar"));
 
