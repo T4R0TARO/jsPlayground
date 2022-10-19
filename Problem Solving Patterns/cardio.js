@@ -27,7 +27,11 @@ console.log("isPalindrome()", isPalindrome("racecar"));
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
 
-function reverseInt(int) {}
+function reverseInt(int) {
+  const intToStr = int.toString().split("").reverse().join("");
+  const parsed = parseInt(intToStr);
+  return parsed;
+}
 
 console.log("reverseInt()", reverseInt(12345));
 
