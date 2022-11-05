@@ -170,10 +170,13 @@ console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 // ex. 'elbow' === 'below'
 // ex. 'Dormitory' === 'dirty room##'
 
-function isAnagram(str1, str2) {}
+function isAnagram(str1, str2) {
+  return formatStr(str1) === formatStr(str2);
+}
 
-// helper function
-function formatStr(str) {}
+function formatStr(str) {
+  return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
+}
 
 console.log("isAnagram()", isAnagram("elbow", "below!!"));
 
