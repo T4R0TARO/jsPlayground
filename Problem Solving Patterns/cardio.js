@@ -308,8 +308,28 @@ console.log("missingLetters()");
 // ex.
 // evenOddSums([50, 60, 60, 45, 71]) == [170, 116]
 
-function evenOddSums(arr) {}
+function evenOddSums(arr) {
+  /**
+   * accepts an arr of num
+   * init var sumOfEven = 0
+   * init var sumOfOdd = 0
+   *
+   * iterate items from arr
+   * forEach items init var num
+   * if num is even add num to sumOfEven
+   * if num is odd add num to sumOfOdd
+   *
+   * returns an arr of...[sumOfEvent,sumOfOdd]
+   * Output: [170, 116]
+   */
+  let sumofEven = 0;
+  let sumOfOdd = 0;
 
+  arr.forEach((num) => (num % 2 === 0 ? (sumofEven += num) : (sumOfOdd += num)));
+  return [sumofEven, sumOfOdd];
+}
+
+console.log("evenOddSum()", evenOddSums([50, 60, 60, 45, 71]));
 // Call Function
 const output = letterChanges("Hello There");
 
