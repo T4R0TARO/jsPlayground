@@ -2,7 +2,16 @@
 // Return a string in reverse
 // ex. reverseString('hello') === 'olleh';
 
-function reverseString(str) {}
+function reverseString(str) {
+  /**
+   * accepts str
+   * split()
+   * reverse()
+   * .join()
+   * return str
+   */
+  return str.split("").reverse().join("");
+}
 
 console.log("reverseString()", reverseString("takodachi"));
 
