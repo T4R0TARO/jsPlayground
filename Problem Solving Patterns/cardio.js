@@ -113,15 +113,15 @@ console.log("maxCharacter()", maxCharacter("takodachixxx"));
 //For numbers which are multiples of both 3 and 5, print "FizzBuzz".
 
 function fizzBuzz() {
-  for(let i = 0; i <= 100; i++){
-    if(i % 3 === 0 || i % 5 === 0){
-      console.log('FizzBuzz')
-    } else if (i % 3 === 0){
-      console.log('Fizz')
-    } else if (i % 5 === 0){
-      console.log('Buzz')
+  for (let i = 0; i <= 100; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log("Fizz");
+    } else if (i % 5 === 0) {
+      console.log("Buzz");
     } else {
-      console.log(i)
+      console.log(i);
     }
   }
 }
@@ -133,9 +133,26 @@ console.log("fizzBuzz()", fizzBuzz());
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
-const longestWord = (sen) => {};
+const longestWord = (sen) => {
+  /**
+   * accepts sen
+   * format sent to an arr of words
+   * sort the arr of words by length longest to shortest
+   * filter arr return first item of arr
+   * if more that one longest word return  arr of longest word
+   * returns first item of longest word or arr of longest words
+   */
 
-console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom???"));
+  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
+
+  const sorted = wordArr.sort((a, b) => b.length - a.length);
+
+  const longestWordArr = sorted.filter((word) => word.length === sorted[0].length);
+
+  return longestWordArr.length === 1 ? longestWordArr[0] : longestWordArr;
+};
+
+console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom mountain???"));
 
 // CHALLENGE 2: ARRAY CHUNKING
 // Split an array into chunked arrays of a specific length
