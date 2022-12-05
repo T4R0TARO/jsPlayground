@@ -244,21 +244,21 @@ console.log("addAll()", addAll(2, 5, 6, 7, 5));
 function sumAllPrimes(num) {
   let total = 0;
 
-  function checkForPrime(i){
-    for(let j = 2; j < i; j++){
-      if(i % j === 0){
-        return false
+  function checkForPrime(i) {
+    for (let j = 2; j < i; j++) {
+      if (i % j === 0) {
+        return false;
       }
     }
-    return true
+    return true;
   }
 
-  for(let i = 2; i <= num; i++){
-    if(checkForPrime(i)){
+  for (let i = 2; i <= num; i++) {
+    if (checkForPrime(i)) {
       total += i;
     }
   }
-  return total
+  return total;
 }
 
 console.log("sumAllPrimes()", sumAllPrimes(10));
@@ -272,7 +272,12 @@ console.log("sumAllPrimes()", sumAllPrimes(10));
 // output newArr
 
 // Solution 1: arguments, indexOf, filter
-function seekAndDestroy(arr, ...rest) {}
+function seekAndDestroy(arr, ...rest) {
+  /**
+   * 
+   */
+  return arr.filter((val) => !rest.includes(val));
+}
 
 console.log("seekAndDestroy()", seekAndDestroy([2, 4, 5, 6, "hello"], 2, 6, "hello"));
 // [4, 5]
