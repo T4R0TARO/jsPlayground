@@ -25,7 +25,7 @@ console.log("isPalindrome()", isPalindrome("racecar"));
 
 function reverseInt(int) {
   const numToString = int.toString().split("").reverse().join("");
-  const parsedString = parseInt(numToString)
+  const parsedString = parseInt(numToString);
   return parsedString;
 }
 
@@ -34,7 +34,13 @@ console.log("reverseInt()", reverseInt(12345));
 //CHALLENGE 4: CAPITALIZE LETTERS
 //Return a string with the first letter of every word capitalized
 // ex. capitalLettters('i love javascript') === 'I Love Javascript'
-const capitalLetters = (str) => {};
+const capitalLetters = (str) => {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.substring(1))
+    .join(" ");
+};
 
 console.log("capitalLetters()", capitalLetters("ina of the mountain, what is your wisdom"));
 
