@@ -52,20 +52,16 @@ console.log("capitalLetters()", capitalLetters("ina of the mountain, what is you
 
 const maxCharacter = (str) => {
   const charMap = {}
+  let maxChar = '';
   let maxNum = 0;
-  let maxChar = ""
 
-  str.split('').forEach(function(char){
-    if(charMap[char]){
-      charMap[char]++
-    } else {
-      charMap[char] = 1;
-    }
+  str.split('').map(char => {
+     charMap[char] ? charMap[char]++ : charMap[char] = 1
   })
 
   for(let char in charMap){
     if(charMap[char] > maxNum){
-      maxNum = charMap[char]
+      maxNum =charMap[char]
       maxChar = char
     }
   }
