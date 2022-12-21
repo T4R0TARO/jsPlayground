@@ -72,22 +72,22 @@ const maxCharacter = (str) => {
    * return maxChar
    *
    */
-  const charMap = {};
-  let maxNum = 0;
-  let maxChar = "";
+   const charMap = {}
+   let maxNum = 0
+   let maxChar = ""
 
-  str.split("").map((char) => {
-    return charMap[char] ? charMap[char]++ : (charMap[char] = 1);
-  });
+   str.split('').map(char => {
+      charMap[char] ? charMap[char]++ : charMap[char] = 1
+   })
 
-  for (let char in charMap) {
-    if (charMap[char] > maxNum) {
-      maxNum = charMap[char];
-      maxChar = char;
+   for(let char in charMap){
+    if(charMap[char] > maxNum){
+      maxNum = charMap[char]
+      maxChar = char
     }
-  }
+   }
 
-  return maxChar;
+   return maxChar
 };
 
 console.log("maxCharacter()", maxCharacter("takodachixxx"));
@@ -110,14 +110,16 @@ function fizzBuzz() {
   }
 }
 
-console.log("fizzBuzz()", fizzBuzz());
+// console.log("fizzBuzz()", fizzBuzz());
 
 // ARRAY CARDIO 2
 // CHALLENGE 1: LONGEST WORD
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
-const longestWord = (sen) => {};
+const longestWord = (sen) => {
+  
+};
 
 console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom mountain???"));
 
