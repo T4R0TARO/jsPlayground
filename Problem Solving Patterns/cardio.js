@@ -51,43 +51,20 @@ console.log("capitalLetters()", capitalLetters("ina of the mountain, what is you
 // function maxCharacter(str) {}
 
 const maxCharacter = (str) => {
-  /**
-   * init empty obj
-   * split str to char
-   * iterate through items
-   *
-   *
-   * if obj[char]
-   * obj[char]++
-   * else
-   * obj[char] = 1
-   *
-   * init maxNum  var
-   * init maxChar var
-   *
-   * access char in charMaps
-   * have maxNum take on obj char highest num
-   * have maxChar take on the the prop of maxNum
-   *
-   * return maxChar
-   *
-   */
-  const charMap = {};
-  let maxNum = 0;
-  let maxChar = "";
-
-  str.split("").map((char) => {
-    charMap[char] ? charMap[char]++ : (charMap[char] = 1);
-  });
-
-  for (let char in charMap) {
-    if (maxNum < charMap[char]) {
-      maxNum = charMap[char];
-      maxChar = char;
+  const charMap = {}
+  let maxNum = 0
+  let maxChar = ""
+  str.split('').map(char => {
+    charMap[char] ? charMap[char]++ : charMap[char] = 1
+  })
+  for(let char in charMap){
+    if(charMap[char] > maxNum){
+      maxNum = charMap[char]
+      maxChar = char
     }
   }
+  return maxChar
 
-  return maxChar;
 };
 
 console.log("maxCharacter()", maxCharacter("takodachixxx"));
