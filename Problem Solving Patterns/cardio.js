@@ -122,9 +122,24 @@ function chunkArray(arr, len) {
 
   let i = 0;
 
-  while (i < arr.length) {
-    chunkArray.push(arr.slice(i, i + len));
-    i += len;
+  // while (i < arr.length) {
+  //   chunkArray.push(arr.slice(i, i + len));
+  //   i += len;
+  // }
+
+  /**
+   * while counter is less than the length of the arr
+   * chunkArray will add the item arr but...
+   * we only want add part of the arr items
+   * so slice the arr and set the parameters 
+   * paramters set to current count + len parameter
+   * set the counter to incremently increase only by the value of the len param
+   * 
+   */
+
+  while(i < arr.length){
+    chunkArray.push(arr.slice(i, i + len))
+    i += len
   }
   return chunkedArr;
 }
