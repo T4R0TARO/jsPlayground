@@ -24,9 +24,9 @@ console.log("isPalindrome()", isPalindrome("racecar"));
 // ex. reverseInt(521) === 125
 
 function reverseInt(int) {
-  let changeToString = int.toString().split("").reverse().join("")
-  let parsedString = parseInt(changeToString)
-  return parsedString
+  let changeToString = int.toString().split("").reverse().join("");
+  let parsedString = parseInt(changeToString);
+  return parsedString;
 }
 
 console.log("reverseInt()", reverseInt(12345));
@@ -35,12 +35,11 @@ console.log("reverseInt()", reverseInt(12345));
 //Return a string with the first letter of every word capitalized
 // ex. capitalLettters('i love javascript') === 'I Love Javascript'
 const capitalLetters = (str) => {
-
-  return str 
+  return str
     .toLowerCase()
-    .split(' ')
+    .split(" ")
     .map((word) => word[0].toUpperCase() + word.substring(1))
-    .join(' ')
+    .join(" ");
 };
 
 console.log("capitalLetters()", capitalLetters("ina of the mountain, what is your wisdom"));
@@ -52,26 +51,25 @@ console.log("capitalLetters()", capitalLetters("ina of the mountain, what is you
 // function maxCharacter(str) {}
 
 const maxCharacter = (str) => {
-  const charMap = {}
-  let maxNum = 0 
+  const charMap = {};
+  let maxNum = 0;
   let maxChar = "";
 
-  str.split('').forEach(function(char){
-    if(charMap[char]){
-      charMap[char]++
+  str.split("").forEach(function (char) {
+    if (charMap[char]) {
+      charMap[char]++;
     } else {
-      charMap[char] = 1
+      charMap[char] = 1;
     }
-  })
+  });
 
-  for(let char in charMap){
-
-    if(charMap[char] > maxNum){
-      maxNum = charMap[char]
-      maxChar = char
+  for (let char in charMap) {
+    if (charMap[char] > maxNum) {
+      maxNum = charMap[char];
+      maxChar = char;
     }
   }
-  return maxChar
+  return maxChar;
 };
 
 console.log("maxCharacter()", maxCharacter("takodachixxx"));
@@ -81,15 +79,15 @@ console.log("maxCharacter()", maxCharacter("takodachixxx"));
 //For numbers which are multiples of both 3 and 5, print "FizzBuzz".
 
 function fizzBuzz() {
-  for(let i = 0; i <= 100; i++){
-    if( i % 3 === 0 && i % 5 === 0  ){
-      console.log('FizzBuzz')
-    } else if (i % 3 === 0){
-      console.log('Fizz')
-    } else if (i % 5 === 0){
-      console.log('Buzz')
+  for (let i = 0; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log("Fizz");
+    } else if (i % 5 === 0) {
+      console.log("Buzz");
     } else {
-      console.log(i)
+      console.log(i);
     }
   }
 }
@@ -101,7 +99,19 @@ function fizzBuzz() {
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
-const longestWord = (sen) => {};
+const longestWord = (sen) => {
+  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
+
+  const sorted = wordArr.sort((a, b) => b.length - a.length);
+
+  const longestWordArr = sorted.filter((word) => word.length === sorted[0].length);
+
+  if (longestWordArr.length === 1) {
+    return longestWordArr[0];
+  } else {
+    return longestWordArr;
+  }
+};
 
 console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom mountain???"));
 
