@@ -100,12 +100,16 @@ function fizzBuzz() {
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
 const longestWord = (sen) => {
+  // create filter arr
   const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
 
+  // sort by length
   const sorted = wordArr.sort((a, b) => b.length - a.length);
 
+  // if multiple words, put into array
   const longestWordArr = sorted.filter((word) => word.length === sorted[0].length);
 
+  // check if more than one array val
   if (longestWordArr.length === 1) {
     return longestWordArr[0];
   } else {
