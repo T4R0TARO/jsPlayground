@@ -166,7 +166,17 @@ console.log("isAnagram()", isAnagram("elbow", "below!!"));
 // Z should turn to A
 // ex. 'hello there' === 'Ifmmp UIfsf'
 
-const letterChanges = (str) => {};
+const letterChanges = (str) => {
+  // replace char with char specified by function...
+  let newStr = str.toLowerCase().replace(/[a-z]/gi, (char) => {
+    if (char === "z" || char === "Z") {
+      return "a";
+    } else {
+      // return create string from specified sequence = char code next following char
+      return String.fromCharCode(char.charCodeat() + 1);
+    }
+  });
+};
 
 console.log("letterChanges()", letterChanges("hello there"));
 
