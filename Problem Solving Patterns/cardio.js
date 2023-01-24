@@ -173,7 +173,7 @@ const letterChanges = (str) => {
       return "a";
     } else {
       // return create string from specified sequence = char code next following char
-      return String.fromCharCode(char.charCodeat() + 1);
+      return String.fromCharCode(char.charCodeAt() + 1);
     }
   });
 };
@@ -185,7 +185,9 @@ console.log("letterChanges()", letterChanges("hello there"));
 // Return a sum of all parameters entered regardless of the amount of numbers - NO ARRAYS
 // ex. addAll(2,5,6,7) === 20
 
-function addAll(...numbers) {}
+function addAll(...numbers) {
+  return numbers.reduce((acc, cur) => acc + cur)
+}
 console.log("addAll()", addAll(2, 5, 6, 7, 5));
 
 // CHALLENGE 2: SUM ALL PRIMES
