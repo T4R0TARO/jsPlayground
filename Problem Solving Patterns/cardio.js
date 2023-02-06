@@ -55,7 +55,12 @@ console.log("capitalLetters()", capitalLetters("ina of the mountain, what is you
 
 // function maxCharacter(str) {}
 
-const maxCharacter = (str) => {};
+const maxCharacter = (str) => {
+  // create empty object
+  // split string by char
+  // if char appear increase incremently
+  // if char appears once have char equal 1
+};
 
 console.log("maxCharacter()", maxCharacter("takodachixxx"));
 
