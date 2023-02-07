@@ -57,9 +57,25 @@ console.log("capitalLetters()", capitalLetters("ina of the mountain, what is you
 
 const maxCharacter = (str) => {
   // create empty object
+  const charMap = {};
+  let maxNum = 0;
+  let maxChar = "";
   // split string by char
   // if char appear increase incremently
   // if char appears once have char equal 1
+
+  str.split("").map((char) => {
+    charMap[char] ? charMap[char]++ : (charMap[char] = 1);
+  });
+
+  for (let char in charMap) {
+    if (charMap[char] > maxNum) {
+      maxNum = charMap[char];
+      maxChar = char;
+    }
+  }
+
+  return maxChar;
 };
 
 console.log("maxCharacter()", maxCharacter("takodachixxx"));
