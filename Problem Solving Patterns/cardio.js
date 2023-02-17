@@ -240,7 +240,15 @@ console.log("sumAllPrimes()", sumAllPrimes(10));
 // output newArr
 
 // Solution 1: arguments, indexOf, filter
-function seekAndDestroy(arr, ...rest) {}
+function seekAndDestroy(arr, ...rest) {
+  const args = Array.from(arguments);
+
+  function filterArr(arr) {
+    return args.indexOf(arr) === -1;
+  }
+
+  return arr.filter(filterArr);
+}
 
 console.log("seekAndDestroy()", seekAndDestroy([2, 4, 5, 6, "hello"], 2, 6, "hello"));
 // [4, 5]
