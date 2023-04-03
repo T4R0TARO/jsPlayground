@@ -136,7 +136,7 @@ console.log("chunkArray()", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 
 function flattenArray(arr) {
-  return [].concat(...arr)
+  return [].concat(...arr);
 }
 
 console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
@@ -146,9 +146,14 @@ console.log("flattenArray()", flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
 // ex. 'elbow' === 'below'
 // ex. 'Dormitory' === 'dirty room##'
 
-function isAnagram(str1, str2) {}
+function isAnagram(str1, str2) {
+  return formatStr(str1) === formatStr(str2);
+}
 
 // Helper Function
+function formatStr(str) {
+  return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
+}
 
 console.log("isAnagram()", isAnagram("elbow", "below!!"));
 
