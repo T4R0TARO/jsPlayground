@@ -2,7 +2,22 @@
 // Return a string in reverse
 // ex. reverseString('hello') === 'olleh';
 
-function reverseString(str) {}
+function reverseString(str) {
+  // What does this function do?
+  // this function accepts a string and returns the string in reverse order
+  // What params does this function have?
+  // the param is a string
+  // What is this function suppose to return?
+  // returns a string in reverse order
+
+  // How do i reverse a string?
+  // reverse(): reverse the order of items in an arr
+  // How do i change the string into a arr of character?
+  // split(''): returns an arr with split items
+  // I have an arr of reverse characters how do i join the items back into a string?
+  // join(''): combines the items of an arr to a single string
+  return str.split("").reverse().join("");
+}
 
 console.log("reverseString()", reverseString("takodachi"));
 
