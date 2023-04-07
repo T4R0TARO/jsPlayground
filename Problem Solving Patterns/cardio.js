@@ -25,7 +25,18 @@ console.log("reverseString()", reverseString("takodachi"));
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-const isPalindrome = (str) => {};
+const isPalindrome = (str) => {
+  // What is a palindrom? A word that is spelled the same backwords
+  // What does this function do? Checks if a string is a palinfrome
+  // What param does this function have ? `str` a string
+  // How do i check if a string is a palindrom?
+      // reverse the string in a sepereate variable
+      // compare the var with the original str
+      // if the original string and the reversed string are equal
+      // the string is a palindrom
+      const reverseString = str.split("").reverse().join("")
+      return reverseString === str
+};
 
 console.log("isPalindrome()", isPalindrome("racecar"));
 
