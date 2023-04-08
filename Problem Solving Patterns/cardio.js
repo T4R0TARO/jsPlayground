@@ -30,12 +30,12 @@ const isPalindrome = (str) => {
   // What does this function do? Checks if a string is a palinfrome
   // What param does this function have ? `str` a string
   // How do i check if a string is a palindrom?
-      // reverse the string in a sepereate variable
-      // compare the var with the original str
-      // if the original string and the reversed string are equal
-      // the string is a palindrom
-      const reverseString = str.split("").reverse().join("")
-      return reverseString === str
+  // reverse the string in a sepereate variable
+  // compare the var with the original str
+  // if the original string and the reversed string are equal
+  // the string is a palindrom
+  const reverseString = str.split("").reverse().join("");
+  return reverseString === str;
 };
 
 console.log("isPalindrome()", isPalindrome("racecar"));
@@ -44,7 +44,18 @@ console.log("isPalindrome()", isPalindrome("racecar"));
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
 
-function reverseInt(int) {}
+function reverseInt(int) {
+  // How do you reverse a integer?
+  // You cannot reverse a integer BUT you can reverse a string
+  const intToString = int.toString().split("").reverse().join("");
+  // How do you change a integer to a string?
+  // toString()
+  // .split('').reverse().join('')
+  const numberToString = parseInt(intToString);
+  return numberToString;
+  // return intToString;
+  // How do i change a string to an integer
+}
 
 console.log("reverseInt()", reverseInt(12345));
 
