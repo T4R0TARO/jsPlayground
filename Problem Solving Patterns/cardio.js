@@ -62,7 +62,16 @@ console.log("reverseInt()", reverseInt(12345));
 //CHALLENGE 4: CAPITALIZE LETTERS
 //Return a string with the first letter of every word capitalized
 // ex. capitalLettters('i love javascript') === 'I Love Javascript'
-const capitalLetters = (str) => {};
+const capitalLetters = (str) => {
+  // what does this f() do?
+  // it accepts a string and returns a new string with the first letter capitalized
+  // make all letter lowerCase
+  // split the string into words into an arr
+  // loop through arr to access items
+  // access the first letter of the work and make it uppercase
+  // add the rest of the word
+  // join the words
+};
 
 console.log("capitalLetters()", capitalLetters("ina of the mountain, what is your wisdom"));
 
