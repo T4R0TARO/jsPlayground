@@ -71,6 +71,11 @@ const capitalLetters = (str) => {
   // access the first letter of the work and make it uppercase
   // add the rest of the word
   // join the words
+  return str
+  .toLowerCase()
+  .split(' ')
+  .map(word => word[0].toUpperCase() + word.substring(1))
+  .join(' ')
 };
 
 console.log("capitalLetters()", capitalLetters("ina of the mountain, what is your wisdom"));
