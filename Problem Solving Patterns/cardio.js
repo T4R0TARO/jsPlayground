@@ -72,10 +72,10 @@ const capitalLetters = (str) => {
   // add the rest of the word
   // join the words
   return str
-  .toLowerCase()
-  .split(' ')
-  .map(word => word[0].toUpperCase() + word.substring(1))
-  .join(' ')
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.substring(1))
+    .join(" ");
 };
 
 console.log("capitalLetters()", capitalLetters("ina of the mountain, what is your wisdom"));
@@ -84,9 +84,36 @@ console.log("capitalLetters()", capitalLetters("ina of the mountain, what is you
 //Return the character that is most common in a string
 // ex. maxCharacter('javascript') == 'a'
 
-// function maxCharacter(str) {}
+function maxCharacter(str) {
+  // what does this functionn do?
+  // accepts a string and returns the most common char in the string
+  // How do i check the most common char in a string?
+  // split() string into char
+  // loop through char to access items
+  // have the char become the properties of the obj
+  // if there is only 1 char return 1
+  //  if there is the same char incremntly increase
+  const charMap = {};
+  let maxChar = "";
+  let maxNum = 0;
 
-const maxCharacter = (str) => {};
+  str.split("").map((char) => {
+    charMap[char] ? charMap[char]++ : (charMap[char] = 1);
+  });
+
+  // We have an obj that shows the most common char how to we save it and
+  // return it in a seperate var
+
+  // for (let char in charMap) {
+  //   if (charMap[char] > maxNum) {
+  //     maxNum = charMap[char];
+  //     maxChar = char;
+  //   }
+  // }
+
+
+  return maxChar;
+}
 
 console.log("maxCharacter()", maxCharacter("takodachixxx"));
 
