@@ -125,15 +125,15 @@ function fizzBuzz() {
   // divisible by 3 print 'fizz'
   // divisible by 5 print 'buzz'
   // divisible by 3 & 5 'fizzbuzz'
-  for(let i = 0; i < 100; i++){
-    if(i % 3 === 0  && i % 5 === 0){
-      console.log('fizzbuzz')
+  for (let i = 0; i < 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("fizzbuzz");
     } else if (i % 3 === 0) {
-      console.log('fizz')
+      console.log("fizz");
     } else if (i % 5 === 0) {
-      console.log('buzz')
+      console.log("buzz");
     } else {
-      console.log(i)
+      console.log(i);
     }
   }
 }
@@ -145,7 +145,25 @@ console.log("fizzBuzz()", fizzBuzz());
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
-const longestWord = (sen) => {};
+const longestWord = (sen) => {
+  // Function accepts a sentence and return the longest word
+  // Are we including puncuation in the count? NO
+  // toLowerCase() to uniform the letters
+  // we want only letters and numbers
+  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
+  // Once we have an arr with only letters and numbers we can sort the by lenght
+  // how will we sort()? from longest to shortest
+  const sorted = wordArr.sort((a, b) => b.length - a.length);
+  // Now we have a sorted Arr
+  // What if there are more than one `longestWord`? return an arr with both words
+  const longestWordArr = sorted.filter((word) => word.length === sorted[0].length);
+  // else return the single longest word
+  if (longestWordArr.length === 1) {
+    return longestWordArr[0];
+  } else {
+    return longestWordArr;
+  }
+};
 
 console.log("longestWord()", longestWord("Ina of the mountain, what is your wisdom mountain???"));
 
